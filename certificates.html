@@ -154,32 +154,6 @@
             });
         });
     </script>
-
-    <script>
-        document.getElementById('eventForm').addEventListener('submit', function (event) {
-            event.preventDefault(); // Prevent the default form submission
-
-            // Simulate form submission
-            fetch(this.action, {
-                method: this.method,
-                body: new FormData(this)
-            })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    console.log('Form submitted successfully:', data);
-                    // Handle successful submission (e.g., display a success message, redirect, etc.)
-                })
-                .catch(error => {
-                    console.error('Error submitting form:', error);
-                    document.getElementById('errorMessage').classList.remove('hidden');
-                });
-        });
-    </script>
     <footer id="footer" class="bg-gray-900 text-white py-8" style="background-color: rgba(255, 255, 255, 0.1);">
         <div class="container mx-auto flex flex-wrap justify-around">
             <div class="max-w-md mb-6">
