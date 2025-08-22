@@ -1,159 +1,756 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <!-- Meta tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
-    <title>Techनिकी</title>
+    <title>Certificates & Achievements - Techनिकी</title>
+    <meta name="description" content="Earn verified digital certificates and showcase your achievements in the Techniki community. Blockchain-secured, globally recognized credentials.">
     <link rel="icon" type="image/x-icon" href="assets/images/logo.ico">
-    <!-- Font -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <!-- Enhanced Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
     <!-- CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <!-- script -->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <!-- Enhanced Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="scripts.js"></script>
+    
     <!-- VANTA.NET scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.21/vanta.net.min.js"></script>
-
 </head>
+<body class="font-inter bg-gray-900" id="vanta-bg">
 
-<body class="font-lato" id="vanta-bg">
-
-    <header class="bg-gray-800 text-white flex items-center justify-between py-3 px-4"
-        style="background-color: rgba(255, 255, 255, 0.1);">
-        <div class="flex items-center space-x-4">
-            <a href="index" class="flex items-center space-x-2">
-                <img src="logo.png" alt="Logo" class="h-9">
-            </a>
-        </div>
-        <nav id="navbar" class="hidden md:block">
-            <ul class="flex items-center space-x-4">
-                <li><a href="events">Events</a></li>
-                <li><a href="certificates">Certificates</a></li>
-                <li><a href="team">Team</a></li>
-                <li><a href="blog">Blogs</a></li>
-                <li><a href="projects">Projects</a></li>
-                <li><a href="#footer">Contact Us</a></li>
-            </ul>
-        </nav>
-        <div class="flex items-center space-x-4">
-            <div class="join-now text-center py-2 px-4 text-lg font-bold rounded cursor-pointer">
-                <a href="form">JOIN NOW!</a>
-            </div>
-            <button class="md:hidden" id="menu-button">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-    </header>
-    <div id="mobile-menu" class="hidden md:hidden bg-gray-800 text-white py-3 px-4"
-        style="background-color: rgba(255, 255, 255, 0.1);">
-        <ul class="flex flex-col items-center space-y-2">
-            <li><a href="events">Events</a></li>
-            <li><a href="certificates">Certificates</a></li>
-            <li><a href="team">Team</a></li>
-            <li><a href="blog">Blogs</a></li>
-            <li><a href="projects">Projects</a></li>
-            <li><a href="#footer">Contact Us</a></li>
-        </ul>
-    </div>
-
-    <main class="container mx-auto mt-5 flex justify-center mb-5">
-        <form id="eventForm" class="w-full max-w-lg">
-            <div class="container mx-auto mt-10">
-                <h2 class="text-4xl font-bold text-center mb-5">Events & Workshops</h2>
-                <div class="mb-4">
-                    <label class="text-2xl font-bold mb-10" for="name">Name</label>
-                    <input
-                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="name" type="text" name="name" required>
-                </div>
-                <div class="mb-4">
-                    <label class="text-2xl font-bold mb-10" for="email">Email</label>
-                    <input
-                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="email" type="email" name="email" required>
-                </div>
-                <div class="mb-4">
-                    <label class="text-2xl font-bold mb-10" for="event">Event</label>
-                    <select
-                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-5"
-                        id="event" name="event" required>
-                        <option value="Capture The Flag">Ethical Hacking Workshop</option>
-                        <option value="Capture The Flag">Capture The Flag</option>
-                        <option value="InnovaThon">InnovaThon</option>
-                    </select>
-                </div>
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
                 <div class="flex items-center space-x-4">
-                    <button
-                        class="join-now text-center py-2 px-4 text-lg font-bold rounded cursor-pointer bg-blue-500 text-white hover:bg-blue-700 mb-5"
-                        type="submit">Submit</button>
+                    <a href="index" class="flex items-center space-x-3 group">
+                        <img src="logo.png" alt="Techनिकी Logo" class="h-10 w-auto transition-transform duration-300 group-hover:scale-110">
+                        <span class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">Techनिकी</span>
+                    </a>
                 </div>
-                <div id="errorMessage" class="mt-4 text-red-500 text-center hidden mb-5">Error 405: Please contact the
-                    event manager.</div>
+                
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="index" class="nav-link text-white hover:text-blue-400 transition-colors duration-300 relative">
+                        <i class="fas fa-home mr-2"></i>Home
+                    </a>
+                    <a href="events" class="nav-link text-white hover:text-blue-400 transition-colors duration-300 relative">
+                        <i class="fas fa-calendar-alt mr-2"></i>Events
+                    </a>
+                    <a href="certificates" class="nav-link text-blue-400 hover:text-blue-300 transition-colors duration-300 relative">
+                        <i class="fas fa-certificate mr-2"></i>Certificates
+                    </a>
+                    <a href="team" class="nav-link text-white hover:text-blue-400 transition-colors duration-300 relative">
+                        <i class="fas fa-users mr-2"></i>Team
+                    </a>
+                    <a href="blog" class="nav-link text-white hover:text-blue-400 transition-colors duration-300 relative">
+                        <i class="fas fa-blog mr-2"></i>Blog
+                    </a>
+                    <a href="projects" class="nav-link text-white hover:text-blue-400 transition-colors duration-300 relative">
+                        <i class="fas fa-project-diagram mr-2"></i>Projects
+                    </a>
+                    <a href="#footer" class="nav-link text-white hover:text-blue-400 transition-colors duration-300 relative">
+                        <i class="fas fa-envelope mr-2"></i>Contact
+                    </a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <a href="form" class="join-btn bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:from-purple-600 hover:to-blue-500 hover:scale-105 shadow-lg hover:shadow-xl">
+                        <i class="fas fa-rocket mr-2"></i>JOIN NOW
+                    </a>
+                    <button class="lg:hidden text-white hover:text-blue-400 transition-colors" id="menu-button">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
             </div>
-        </form>
-    </main>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="lg:hidden bg-black bg-opacity-95 backdrop-blur-lg transform -translate-y-full transition-transform duration-300">
+            <div class="container mx-auto px-6 py-8">
+                <div class="flex flex-col space-y-6">
+                    <a href="index" class="text-white hover:text-blue-400 transition-colors text-lg">
+                        <i class="fas fa-home mr-3"></i>Home
+                    </a>
+                    <a href="events" class="text-white hover:text-blue-400 transition-colors text-lg">
+                        <i class="fas fa-calendar-alt mr-3"></i>Events
+                    </a>
+                    <a href="certificates" class="text-blue-400 hover:text-blue-300 transition-colors text-lg">
+                        <i class="fas fa-certificate mr-3"></i>Certificates
+                    </a>
+                    <a href="team" class="text-white hover:text-blue-400 transition-colors text-lg">
+                        <i class="fas fa-users mr-3"></i>Team
+                    </a>
+                    <a href="blog" class="text-white hover:text-blue-400 transition-colors text-lg">
+                        <i class="fas fa-blog mr-3"></i>Blog
+                    </a>
+                    <a href="projects" class="text-white hover:text-blue-400 transition-colors text-lg">
+                        <i class="fas fa-project-diagram mr-3"></i>Projects
+                    </a>
+                    <a href="#footer" class="text-white hover:text-blue-400 transition-colors text-lg">
+                        <i class="fas fa-envelope mr-3"></i>Contact
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-    <script>
-        $(document).ready(function () {
-            $('#eventForm').on('submit', function (event) {
-                event.preventDefault(); // Prevent the default form submission
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center pt-20">
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-purple-900/20"></div>
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <div data-aos="fade-up" data-aos-duration="1000">
+                <div class="mb-6">
+                    <i class="fas fa-certificate text-6xl text-yellow-400 mb-4 animate-pulse"></i>
+                </div>
+                <h1 class="text-6xl md:text-8xl font-bold text-white mb-6 leading-tight">
+                    Earn <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-600">Certificates</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                    Validate Your Skills with Blockchain-Secured Digital Credentials
+                </p>
+                <p class="text-lg text-gray-400 mb-12 max-w-2xl mx-auto">
+                    Complete events, workshops, and projects to earn verified certificates that showcase your 
+                    expertise in technology domains. Each certificate is digitally signed and verifiable globally.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="#certificate-generator" class="hero-btn bg-gradient-to-r from-yellow-500 to-orange-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl">
+                        <i class="fas fa-download mr-2"></i>Get Certificate
+                    </a>
+                    <a href="#verify-certificate" class="hero-btn bg-transparent border-2 border-blue-400 text-blue-400 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:bg-blue-400 hover:text-white">
+                        <i class="fas fa-shield-alt mr-2"></i>Verify Certificate
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="fas fa-chevron-down text-white text-2xl"></i>
+        </div>
+    </section>
 
-                // Create an object to hold the form data
-                const formData = {
-                    name: $('#name').val(),
-                    email: $('#email').val()
-                };
+    <!-- Certificate Statistics -->
+    <section class="py-20 bg-gradient-to-br from-gray-900 to-black relative">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8" data-aos="fade-up">
+                <div class="text-center">
+                    <div class="glass-card p-6 rounded-2xl">
+                        <div class="text-4xl font-bold text-yellow-400 mb-2 counter" data-count="2500">0</div>
+                        <div class="text-gray-300">Certificates Issued</div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <div class="glass-card p-6 rounded-2xl">
+                        <div class="text-4xl font-bold text-green-400 mb-2 counter" data-count="15">0</div>
+                        <div class="text-gray-300">Event Categories</div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <div class="glass-card p-6 rounded-2xl">
+                        <div class="text-4xl font-bold text-blue-400 mb-2 counter" data-count="95">0</div>
+                        <div class="text-gray-300">% Verification Rate</div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <div class="glass-card p-6 rounded-2xl">
+                        <div class="text-4xl font-bold text-purple-400 mb-2 counter" data-count="50">0</div>
+                        <div class="text-gray-300">Partner Organizations</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                // Convert the object into a URL-encoded string
-                const encodedData = $.param(formData);
+    <!-- Available Certificates -->
+    <section class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                    Available <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-600">Certificates</span>
+                </h2>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                    Earn industry-recognized certificates by participating in our events and completing challenges
+                </p>
+            </div>
 
-                // Send the POST request using jQuery
-                $.ajax({
-                    url: 'https://170.64.147.213:3000/generate', // Your endpoint
-                    type: 'POST',
-                    contentType: 'application/x-www-form-urlencoded', // Set content type
-                    data: encodedData, // Send the encoded data
-                    xhrFields: {
-                        responseType: 'blob' // Specify the response type as blob
-                    },
-                    success: function (response) {
-                        const url = window.URL.createObjectURL(response);
-                        const a = document.createElement('a');
-                        a.href = url;
-                        a.download = `${formData.name}-Techniki-Certificate.png`; // Set the filename for download
-                        document.body.appendChild(a);
-                        a.click();
-                        document.body.removeChild(a);
-                        setTimeout(() => window.URL.revokeObjectURL(url), 100);
-                        alert('Certificate generated successfully!');
-                    },
-                    error: function (xhr, status, error) {
-                        alert(error);
-                        console.error('Error submitting form:', error);
-                        $('#errorMessage').removeClass('hidden'); // Show error message
-                    }
-                });
-            });
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Certificate Card 1 -->
+                <div class="glass-card rounded-xl overflow-hidden group certificate-item" data-aos="fade-up">
+                    <div class="relative">
+                        <div class="h-48 bg-gradient-to-br from-blue-600 to-cyan-700 flex items-center justify-center">
+                            <i class="fas fa-shield-alt text-6xl text-white"></i>
+                        </div>
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-semibold">Security</span>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-green-500 text-white px-2 py-1 rounded text-xs">Available</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
+                            Ethical Hacking Certified
+                        </h3>
+                        <p class="text-gray-400 mb-4 text-sm leading-relaxed">
+                            Complete our comprehensive ethical hacking workshop and CTF challenges to earn this prestigious certification.
+                        </p>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-clock text-blue-400"></i>
+                                <span class="text-gray-400 text-sm">8 hours</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-users text-green-400"></i>
+                                <span class="text-gray-400 text-sm">450+ earned</span>
+                            </div>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button class="certificate-btn bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition-colors flex-1">
+                                <i class="fas fa-info-circle mr-2"></i>Learn More
+                            </button>
+                        </div>
+                    </div>
+                </div>
 
-            // Mobile menu toggle
-            $('#menu-button').on('click', function () {
-                $('#mobile-menu').toggleClass('hidden');
-            });
-        });
-    </script>
+                <!-- Certificate Card 2 -->
+                <div class="glass-card rounded-xl overflow-hidden group certificate-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative">
+                        <div class="h-48 bg-gradient-to-br from-purple-600 to-pink-700 flex items-center justify-center">
+                            <i class="fas fa-robot text-6xl text-white"></i>
+                        </div>
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-semibold">AI/ML</span>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-green-500 text-white px-2 py-1 rounded text-xs">Available</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-purple-400 transition-colors">
+                            AI Innovation Specialist
+                        </h3>
+                        <p class="text-gray-400 mb-4 text-sm leading-relaxed">
+                            Demonstrate your AI/ML expertise through InnovaThon participation and innovative project development.
+                        </p>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-clock text-purple-400"></i>
+                                <span class="text-gray-400 text-sm">12 hours</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-users text-green-400"></i>
+                                <span class="text-gray-400 text-sm">320+ earned</span>
+                            </div>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button class="certificate-btn bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded-lg transition-colors flex-1">
+                                <i class="fas fa-info-circle mr-2"></i>Learn More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate Card 3 -->
+                <div class="glass-card rounded-xl overflow-hidden group certificate-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative">
+                        <div class="h-48 bg-gradient-to-br from-green-600 to-teal-700 flex items-center justify-center">
+                            <i class="fas fa-code text-6xl text-white"></i>
+                        </div>
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">Development</span>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-green-500 text-white px-2 py-1 rounded text-xs">Available</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-green-400 transition-colors">
+                            Full Stack Developer
+                        </h3>
+                        <p class="text-gray-400 mb-4 text-sm leading-relaxed">
+                            Master both frontend and backend development through our comprehensive workshop series.
+                        </p>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-clock text-green-400"></i>
+                                <span class="text-gray-400 text-sm">16 hours</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-users text-green-400"></i>
+                                <span class="text-gray-400 text-sm">280+ earned</span>
+                            </div>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button class="certificate-btn bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg transition-colors flex-1">
+                                <i class="fas fa-info-circle mr-2"></i>Learn More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate Card 4 -->
+                <div class="glass-card rounded-xl overflow-hidden group certificate-item" data-aos="fade-up">
+                    <div class="relative">
+                        <div class="h-48 bg-gradient-to-br from-orange-600 to-red-700 flex items-center justify-center">
+                            <i class="fas fa-mobile-alt text-6xl text-white"></i>
+                        </div>
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-semibold">Mobile</span>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-yellow-500 text-black px-2 py-1 rounded text-xs">Coming Soon</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-orange-400 transition-colors">
+                            Mobile App Developer
+                        </h3>
+                        <p class="text-gray-400 mb-4 text-sm leading-relaxed">
+                            Build cross-platform mobile applications using modern frameworks and earn recognition.
+                        </p>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-clock text-orange-400"></i>
+                                <span class="text-gray-400 text-sm">14 hours</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-calendar text-yellow-400"></i>
+                                <span class="text-gray-400 text-sm">Q4 2024</span>
+                            </div>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button class="certificate-btn bg-gray-600 text-gray-300 px-4 py-2 rounded-lg cursor-not-allowed flex-1" disabled>
+                                <i class="fas fa-clock mr-2"></i>Coming Soon
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate Card 5 -->
+                <div class="glass-card rounded-xl overflow-hidden group certificate-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative">
+                        <div class="h-48 bg-gradient-to-br from-indigo-600 to-blue-700 flex items-center justify-center">
+                            <i class="fas fa-database text-6xl text-white"></i>
+                        </div>
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-indigo-500 text-white px-3 py-1 rounded-full text-sm font-semibold">Data Science</span>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-green-500 text-white px-2 py-1 rounded text-xs">Available</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-indigo-400 transition-colors">
+                            Data Science Expert
+                        </h3>
+                        <p class="text-gray-400 mb-4 text-sm leading-relaxed">
+                            Master data analysis, visualization, and machine learning through hands-on projects.
+                        </p>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-clock text-indigo-400"></i>
+                                <span class="text-gray-400 text-sm">20 hours</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-users text-green-400"></i>
+                                <span class="text-gray-400 text-sm">180+ earned</span>
+                            </div>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button class="certificate-btn bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 rounded-lg transition-colors flex-1">
+                                <i class="fas fa-info-circle mr-2"></i>Learn More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate Card 6 -->
+                <div class="glass-card rounded-xl overflow-hidden group certificate-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative">
+                        <div class="h-48 bg-gradient-to-br from-yellow-600 to-orange-700 flex items-center justify-center">
+                            <i class="fas fa-trophy text-6xl text-white"></i>
+                        </div>
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-yellow-500 text-black px-3 py-1 rounded-full text-sm font-semibold">Leadership</span>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-green-500 text-white px-2 py-1 rounded text-xs">Available</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-yellow-400 transition-colors">
+                            Community Leader
+                        </h3>
+                        <p class="text-gray-400 mb-4 text-sm leading-relaxed">
+                            Demonstrate exceptional leadership and contribution to the Techniki community ecosystem.
+                        </p>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-heart text-yellow-400"></i>
+                                <span class="text-gray-400 text-sm">Contribution</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-users text-green-400"></i>
+                                <span class="text-gray-400 text-sm">25+ earned</span>
+                            </div>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button class="certificate-btn bg-yellow-500 hover:bg-yellow-600 text-black px-4 py-2 rounded-lg transition-colors flex-1">
+                                <i class="fas fa-info-circle mr-2"></i>Learn More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificate Generator -->
+    <section id="certificate-generator" class="py-20 bg-gradient-to-br from-black to-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                        Generate Your <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-600">Certificate</span>
+                    </h2>
+                    <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                        Enter your details below to generate your official Techniki certificate for completed events
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <!-- Certificate Form -->
+                    <div class="glass-card p-8 rounded-2xl" data-aos="fade-right">
+                        <h3 class="text-2xl font-bold text-white mb-6">Certificate Details</h3>
+                        <form id="eventForm" class="space-y-6">
+                            <div>
+                                <label class="block text-white font-semibold mb-2" for="name">
+                                    <i class="fas fa-user mr-2 text-blue-400"></i>Full Name
+                                </label>
+                                <input
+                                    class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors"
+                                    id="name" type="text" name="name" placeholder="Enter your full name" required>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-white font-semibold mb-2" for="email">
+                                    <i class="fas fa-envelope mr-2 text-blue-400"></i>Email Address
+                                </label>
+                                <input
+                                    class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors"
+                                    id="email" type="email" name="email" placeholder="Enter your email address" required>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-white font-semibold mb-2" for="event">
+                                    <i class="fas fa-calendar-alt mr-2 text-blue-400"></i>Event/Workshop
+                                </label>
+                                <select
+                                    class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors"
+                                    id="event" name="event" required>
+                                    <option value="">Select an event</option>
+                                    <option value="Ethical Hacking Workshop">Ethical Hacking Workshop</option>
+                                    <option value="Capture The Flag">Capture The Flag</option>
+                                    <option value="InnovaThon">InnovaThon</option>
+                                    <option value="Full Stack Development">Full Stack Development</option>
+                                    <option value="Data Science Workshop">Data Science Workshop</option>
+                                    <option value="AI/ML Bootcamp">AI/ML Bootcamp</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-white font-semibold mb-2" for="date">
+                                    <i class="fas fa-calendar mr-2 text-blue-400"></i>Completion Date
+                                </label>
+                                <input
+                                    class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors"
+                                    id="date" type="date" name="date" required>
+                            </div>
+                            
+                            <button
+                                class="w-full bg-gradient-to-r from-yellow-500 to-orange-600 text-white px-6 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+                                type="submit">
+                                <i class="fas fa-download mr-2"></i>Generate Certificate
+                            </button>
+                            
+                            <div id="errorMessage" class="mt-4 text-red-400 text-center hidden bg-red-900/20 border border-red-500/30 rounded-lg p-3">
+                                <i class="fas fa-exclamation-triangle mr-2"></i>
+                                Error 405: Please contact the event manager.
+                            </div>
+                            
+                            <div id="successMessage" class="mt-4 text-green-400 text-center hidden bg-green-900/20 border border-green-500/30 rounded-lg p-3">
+                                <i class="fas fa-check-circle mr-2"></i>
+                                Certificate generated successfully!
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Certificate Preview -->
+                    <div class="glass-card p-8 rounded-2xl" data-aos="fade-left">
+                        <h3 class="text-2xl font-bold text-white mb-6">Certificate Preview</h3>
+                        <div class="bg-gradient-to-br from-yellow-100 to-orange-100 p-8 rounded-xl border-4 border-yellow-400 relative overflow-hidden">
+                            <!-- Decorative elements -->
+                            <div class="absolute top-0 left-0 w-full h-full opacity-10">
+                                <div class="absolute top-4 left-4 w-16 h-16 border-4 border-yellow-600 rotate-45"></div>
+                                <div class="absolute top-4 right-4 w-16 h-16 border-4 border-orange-600 rotate-45"></div>
+                                <div class="absolute bottom-4 left-4 w-16 h-16 border-4 border-yellow-600 rotate-45"></div>
+                                <div class="absolute bottom-4 right-4 w-16 h-16 border-4 border-orange-600 rotate-45"></div>
+                            </div>
+                            
+                            <div class="text-center relative z-10">
+                                <div class="mb-4">
+                                    <img src="logo.png" alt="Techniki Logo" class="h-16 mx-auto mb-2">
+                                    <h4 class="text-2xl font-bold text-gray-800">Techनिकी</h4>
+                                </div>
+                                
+                                <h3 class="text-3xl font-bold text-gray-800 mb-4">Certificate of Achievement</h3>
+                                
+                                <p class="text-gray-700 mb-4">This is to certify that</p>
+                                
+                                <h2 class="text-4xl font-bold text-blue-800 mb-4 border-b-2 border-gray-400 pb-2" id="previewName">
+                                    [Your Name]
+                                </h2>
+                                
+                                <p class="text-gray-700 mb-2">has successfully completed</p>
+                                
+                                <h3 class="text-2xl font-semibold text-purple-700 mb-4" id="previewEvent">
+                                    [Selected Event]
+                                </h3>
+                                
+                                <div class="flex justify-between items-center mt-8">
+                                    <div class="text-left">
+                                        <div class="border-t-2 border-gray-400 pt-2">
+                                            <p class="text-sm text-gray-600">Date</p>
+                                            <p class="font-semibold" id="previewDate">[Date]</p>
+                                        </div>
+                                    </div>
+                                    <div class="text-right">
+                                        <div class="border-t-2 border-gray-400 pt-2">
+                                            <p class="text-sm text-gray-600">Authorized Signature</p>
+                                            <p class="font-semibold">Techniki Team</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-6">
+                                    <div class="w-20 h-20 bg-gray-200 rounded-full mx-auto flex items-center justify-center">
+                                        <i class="fas fa-stamp text-3xl text-gray-500"></i>
+                                    </div>
+                                    <p class="text-xs text-gray-500 mt-2">Official Seal</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificate Verification -->
+    <section id="verify-certificate" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="mb-16" data-aos="fade-up">
+                    <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                        Verify <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-green-600">Certificates</span>
+                    </h2>
+                    <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                        Instantly verify the authenticity of any Techniki certificate using our blockchain-secured verification system
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <!-- Verification Form -->
+                    <div class="glass-card p-8 rounded-2xl" data-aos="fade-right">
+                        <h3 class="text-2xl font-bold text-white mb-6">
+                            <i class="fas fa-shield-alt mr-2 text-blue-400"></i>Certificate Verification
+                        </h3>
+                        <form class="space-y-6">
+                            <div>
+                                <label class="block text-white font-semibold mb-2" for="certificateId">
+                                    Certificate ID
+                                </label>
+                                <input
+                                    class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors"
+                                    id="certificateId" type="text" placeholder="Enter certificate ID (e.g., TKI-2024-001234)" required>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-white font-semibold mb-2" for="verifyEmail">
+                                    Email Address
+                                </label>
+                                <input
+                                    class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors"
+                                    id="verifyEmail" type="email" placeholder="Certificate holder's email" required>
+                            </div>
+                            
+                            <button
+                                class="w-full bg-gradient-to-r from-blue-500 to-green-600 text-white px-6 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+                                type="submit">
+                                <i class="fas fa-search mr-2"></i>Verify Certificate
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Verification Features -->
+                    <div class="space-y-6" data-aos="fade-left">
+                        <div class="glass-card p-6 rounded-xl">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-lock text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-white">Blockchain Secured</h4>
+                                    <p class="text-gray-400">All certificates are secured using blockchain technology</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="glass-card p-6 rounded-xl">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-clock text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-white">Instant Verification</h4>
+                                    <p class="text-gray-400">Get verification results in real-time</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="glass-card p-6 rounded-xl">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-globe text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-white">Global Recognition</h4>
+                                    <p class="text-gray-400">Accepted by institutions and employers worldwide</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="glass-card p-6 rounded-xl">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-certificate text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-white">Tamper Proof</h4>
+                                    <p class="text-gray-400">Certificates cannot be forged or modified</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievement Showcase -->
+    <section class="py-20 bg-gradient-to-br from-gray-900 to-black">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                    Community <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-600">Achievements</span>
+                </h2>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                    Celebrating our community members who have earned recognition through dedication and excellence
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <!-- Top Achiever 1 -->
+                <div class="glass-card p-6 rounded-2xl text-center group" data-aos="fade-up">
+                    <div class="relative mb-4">
+                        <div class="w-20 h-20 bg-gradient-to-br from-yellow-400 to-orange-600 rounded-full mx-auto flex items-center justify-center">
+                            <i class="fas fa-crown text-2xl text-white"></i>
+                        </div>
+                        <div class="absolute -top-2 -right-2 bg-yellow-500 text-black w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm">
+                            1
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Priya Sharma</h3>
+                    <p class="text-gray-400 mb-3">Full Stack Developer & AI Specialist</p>
+                    <div class="flex justify-center space-x-2 mb-4">
+                        <span class="achievement-badge bg-blue-500">Security Expert</span>
+                        <span class="achievement-badge bg-purple-500">AI Certified</span>
+                    </div>
+                    <p class="text-sm text-gray-500">6 Certificates Earned</p>
+                </div>
+
+                <!-- Top Achiever 2 -->
+                <div class="glass-card p-6 rounded-2xl text-center group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative mb-4">
+                        <div class="w-20 h-20 bg-gradient-to-br from-blue-400 to-purple-600 rounded-full mx-auto flex items-center justify-center">
+                            <i class="fas fa-medal text-2xl text-white"></i>
+                        </div>
+                        <div class="absolute -top-2 -right-2 bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm">
+                            2
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Arjun Patel</h3>
+                    <p class="text-gray-400 mb-3">Data Science & Blockchain Expert</p>
+                    <div class="flex justify-center space-x-2 mb-4">
+                        <span class="achievement-badge bg-green-500">Data Expert</span>
+                        <span class="achievement-badge bg-yellow-500">Leader</span>
+                    </div>
+                    <p class="text-sm text-gray-500">5 Certificates Earned</p>
+                </div>
+
+                <!-- Top Achiever 3 -->
+                <div class="glass-card p-6 rounded-2xl text-center group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative mb-4">
+                        <div class="w-20 h-20 bg-gradient-to-br from-green-400 to-teal-600 rounded-full mx-auto flex items-center justify-center">
+                            <i class="fas fa-trophy text-2xl text-white"></i>
+                        </div>
+                        <div class="absolute -top-2 -right-2 bg-green-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm">
+                            3
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Sneha Gupta</h3>
+                    <p class="text-gray-400 mb-3">Mobile Developer & UX Designer</p>
+                    <div class="flex justify-center space-x-2 mb-4">
+                        <span class="achievement-badge bg-orange-500">Mobile Dev</span>
+                        <span class="achievement-badge bg-indigo-500">Data Science</span>
+                    </div>
+                    <p class="text-sm text-gray-500">4 Certificates Earned</p>
+                </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="text-center" data-aos="fade-up">
+                <div class="glass-card p-12 rounded-2xl max-w-3xl mx-auto">
+                    <h3 class="text-3xl font-bold text-white mb-6">Ready to Earn Your Certificates?</h3>
+                    <p class="text-gray-400 mb-8 text-lg">
+                        Join our community, participate in events, complete projects, and earn industry-recognized certificates 
+                        that validate your technical skills and expertise.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="events" class="hero-btn bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl">
+                            <i class="fas fa-calendar-alt mr-2"></i>View Events
+                        </a>
+                        <a href="form" class="hero-btn bg-transparent border-2 border-yellow-400 text-yellow-400 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:bg-yellow-400 hover:text-black">
+                            <i class="fas fa-user-plus mr-2"></i>Join Community
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <footer id="footer" class="bg-gray-900 text-white py-8" style="background-color: rgba(255, 255, 255, 0.1);">
         <div class="container mx-auto flex flex-wrap justify-around">
             <div class="max-w-md mb-6">

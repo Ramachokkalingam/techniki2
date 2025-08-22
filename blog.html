@@ -4,129 +4,529 @@
     <!-- Meta tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Techनिकी</title>
+    <title>Tech Blog - Techनिकी</title>
+    <meta name="description" content="Explore the latest insights, tutorials, and innovations in AI, ML, Web Development, AR, and VR from the Techniki community.">
     <link rel="icon" type="image/x-icon" href="assets/images/logo.ico">
-    <!-- Font -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <!-- Enhanced Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
     <!-- CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <!-- script -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <!-- Enhanced Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="scripts.js"></script>
+    
     <!-- VANTA.NET scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.21/vanta.net.min.js"></script>
- 
 </head>
-<body class="font-lato" id="vanta-bg">
+<body class="font-inter bg-gray-900" id="vanta-bg">
 
-    <header class="bg-gray-800 text-white flex items-center justify-between py-3 px-4" style="background-color: rgba(255, 255, 255, 0.1);">
-        <div class="flex items-center space-x-4">
-            <a href="index" class="flex items-center space-x-2">
-                <img src="logo.png" alt="Logo" class="h-9">
-            </a>
-        </div>
-        <nav id="navbar" class="hidden md:block">
-            <ul class="flex items-center space-x-4">
-                <li><a href="events">Events</a></li>
-                <li><a href="certificates">Certificates</a></li>
-                <li><a href="team">Team</a></li>
-                <li><a href="blog">Blogs</a></li>
-                <li><a href="projects">Projects</a></li>
-                <li><a href="#footer">Contact Us</a></li>
-            </ul>
-        </nav>
-        <div class="flex items-center space-x-4">
-            <div class="join-now text-center py-2 px-4 text-lg font-bold rounded cursor-pointer">
-                <a href="form">JOIN NOW!</a>
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <a href="index" class="flex items-center space-x-3 group">
+                        <img src="logo.png" alt="Techनिकी Logo" class="h-10 w-auto transition-transform duration-300 group-hover:scale-110">
+                        <span class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">Techनिकी</span>
+                    </a>
+                </div>
+                
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="index" class="nav-link text-white hover:text-blue-400 transition-colors duration-300 relative">
+                        <i class="fas fa-home mr-2"></i>Home
+                    </a>
+                    <a href="events" class="nav-link text-white hover:text-blue-400 transition-colors duration-300 relative">
+                        <i class="fas fa-calendar-alt mr-2"></i>Events
+                    </a>
+                    <a href="certificates" class="nav-link text-white hover:text-blue-400 transition-colors duration-300 relative">
+                        <i class="fas fa-certificate mr-2"></i>Certificates
+                    </a>
+                    <a href="team" class="nav-link text-white hover:text-blue-400 transition-colors duration-300 relative">
+                        <i class="fas fa-users mr-2"></i>Team
+                    </a>
+                    <a href="blog" class="nav-link text-blue-400 hover:text-blue-300 transition-colors duration-300 relative">
+                        <i class="fas fa-blog mr-2"></i>Blog
+                    </a>
+                    <a href="projects" class="nav-link text-white hover:text-blue-400 transition-colors duration-300 relative">
+                        <i class="fas fa-project-diagram mr-2"></i>Projects
+                    </a>
+                    <a href="#footer" class="nav-link text-white hover:text-blue-400 transition-colors duration-300 relative">
+                        <i class="fas fa-envelope mr-2"></i>Contact
+                    </a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <a href="form" class="join-btn bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:from-purple-600 hover:to-blue-500 hover:scale-105 shadow-lg hover:shadow-xl">
+                        <i class="fas fa-rocket mr-2"></i>JOIN NOW
+                    </a>
+                    <button class="lg:hidden text-white hover:text-blue-400 transition-colors" id="menu-button">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
             </div>
-            <button class="md:hidden" id="menu-button">
-                <i class="fas fa-bars"></i>
-            </button>
         </div>
-    </header>
-    <div id="mobile-menu" class="hidden md:hidden bg-gray-800 text-white py-3 px-4" style="background-color: rgba(255, 255, 255, 0.1);">
-        <ul class="flex flex-col items-center space-y-2">
-            <li><a href="events">Events</a></li>
-            <li><a href="certificates">Certificates</a></li>
-            <li><a href="team">Team</a></li>
-            <li><a href="blog">Blogs</a></li>
-            <li><a href="projects">Projects</a></li>
-            <li><a href="#footer">Contact Us</a></li>
-        </ul>
-    </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="lg:hidden bg-black bg-opacity-95 backdrop-blur-lg transform -translate-y-full transition-transform duration-300">
+            <div class="container mx-auto px-6 py-8">
+                <div class="flex flex-col space-y-6">
+                    <a href="index" class="text-white hover:text-blue-400 transition-colors text-lg">
+                        <i class="fas fa-home mr-3"></i>Home
+                    </a>
+                    <a href="events" class="text-white hover:text-blue-400 transition-colors text-lg">
+                        <i class="fas fa-calendar-alt mr-3"></i>Events
+                    </a>
+                    <a href="certificates" class="text-white hover:text-blue-400 transition-colors text-lg">
+                        <i class="fas fa-certificate mr-3"></i>Certificates
+                    </a>
+                    <a href="team" class="text-white hover:text-blue-400 transition-colors text-lg">
+                        <i class="fas fa-users mr-3"></i>Team
+                    </a>
+                    <a href="blog" class="text-blue-400 hover:text-blue-300 transition-colors text-lg">
+                        <i class="fas fa-blog mr-3"></i>Blog
+                    </a>
+                    <a href="projects" class="text-white hover:text-blue-400 transition-colors text-lg">
+                        <i class="fas fa-project-diagram mr-3"></i>Projects
+                    </a>
+                    <a href="#footer" class="text-white hover:text-blue-400 transition-colors text-lg">
+                        <i class="fas fa-envelope mr-3"></i>Contact
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-    <main class="container mx-auto mt-5 flex flex-col items-center">
-        <img src="assets/images/construct.svg" alt="Under Construction" class="w-1/2 mb-5">
-        <p class="team-member text-xl mb-5">The page is currently under construction. For blog submissions, please feel free to contact us at <a href="mailto:techniki@ggn.amity.edu" class="nav a">techniki@ggn.amity.edu</a></p>
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center pt-20">
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-purple-900/20"></div>
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <div data-aos="fade-up" data-aos-duration="1000">
+                <h1 class="text-6xl md:text-8xl font-bold text-white mb-6 leading-tight">
+                    Tech <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">Blog</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                    Insights, Tutorials, and Innovations from the Techनिकी Community
+                </p>
+                <p class="text-lg text-gray-400 mb-12 max-w-2xl mx-auto">
+                    Explore the latest trends in AI/ML, Web Development, AR/VR, and cutting-edge technologies. 
+                    Learn from experts and share your knowledge with our vibrant community.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="#latest-posts" class="hero-btn bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl">
+                        <i class="fas fa-book-open mr-2"></i>Read Articles
+                    </a>
+                    <a href="#write-for-us" class="hero-btn bg-transparent border-2 border-blue-400 text-blue-400 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:bg-blue-400 hover:text-white">
+                        <i class="fas fa-pen mr-2"></i>Write for Us
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="fas fa-chevron-down text-white text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="relative z-10 py-20">
+        <div class="container mx-auto px-6">
+            <!-- Featured Post -->
+            <section id="latest-posts" class="mb-20">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-5xl font-bold text-white mb-6">Featured Article</h2>
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                        Dive deep into the latest technology trends and innovations
+                    </p>
+                </div>
+
+                <div class="bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-3xl p-8 backdrop-blur-sm border border-white/10" data-aos="fade-up">
+                    <div class="grid lg:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <div class="flex items-center space-x-4 mb-6">
+                                <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-semibold">Featured</span>
+                                <span class="text-gray-400 text-sm">August 15, 2024</span>
+                            </div>
+                            <h3 class="text-4xl font-bold text-white mb-6">The Future of AI in Web Development</h3>
+                            <p class="text-gray-300 text-lg mb-8 leading-relaxed">
+                                Explore how artificial intelligence is revolutionizing web development, from automated code generation to intelligent user experiences. 
+                                Discover the tools and techniques that are shaping the future of frontend and backend development.
+                            </p>
+                            <div class="flex items-center space-x-6 mb-8">
+                                <div class="flex items-center space-x-2">
+                                    <i class="fas fa-user text-blue-400"></i>
+                                    <span class="text-gray-300">Techniki Team</span>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <i class="fas fa-clock text-purple-400"></i>
+                                    <span class="text-gray-300">8 min read</span>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <i class="fas fa-tag text-green-400"></i>
+                                    <span class="text-gray-300">AI/ML</span>
+                                </div>
+                            </div>
+                            <a href="#" class="inline-block bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:scale-105 shadow-xl">
+                                <i class="fas fa-arrow-right mr-2"></i>Read Full Article
+                            </a>
+                        </div>
+                        <div class="relative">
+                            <div class="bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl p-8 h-80 flex items-center justify-center">
+                                <div class="text-center">
+                                    <i class="fas fa-robot text-white text-6xl mb-4"></i>
+                                    <h4 class="text-white text-2xl font-bold">AI + Web Dev</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Blog Categories -->
+            <section class="mb-20">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-5xl font-bold text-white mb-6">Explore by Category</h2>
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                        Find articles that match your interests and expertise level
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="blog-category-card group" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="bg-gradient-to-br from-blue-500/20 to-blue-700/20 p-8 rounded-2xl border border-blue-500/30 transition-all duration-300 group-hover:scale-105 group-hover:border-blue-400">
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6 mx-auto">
+                                    <i class="fas fa-brain text-white text-2xl"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold text-white mb-4">AI & Machine Learning</h3>
+                                <p class="text-gray-300 mb-6">Deep learning, neural networks, and AI applications</p>
+                                <div class="text-blue-400 font-semibold">12 Articles</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="blog-category-card group" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="bg-gradient-to-br from-purple-500/20 to-purple-700/20 p-8 rounded-2xl border border-purple-500/30 transition-all duration-300 group-hover:scale-105 group-hover:border-purple-400">
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 mx-auto">
+                                    <i class="fas fa-code text-white text-2xl"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold text-white mb-4">Web Development</h3>
+                                <p class="text-gray-300 mb-6">Frontend, backend, and full-stack tutorials</p>
+                                <div class="text-purple-400 font-semibold">18 Articles</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="blog-category-card group" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="bg-gradient-to-br from-green-500/20 to-green-700/20 p-8 rounded-2xl border border-green-500/30 transition-all duration-300 group-hover:scale-105 group-hover:border-green-400">
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl flex items-center justify-center mb-6 mx-auto">
+                                    <i class="fas fa-cube text-white text-2xl"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold text-white mb-4">AR/VR</h3>
+                                <p class="text-gray-300 mb-6">Immersive technologies and 3D experiences</p>
+                                <div class="text-green-400 font-semibold">8 Articles</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="blog-category-card group" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="bg-gradient-to-br from-yellow-500/20 to-yellow-700/20 p-8 rounded-2xl border border-yellow-500/30 transition-all duration-300 group-hover:scale-105 group-hover:border-yellow-400">
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-2xl flex items-center justify-center mb-6 mx-auto">
+                                    <i class="fas fa-mobile-alt text-white text-2xl"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold text-white mb-4">Mobile Development</h3>
+                                <p class="text-gray-300 mb-6">iOS, Android, and cross-platform apps</p>
+                                <div class="text-yellow-400 font-semibold">10 Articles</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recent Articles -->
+            <section class="mb-20">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-5xl font-bold text-white mb-6">Recent Articles</h2>
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                        Stay updated with our latest insights and tutorials
+                    </p>
+                </div>
+
+                <div class="grid lg:grid-cols-3 gap-8">
+                    <!-- Article 1 -->
+                    <article class="blog-card bg-black bg-opacity-30 rounded-2xl overflow-hidden backdrop-blur-sm border border-white/10 transition-all duration-300 hover:scale-105" data-aos="fade-up" data-aos-delay="100">
+                        <div class="h-48 bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
+                            <i class="fas fa-laptop-code text-white text-4xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center space-x-2 mb-3">
+                                <span class="bg-blue-500 text-white px-2 py-1 rounded text-xs">Web Dev</span>
+                                <span class="text-gray-400 text-sm">Aug 10, 2024</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">Building Modern React Applications</h3>
+                            <p class="text-gray-300 text-sm mb-4">Learn the best practices for building scalable React applications with hooks, context, and modern tooling.</p>
+                            <a href="#" class="text-blue-400 hover:text-blue-300 font-semibold text-sm">Read More →</a>
+                        </div>
+                    </article>
+
+                    <!-- Article 2 -->
+                    <article class="blog-card bg-black bg-opacity-30 rounded-2xl overflow-hidden backdrop-blur-sm border border-white/10 transition-all duration-300 hover:scale-105" data-aos="fade-up" data-aos-delay="200">
+                        <div class="h-48 bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center">
+                            <i class="fas fa-neural-network text-white text-4xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center space-x-2 mb-3">
+                                <span class="bg-purple-500 text-white px-2 py-1 rounded text-xs">AI/ML</span>
+                                <span class="text-gray-400 text-sm">Aug 8, 2024</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">Introduction to Neural Networks</h3>
+                            <p class="text-gray-300 text-sm mb-4">Understand the fundamentals of neural networks and how they power modern AI applications.</p>
+                            <a href="#" class="text-purple-400 hover:text-purple-300 font-semibold text-sm">Read More →</a>
+                        </div>
+                    </article>
+
+                    <!-- Article 3 -->
+                    <article class="blog-card bg-black bg-opacity-30 rounded-2xl overflow-hidden backdrop-blur-sm border border-white/10 transition-all duration-300 hover:scale-105" data-aos="fade-up" data-aos-delay="300">
+                        <div class="h-48 bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center">
+                            <i class="fas fa-vr-cardboard text-white text-4xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center space-x-2 mb-3">
+                                <span class="bg-green-500 text-white px-2 py-1 rounded text-xs">AR/VR</span>
+                                <span class="text-gray-400 text-sm">Aug 5, 2024</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">Getting Started with WebXR</h3>
+                            <p class="text-gray-300 text-sm mb-4">Explore the possibilities of VR and AR experiences directly in the web browser.</p>
+                            <a href="#" class="text-green-400 hover:text-green-300 font-semibold text-sm">Read More →</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Write for Us Section -->
+            <section id="write-for-us" class="py-20 bg-gradient-to-r from-blue-900/50 to-purple-900/50 rounded-3xl" data-aos="fade-up">
+                <div class="text-center">
+                    <h2 class="text-5xl font-bold text-white mb-6">Write for Techनिकी</h2>
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+                        Share your knowledge and expertise with our community. We welcome contributions from developers, researchers, and tech enthusiasts.
+                    </p>
+                    <div class="grid md:grid-cols-3 gap-8 mb-12">
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-lightbulb text-white text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Share Ideas</h3>
+                            <p class="text-gray-300">Contribute innovative concepts and insights</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-chalkboard-teacher text-white text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Teach Others</h3>
+                            <p class="text-gray-300">Create tutorials and educational content</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-users text-white text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Build Community</h3>
+                            <p class="text-gray-300">Connect with like-minded developers</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                        <a href="mailto:techniki@ggn.amity.edu?subject=Blog Submission" class="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105 shadow-xl">
+                            <i class="fas fa-envelope mr-2"></i>Submit Your Article
+                        </a>
+                        <a href="#" class="bg-transparent border-2 border-blue-400 text-blue-400 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:bg-blue-400 hover:text-white">
+                            <i class="fas fa-file-alt mr-2"></i>Guidelines
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
     </main>
-    <!-- <br></br>    -->
-    <footer id="footer" class="bg-gray-900 text-white py-8" style="background-color: rgba(255, 255, 255, 0.1);">
-        <div class="container mx-auto flex flex-wrap justify-around">
-            <div class="max-w-md mb-6">
-                <h5 class="font-bold mb-4"><a href="index" class="flex items-center space-x-2">
-                    <img src="logo.png" alt="Logo" class="h-9">
-                </a></h5>
-                <p>Techniki was founded with an aim of building an all inclusive community which empowers every individual to learn, connect and build together.</p>
-            </div>
-            <div class="mb-6">
-                <h5 class="font-bold mb-4">Quick Links</h5>
-                <div id="quick-links-container" class="flex space-x-4">
-                    <ul id="quick-links-col1"></ul>
-                    <ul id="quick-links-col2"></ul>
+    <!-- Enhanced Footer -->
+    <footer id="footer" class="bg-black bg-opacity-80 backdrop-blur-lg text-white py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-8 mb-12">
+                <div class="space-y-6">
+                    <a href="index" class="flex items-center space-x-3 group">
+                        <img src="logo.png" alt="Logo" class="h-12 w-auto transition-transform duration-300 group-hover:scale-110">
+                        <span class="text-2xl font-bold group-hover:text-blue-400 transition-colors">Tech<span class="text-blue-400">निकी</span></span>
+                    </a>
+                    <p class="text-gray-300 leading-relaxed">
+                        Building an inclusive tech community that empowers every individual to learn, connect, and innovate together.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.instagram.com/technikiatauh/" target="_blank" class="social-link bg-gradient-to-r from-pink-500 to-pink-600 p-3 rounded-full transition-all duration-300 hover:scale-110">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/technikiauh" target="_blank" class="social-link bg-gradient-to-r from-blue-600 to-blue-700 p-3 rounded-full transition-all duration-300 hover:scale-110">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://discord.gg/jxt2fZG4jM" target="_blank" class="social-link bg-gradient-to-r from-indigo-500 to-indigo-600 p-3 rounded-full transition-all duration-300 hover:scale-110">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                        <a href="https://chat.whatsapp.com/BVCtubt4o6pLJcfPAYdBO5" target="_blank" class="social-link bg-gradient-to-r from-green-500 to-green-600 p-3 rounded-full transition-all duration-300 hover:scale-110">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h5 class="font-bold text-xl mb-6 text-blue-400">Quick Links</h5>
+                    <div class="space-y-3">
+                        <a href="index" class="block text-gray-300 hover:text-blue-400 transition-colors">
+                            <i class="fas fa-home mr-2"></i>Home
+                        </a>
+                        <a href="events" class="block text-gray-300 hover:text-blue-400 transition-colors">
+                            <i class="fas fa-calendar-alt mr-2"></i>Events
+                        </a>
+                        <a href="certificates" class="block text-gray-300 hover:text-blue-400 transition-colors">
+                            <i class="fas fa-certificate mr-2"></i>Certificates
+                        </a>
+                        <a href="team" class="block text-gray-300 hover:text-blue-400 transition-colors">
+                            <i class="fas fa-users mr-2"></i>Our Team
+                        </a>
+                        <a href="blog" class="block text-blue-400 hover:text-blue-300 transition-colors">
+                            <i class="fas fa-blog mr-2"></i>Blog Posts
+                        </a>
+                        <a href="projects" class="block text-gray-300 hover:text-blue-400 transition-colors">
+                            <i class="fas fa-project-diagram mr-2"></i>Projects
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h5 class="font-bold text-xl mb-6 text-purple-400">Blog Topics</h5>
+                    <div class="space-y-3">
+                        <a href="#" class="block text-gray-300 hover:text-purple-400 transition-colors">
+                            <i class="fas fa-brain mr-2"></i>AI & Machine Learning
+                        </a>
+                        <a href="#" class="block text-gray-300 hover:text-purple-400 transition-colors">
+                            <i class="fas fa-code mr-2"></i>Web Development
+                        </a>
+                        <a href="#" class="block text-gray-300 hover:text-purple-400 transition-colors">
+                            <i class="fas fa-cube mr-2"></i>AR/VR Technologies
+                        </a>
+                        <a href="#" class="block text-gray-300 hover:text-purple-400 transition-colors">
+                            <i class="fas fa-mobile-alt mr-2"></i>Mobile Development
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h5 class="font-bold text-xl mb-6 text-green-400">Get In Touch</h5>
+                    <div class="space-y-4">
+                        <a href="mailto:techniki@ggn.amity.edu" class="flex items-center text-gray-300 hover:text-green-400 transition-colors">
+                            <i class="fas fa-envelope mr-3"></i>
+                            techniki@ggn.amity.edu
+                        </a>
+                        <div class="flex items-center text-gray-300">
+                            <i class="fas fa-map-marker-alt mr-3"></i>
+                            Amity University, Gurgaon
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded-lg">
+                            <h6 class="font-semibold text-white mb-2">Newsletter</h6>
+                            <p class="text-gray-400 text-sm mb-3">Get latest articles in your inbox</p>
+                            <div class="flex">
+                                <input type="email" placeholder="Enter your email" class="flex-1 bg-gray-700 text-white px-3 py-2 rounded-l-lg border-none outline-none">
+                                <button class="bg-gradient-to-r from-blue-500 to-purple-600 px-4 py-2 rounded-r-lg hover:from-purple-600 hover:to-blue-500 transition-all">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="mb-6">
-                <h5 class="font-bold mb-4">Contact Us</h5>
-                <p><a href="mailto:techniki@ggn.amity.edu" class="hover:underline">techniki@ggn.amity.edu</a></p>
-                <div class="flex space-x-4 mt-4">
-                    <a href="https://www.instagram.com/technikiatauh/" target="_blank" class="hover:underline">
-                        <i class="fab fa-instagram h-6"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/company/technikiauh" target="_blank" class="hover:underline">
-                        <i class="fab fa-linkedin h-6"></i>
-                    </a>
-                    <a href="https://discord.gg/jxt2fZG4jM" target="_blank" class="hover:underline">
-                        <i class="fab fa-discord h-6"></i>
-                    </a>
-                    <a href="https://chat.whatsapp.com/BVCtubt4o6pLJcfPAYdBO5" target="_blank" class="hover:underline">
-                        <i class="fab fa-whatsapp h-6"></i>
-                    </a>
-                </div>
+            
+            <div class="border-t border-gray-700 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2024 Techनिकी. All rights reserved. Built with ❤️ by the Techniki Team.</p>
             </div>
-        </div>
-
-            <div class="text-center mt-8">
-                <p>&copy; Techनिकी</p>
         </div>
     </footer>
-    <script>
-    VANTA.NET({
-      el: "#vanta-bg",
-      mouseControls: true,
-      touchControls: true,
-      gyroControls: false,
-      minHeight: 200.00,
-      minWidth: 200.00,
-      scale: 1.00,
-      scaleMobile: 1.00,
-      color: 0x0,
-      backgroundColor: 0x363636,
-      points: 20.00,
-      maxDistance: 23.00,
-      spacing: 20.00
-    })
 
-    	
-    document.getElementById('menu-button').addEventListener('click', function() {
-        document.getElementById('mobile-menu').classList.toggle('hidden');
-    });
+    <!-- Enhanced Scripts -->
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false
+        });
+
+        // VANTA.NET Background
+        VANTA.NET({
+            el: "#vanta-bg",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0x3b82f6,
+            backgroundColor: 0x111827,
+            points: 15.00,
+            maxDistance: 25.00,
+            spacing: 18.00
+        });
+
+        // Mobile Menu Toggle
+        document.getElementById('menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const icon = this.querySelector('i');
+            
+            if (mobileMenu.style.transform === 'translateY(0%)') {
+                mobileMenu.style.transform = 'translateY(-100%)';
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            } else {
+                mobileMenu.style.transform = 'translateY(0%)';
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            }
+        });
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(0, 0, 0, 0.9)';
+                navbar.style.backdropFilter = 'blur(20px)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.1)';
+                navbar.style.backdropFilter = 'blur(10px)';
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
     </script>
 </body>
 </html>

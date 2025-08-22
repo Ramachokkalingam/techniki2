@@ -1,0 +1,37 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e40af;stop-opacity:0.8" />
+      <stop offset="50%" style="stop-color:#7c3aed;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:0.4" />
+    </linearGradient>
+    <linearGradient id="gradient2" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0.2" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1920" height="1080" fill="#111827"/>
+  
+  <!-- Geometric Shapes -->
+  <circle cx="200" cy="200" r="100" fill="url(#gradient1)" opacity="0.5"/>
+  <circle cx="1720" cy="880" r="150" fill="url(#gradient2)" opacity="0.4"/>
+  <polygon points="800,100 900,300 700,300" fill="#3b82f6" opacity="0.2"/>
+  <polygon points="1200,700 1400,800 1000,900" fill="#8b5cf6" opacity="0.3"/>
+  
+  <!-- Tech-inspired elements -->
+  <g transform="translate(400, 300)">
+    <rect x="0" y="0" width="200" height="20" fill="#3b82f6" opacity="0.6"/>
+    <rect x="0" y="30" width="150" height="20" fill="#8b5cf6" opacity="0.5"/>
+    <rect x="0" y="60" width="180" height="20" fill="#059669" opacity="0.4"/>
+  </g>
+  
+  <!-- Circuit-like patterns -->
+  <g stroke="#3b82f6" stroke-width="2" fill="none" opacity="0.3">
+    <path d="M100 500 L300 500 L300 600 L500 600"/>
+    <path d="M600 400 L800 400 L800 300 L1000 300"/>
+    <circle cx="300" cy="500" r="5" fill="#3b82f6"/>
+    <circle cx="800" cy="400" r="5" fill="#8b5cf6"/>
+  </g>
+</svg>

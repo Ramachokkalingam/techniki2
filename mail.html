@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Techनिकी - Your Journey Begins</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #020617 100%);
+            padding: 20px 0;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Animated background particles */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="grad" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:%233B82F6;stop-opacity:0.1"/><stop offset="100%" style="stop-color:%238B5CF6;stop-opacity:0"/></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23grad)" opacity="0.3"><animate attributeName="r" values="50;120;50" dur="4s" repeatCount="indefinite"/></circle><circle cx="800" cy="300" r="80" fill="url(%23grad)" opacity="0.2"><animate attributeName="r" values="40;100;40" dur="6s" repeatCount="indefinite"/></circle><circle cx="400" cy="700" r="60" fill="url(%23grad)" opacity="0.4"><animate attributeName="r" values="30;90;30" dur="5s" repeatCount="indefinite"/></circle></svg>');
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .email-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header with gradient and floating elements */
+        .header {
+            background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+            padding: 50px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: float 20s infinite linear;
+            opacity: 0.3;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(-50px, -50px) rotate(360deg); }
+        }
+
+        .logo {
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            margin: 0 auto 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            animation: pulse 3s infinite;
+            overflow: hidden;
+        }
+
+        .logo img {
+            width: 85px;
+            height: 85px;
+            object-fit: contain;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 5px;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .header-title {
+            color: #ffffff;
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 18px;
+            font-weight: 400;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Main content with glassmorphism */
+        .content {
+            padding: 50px 40px;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .greeting {
+            font-size: 28px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, #3B82F6, #8B5CF6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .congratulations {
+            background: linear-gradient(135deg, #F59E0B 0%, #F97316 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 40px;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 32px;
+            line-height: 1.2;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 5px rgba(245, 158, 11, 0.5)); }
+            to { filter: drop-shadow(0 0 15px rgba(245, 158, 11, 0.8)); }
+        }
+
+        .main-text {
+            color: #E5E7EB;
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 28px;
+            font-weight: 400;
+        }
+
+        .position-badge {
+            background: linear-gradient(135deg, #F59E0B 0%, #F97316 100%);
+            color: #000000;
+            padding: 16px 32px;
+            border-radius: 50px;
+            display: inline-block;
+            font-weight: 700;
+            font-size: 20px;
+            margin: 24px 0;
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .position-badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .position-badge:hover::before {
+            left: 100%;
+        }
+
+        .responsibilities {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-left: 4px solid #3B82F6;
+            padding: 28px 32px;
+            margin: 32px 0;
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+        }
+
+        .responsibilities h3 {
+            color: #ffffff;
+            font-size: 22px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .responsibilities h3::before {
+            content: '⚡';
+            margin-right: 12px;
+            font-size: 24px;
+        }
+
+        .responsibilities ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .responsibilities li {
+            color: #E5E7EB;
+            margin-bottom: 14px;
+            padding-left: 32px;
+            position: relative;
+            font-weight: 400;
+        }
+
+        .responsibilities li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 8px;
+            height: 8px;
+            background: linear-gradient(135deg, #3B82F6, #8B5CF6);
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+        }
+
+        .cta-section {
+            text-align: center;
+            margin: 40px 0;
+            padding: 32px;
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .cta-text {
+            color: #E5E7EB;
+            font-size: 18px;
+            margin-bottom: 24px;
+            font-weight: 500;
+        }
+
+        .whatsapp-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: white !important;
+            text-decoration: none;
+            padding: 18px 36px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .whatsapp-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.2) 50%, transparent 70%);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+        }
+
+        .whatsapp-btn:hover::before {
+            transform: translateX(100%);
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(37, 211, 102, 0.5);
+        }
+
+        .whatsapp-icon {
+            margin-right: 12px;
+            font-size: 20px;
+        }
+
+        /* Enhanced social media section */
+        .social-section {
+            text-align: center;
+            padding: 40px 30px;
+            background: rgba(255, 255, 255, 0.03);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-title {
+            color: #ffffff;
+            font-size: 24px;
+            margin-bottom: 28px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .social-title::before,
+        .social-title::after {
+            content: '';
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(135deg, #3B82F6, #8B5CF6);
+            margin: 0 20px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .social-link:hover::before {
+            opacity: 1;
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        .linkedin { 
+            background: linear-gradient(135deg, #0077b5 0%, #005885 100%);
+            box-shadow: 0 8px 25px rgba(0, 119, 181, 0.3);
+        }
+        .instagram { 
+            background: linear-gradient(135deg, #E4405F 0%, #C13584 50%, #833AB4 100%);
+            box-shadow: 0 8px 25px rgba(228, 64, 95, 0.3);
+        }
+        .whatsapp-social { 
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+        }
+        .discord { 
+            background: linear-gradient(135deg, #5865F2 0%, #4752C4 100%);
+            box-shadow: 0 8px 25px rgba(88, 101, 242, 0.3);
+        }
+
+        /* Enhanced footer */
+        .footer {
+            text-align: center;
+            padding: 32px 30px;
+            background: linear-gradient(135deg, #1F2937 0%, #111827 100%);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            font-weight: 500;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer::before {
+            content: '✨';
+            display: block;
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        /* Enhanced mobile responsive */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px 0;
+            }
+
+            .email-container {
+                margin: 0 15px;
+                border-radius: 16px;
+            }
+
+            .content {
+                padding: 40px 25px;
+            }
+
+            .header {
+                padding: 40px 25px;
+            }
+
+            .header-title {
+                font-size: 28px;
+            }
+
+            .congratulations {
+                font-size: 32px;
+            }
+
+            .greeting {
+                font-size: 24px;
+            }
+
+            .main-text {
+                font-size: 16px;
+            }
+
+            .social-links {
+                gap: 20px;
+            }
+
+            .social-link {
+                width: 55px;
+                height: 55px;
+                font-size: 22px;
+            }
+
+            .position-badge {
+                font-size: 18px;
+                padding: 14px 28px;
+            }
+
+            .whatsapp-btn {
+                font-size: 16px;
+                padding: 16px 32px;
+            }
+        }
+
+        /* Enhanced animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content > * {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .content > *:nth-child(1) { animation-delay: 0.1s; }
+        .content > *:nth-child(2) { animation-delay: 0.2s; }
+        .content > *:nth-child(3) { animation-delay: 0.3s; }
+        .content > *:nth-child(4) { animation-delay: 0.4s; }
+        .content > *:nth-child(5) { animation-delay: 0.5s; }
+        .content > *:nth-child(6) { animation-delay: 0.6s; }
+
+        /* Glassmorphism enhancements */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+        }
+
+        /* Highlight text */
+        .highlight {
+            background: linear-gradient(135deg, #3B82F6, #8B5CF6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">
+                <img src="https://i.postimg.cc/59X8Gh0s/TECH.png" alt="Techनिकी Logo">
+            </div>
+            <h1 class="header-title">Welcome to Tech<span style="color: #F59E0B;">निकी</span>!</h1>
+            <p class="header-subtitle">🚀 Your Journey in Innovation Begins</p>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content">
+            <h2 class="greeting">Dear <span class="highlight">Sajan Dhakal</span>,</h2>
+            
+            <h1 class="congratulations">🎉 Congratulations! 🎉</h1>
+            
+            <p class="main-text">
+                We are <span class="highlight">excited</span> to inform you that you have been selected to lead the <strong>Techनिकी Club at Amity University</strong>. Your skills and passion were truly impressive during the interview process, and we are thrilled to have you on board!
+            </p>
+            
+            <p class="main-text">
+                As part of Techनिकी, you will collaborate on <span class="highlight">innovative projects</span>, participate in technical events, and contribute to workshops that drive our club forward into the future of technology.
+            </p>
+
+            <div style="text-align: center;">
+                <span class="position-badge">
+                    <i class="fas fa-crown" style="margin-right: 8px;"></i>
+                    President
+                </span>
+            </div>
+
+            <div class="responsibilities glass-card">
+                <h3>Your Responsibilities</h3>
+                <ul>
+                    <li>Lead and collaborate with team members on cutting-edge technical projects</li>
+                    <li>Organize club events, competitions, and technical workshops</li>
+                    <li>Foster innovation, teamwork, and knowledge sharing within the community</li>
+                    <li>Mentor junior members and guide them in their technical journey</li>
+                </ul>
+            </div>
+
+            <div class="cta-section glass-card">
+                <p class="cta-text">
+                    🎯 To confirm your acceptance and join our elite Core Team, click below:
+                </p>
+                <a href="https://chat.whatsapp.com/GiYrnK4ZcLtJVsrR9Kq3OX" class="whatsapp-btn">
+                    <i class="fab fa-whatsapp whatsapp-icon"></i>
+                    Join Core Team Group
+                </a>
+            </div>
+
+            <p class="main-text">
+                📢 We'll be sharing important updates, upcoming activities, and exclusive opportunities in the group. Make sure to join ASAP to stay connected with our vibrant tech community!
+            </p>
+
+            <div class="glass-card" style="padding: 24px; margin: 32px 0; text-align: center;">
+                <p class="main-text" style="font-weight: 700; color: #F59E0B; font-size: 20px; margin-bottom: 8px;">
+                    🌟 Welcome to the Future of Tech! 🌟
+                </p>
+                <p class="main-text" style="margin-bottom: 0;">
+                    Once again, congratulations and welcome to <strong>Techनिकी</strong>! 🚀✨
+                </p>
+            </div>
+        </div>
+
+        <!-- Social Media Section -->
+        <div class="social-section">
+            <h3 class="social-title">Connect With Us</h3>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/company/technikiauh" class="social-link linkedin" title="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.instagram.com/technikiatauh/" class="social-link instagram" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://chat.whatsapp.com/BVCtubt4o6pLJcfPAYdBO5" class="social-link whatsapp-social" title="WhatsApp Community">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="https://discord.gg/jxt2fZG4jM" class="social-link discord" title="Discord Server">
+                    <i class="fab fa-discord"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>&copy; 2024 Tech<span style="color: #F59E0B;">निकी</span> Club, Amity University. All rights reserved.</p>
+            <p style="margin-top: 8px; font-size: 12px; opacity: 0.8;">
+                🌟 Innovating • Creating • Leading the Future 🌟
+            </p>
+        </div>
+    </div>
+</body>
+</html>

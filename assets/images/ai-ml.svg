@@ -1,0 +1,65 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="aiGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e40af;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="#1f2937"/>
+  
+  <!-- Brain/Neural Network representation -->
+  <g transform="translate(400, 300)">
+    <!-- Central node -->
+    <circle cx="0" cy="0" r="30" fill="url(#aiGradient)"/>
+    
+    <!-- Neural connections -->
+    <g stroke="#3b82f6" stroke-width="2" opacity="0.6">
+      <line x1="0" y1="0" x2="-100" y2="-80"/>
+      <line x1="0" y1="0" x2="100" y2="-80"/>
+      <line x1="0" y1="0" x2="-120" y2="50"/>
+      <line x1="0" y1="0" x2="120" y2="50"/>
+      <line x1="0" y1="0" x2="0" y2="-120"/>
+      <line x1="0" y1="0" x2="0" y2="120"/>
+    </g>
+    
+    <!-- Outer nodes -->
+    <circle cx="-100" cy="-80" r="15" fill="#8b5cf6"/>
+    <circle cx="100" cy="-80" r="15" fill="#8b5cf6"/>
+    <circle cx="-120" cy="50" r="15" fill="#8b5cf6"/>
+    <circle cx="120" cy="50" r="15" fill="#8b5cf6"/>
+    <circle cx="0" cy="-120" r="15" fill="#8b5cf6"/>
+    <circle cx="0" cy="120" r="15" fill="#8b5cf6"/>
+    
+    <!-- Additional connections -->
+    <g stroke="#8b5cf6" stroke-width="1" opacity="0.4">
+      <line x1="-100" y1="-80" x2="100" y2="-80"/>
+      <line x1="-120" y1="50" x2="120" y2="50"/>
+      <line x1="-100" y1="-80" x2="-120" y2="50"/>
+      <line x1="100" y1="-80" x2="120" y2="50"/>
+    </g>
+  </g>
+  
+  <!-- Binary code background pattern -->
+  <g fill="#374151" opacity="0.3" font-family="monospace" font-size="12">
+    <text x="50" y="50">01001001</text>
+    <text x="150" y="100">11010110</text>
+    <text x="250" y="50">10110001</text>
+    <text x="550" y="80">01110100</text>
+    <text x="650" y="120">11001010</text>
+    <text x="50" y="450">10101010</text>
+    <text x="650" y="500">01010101</text>
+  </g>
+  
+  <!-- AI/ML Icons -->
+  <g transform="translate(100, 450)">
+    <rect width="80" height="80" rx="10" fill="#059669" opacity="0.7"/>
+    <text x="40" y="45" text-anchor="middle" fill="white" font-size="24">AI</text>
+  </g>
+  
+  <g transform="translate(600, 100)">
+    <rect width="80" height="80" rx="10" fill="#dc2626" opacity="0.7"/>
+    <text x="40" y="45" text-anchor="middle" fill="white" font-size="20">ML</text>
+  </g>
+</svg>
