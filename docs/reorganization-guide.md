@@ -57,7 +57,7 @@ When working on other pages, update these file references:
 4. ✅ Updated individual page file paths
 5. ✅ Fixed navigation links with .html extensions
 6. ✅ All asset paths now use relative URLs
-7. ✅ Updated new team.html and projects.html files
+7. ✅ Updated new /pages/team.html and /pages/projects.html files
 8. ✅ Fixed team member image paths
 9. ✅ All navigation and footer links properly updated
 

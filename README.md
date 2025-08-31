@@ -28,11 +28,11 @@ A modern, responsive community website for Amity University Gurugram's tech enth
 techniki2/
 ├── index.html              # Main landing page
 ├── pages/                  # All other HTML pages
-│   ├── team.html          # Team member profiles
-│   ├── projects.html      # Project showcase
-│   ├── events.html        # Events and workshops
-│   ├── certificates.html  # Certification programs
-│   ├── blog.html          # Tech blog
+│   ├── /pages/team.html          # Team member profiles
+│   ├── /pages/projects.html      # Project showcase
+│   ├── /pages/events.html        # Events and workshops
+│   ├── /pages/certificates.html  # Certification programs
+│   ├── /pages/blog.html          # Tech blog
 │   └── ambassador.html    # Campus ambassador program
 ├── assets/
 │   ├── css/
