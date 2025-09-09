@@ -4,10 +4,10 @@
     <!-- Meta tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Certificates - Techनिकी</title>
-    <meta name="description" content="Earn industry-recognized certificates in AI/ML, Web Development, AR/VR, and other cutting-edge technologies through Techनिकी programs.">
-    <meta name="keywords" content="Techniki Certificates, Tech Certification, AI ML Certification, Web Development Certificate, Technology Skills">
-    <link rel="icon" type="image/x-icon" href="../assets/images/logo/logo.ico">
+    <title>Techनिकी - Empowering Innovation in Technology</title>
+    <meta name="description" content="Join Techनिकी, the premier tech community for AI, ML, Web Development, AR, and VR enthusiasts. Learn, connect, and innovate together.">
+    <meta name="keywords" content="Techniki, AI, Machine Learning, Web Development, AR, VR, Technology Community, Innovation">
+    <link rel="icon" type="image/x-icon" href="assets/images/logo/logo.ico">
     
     <!-- Enhanced Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -17,24 +17,83 @@
     
     <!-- CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    
-    <!-- Enhanced Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
-    <!-- VANTA.NET scripts -->
-    <script>
-        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-        if (!isMobile) {
-            document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"><\/script>');
-            document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.21/vanta.net.min.js"><\/script>');
-        }
-    </script>
-    
     <style>
-        .font-inter { font-family: 'Inter', sans-serif; }
+        /* Mobile-specific styles */
+        @media (max-width: 768px) {
+            #vanta-bg {
+                min-height: 100vh !important;
+            }
+            
+            .hero-title {
+                font-size: 3.5rem !important;
+                line-height: 1.2 !important;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem !important;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 1.5rem !important;
+            }
+            
+            .stats-number {
+                font-size: 2.5rem !important;
+            }
+            
+            .domain-card {
+                margin-bottom: 1.5rem;
+            }
+            
+            .mission-card, .domain-card {
+                margin-bottom: 1.5rem;
+            }
+            
+            .floating-particles {
+                display: none; /* Improve performance on mobile */
+            }
+            
+            .mobile-menu-open {
+                transform: translateY(0) !important;
+            }
+            
+            .mobile-menu-closed {
+                transform: translateY(-100%) !important;
+            }
+            
+            /* Fix for mobile navigation */
+            #mobile-menu {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 40;
+                height: 100vh;
+                overflow-y: auto;
+            }
+            
+            /* Improve button sizes for mobile */
+            .hero-btn, .join-btn {
+                padding: 0.8rem 1.5rem !important;
+                font-size: 1rem !important;
+                width: 100%;
+                text-align: center;
+                margin-bottom: 0.5rem;
+            }
+            
+            .btn-container {
+                flex-direction: column;
+            }
+            
+            /* Fix text overflow issues */
+            .text-overflow-fix {
+                overflow-wrap: break-word;
+                word-wrap: break-word;
+            }
+        }
+        
+        /* General improvements */
         .nav-link::after {
             content: '';
             position: absolute;
@@ -42,38 +101,51 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: linear-gradient(90deg, #3B82F6, #8B5CF6);
+            background: linear-gradient(to right, #3b82f6, #8b5cf6);
             transition: width 0.3s ease;
         }
-        .nav-link:hover::after { width: 100%; }
-        .glass-card {
-            background: rgba(17, 24, 39, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(8px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        
+        .nav-link:hover::after {
+            width: 100%;
         }
-        .cert-card {
-            transition: all 0.3s ease;
-        }
-        .cert-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-        }
-        @media (max-width: 768px) {
-            .mobile-menu-open { transform: translateY(0) !important; }
-            .mobile-menu-closed { transform: translateY(-100%) !important; }
+        
+        /* Performance optimization for mobile */
+        @media (max-width: 768px) and (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
         }
     </style>
+    
+    <!-- Enhanced Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- VANTA.NET scripts - Load conditionally for better performance -->
+    <script>
+        // Only load heavy scripts on desktop
+        if (window.innerWidth > 768) {
+            document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"><\/script>');
+            document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.21/vanta.net.min.js"><\/script>');
+        }
+    </script>
+    <!-- Add these before your custom script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body class="font-inter bg-gray-900" id="vanta-bg">
-
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 transition-all duration-300 bg-black bg-opacity-50 backdrop-blur-lg" id="navbar">
+    <nav class="fixed top-0 w-full z-50 transition-all duration-300 bg-black bg-opacity-70 backdrop-blur-md" id="navbar">
         <div class="container mx-auto px-4 py-3">
             <div class="flex items-center justify-between">
                 <div class="flex items-center space-x-2">
-                    <a href="../index.html" class="flex items-center space-x-2 group">
-                        <img src="../assets/images/logo/logo.png" alt="Techनिकी Logo" class="h-8 w-auto transition-transform duration-300 group-hover:scale-110">
+                    <a href="index" class="flex items-center space-x-2 group">
+                        <img src="assets/images/logo/logo.png" alt="Techनिकी Logo" class="h-8 w-auto transition-transform duration-300 group-hover:scale-110">
                         <span class="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">Techनिकी</span>
                     </a>
                 </div>
@@ -82,7 +154,7 @@
                     <a href="/pages/events.html" class="nav-link text-white hover:text-blue-400 transition-colors duration-300 relative px-2 py-1">
                         <i class="fas fa-calendar-alt mr-1"></i>Events
                     </a>
-                    <a href="/pages/certificates.html" class="nav-link text-blue-400 hover:text-blue-300 transition-colors duration-300 relative px-2 py-1">
+                    <a href="/pages/certificates.html" class="nav-link text-white hover:text-blue-400 transition-colors duration-300 relative px-2 py-1">
                         <i class="fas fa-certificate mr-1"></i>Certificates
                     </a>
                     <a href="/pages/team.html" class="nav-link text-white hover:text-blue-400 transition-colors duration-300 relative px-2 py-1">
@@ -94,7 +166,7 @@
                     <a href="/pages/projects.html" class="nav-link text-white hover:text-blue-400 transition-colors duration-300 relative px-2 py-1">
                         <i class="fas fa-project-diagram mr-1"></i>Projects
                     </a>
-                    <a href="#footer" class="nav-link text-white hover:text-blue-400 transition-colors duration-300 relative px-2 py-1">
+                    <a href="/pages/form.html" class="nav-link text-white hover:text-blue-400 transition-colors duration-300 relative px-2 py-1">
                         <i class="fas fa-envelope mr-1"></i>Contact
                     </a>
                 </div>
@@ -112,43 +184,44 @@
     </nav>
         
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="lg:hidden bg-black bg-opacity-95 backdrop-blur-lg fixed top-0 left-0 w-full h-full z-40 transition-transform duration-300 transform -translate-y-full overflow-y-auto">
+     <div id="mobile-menu" class="lg:hidden bg-black bg-opacity-95 backdrop-blur-lg fixed top-0 left-0 w-full h-full z-40 transition-transform duration-300 mobile-menu-closed overflow-y-auto" style="transform: translateY(-100%);">
         <div class="container mx-auto px-6 py-20">
             <button class="absolute top-5 right-5 text-white text-2xl" id="close-menu">
                 <i class="fas fa-times"></i>
             </button>
             <div class="flex flex-col space-y-8 mt-10">
-                <a href="/pages/events.html" class="text-white hover:text-blue-400 transition-colors text-xl py-2 border-b border-gray-700">
+                <a href="../pages/events.html" class="text-white hover:text-blue-400 transition-colors text-xl py-2 border-b border-gray-700">
                     <i class="fas fa-calendar-alt mr-3"></i>Events
                 </a>
-                <a href="/pages/certificates.html" class="text-blue-400 hover:text-blue-300 transition-colors text-xl py-2 border-b border-gray-700">
+                <a href="../pages/certificates.html" class="text-white hover:text-blue-400 transition-colors text-xl py-2 border-b border-gray-700">
                     <i class="fas fa-certificate mr-3"></i>Certificates
                 </a>
-                <a href="/pages/team.html" class="text-white hover:text-blue-400 transition-colors text-xl py-2 border-b border-gray-700">
+                <a href="../pages/team.html" class="text-white hover:text-blue-400 transition-colors text-xl py-2 border-b border-gray-700">
                     <i class="fas fa-users mr-3"></i>Team
                 </a>
-                <a href="/pages/blog.html" class="text-white hover:text-blue-400 transition-colors text-xl py-2 border-b border-gray-700">
+                <a href="../pages/blog.html" class="text-white hover:text-blue-400 transition-colors text-xl py-2 border-b border-gray-700">
                     <i class="fas fa-blog mr-3"></i>Blog
                 </a>
-                <a href="/pages/projects.html" class="text-white hover:text-blue-400 transition-colors text-xl py-2 border-b border-gray-700">
+                <a href="../pages/projects.html" class="text-blue-400 hover:text-blue-300 transition-colors text-xl py-2 border-b border-gray-700">
                     <i class="fas fa-project-diagram mr-3"></i>Projects
                 </a>
                 <a href="#footer" class="text-white hover:text-blue-400 transition-colors text-xl py-2 border-b border-gray-700">
                     <i class="fas fa-envelope mr-3"></i>Contact
                 </a>
-                <a href="/pages/form.html" class="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-3 rounded-full font-semibold text-center transition-all duration-300 hover:scale-105 mt-4">
-                    <i class="fas fa-rocket mr-2"></i>JOIN NOW
+                <a href="../pages/form.html" class="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105 text-center mt-8">
+                    <i class="fas fa-rocket mr-2"></i>JOIN COMMUNITY
                 </a>
             </div>
         </div>
     </div>
 
-    <!-- Hero Section -->
+   
+  <!-- Hero Section -->
     <section class="relative min-h-screen flex items-center justify-center pt-20">
         <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-purple-900/20"></div>
         <div class="container mx-auto px-6 text-center relative z-10">
             <div data-aos="fade-up" data-aos-duration="1000">
-                <h1 class="text-6xl md:text-8xl font-bold text-white mb-6 leading-tight">
+                <h1 class="text-4xl md:text-6xl lg:text-8xl font-bold text-white mb-6 leading-tight">
                     <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">Certificates</span>
                 </h1>
                 <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
@@ -158,17 +231,15 @@
                     Build your expertise through comprehensive programs in AI/ML, Web Development, AR/VR, and emerging technologies.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    <a href="#programs" class="hero-btn bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl">
-                        <i class="fas fa-graduation-cap mr-2"></i>View Programs
+                    <a href="#certificate" class="hero-btn bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl">
+                        <i class="fas fa-graduation-cap mr-2"></i>View Certificate
                     </a>
-                    <a href="/pages/form.html" class="hero-btn bg-transparent border-2 border-blue-400 text-blue-400 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:bg-blue-400 hover:text-white">
+                    <a href="form.html" class="hero-btn bg-transparent border-2 border-blue-400 text-blue-400 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:bg-blue-400 hover:text-white">
                         <i class="fas fa-user-plus mr-2"></i>Enroll Now
                     </a>
                 </div>
             </div>
         </div>
-        
-        <!-- Scroll indicator -->
         <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
             <i class="fas fa-chevron-down text-white text-2xl"></i>
         </div>
@@ -177,7 +248,7 @@
     <!-- Certificate Statistics -->
     <section class="py-20 bg-gradient-to-br from-gray-900 to-black relative">
         <div class="container mx-auto px-6">
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8" data-aos="fade-up">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8" data-aos="fade-up">
                 <div class="text-center">
                     <div class="glass-card p-6 rounded-2xl">
                         <div class="text-4xl font-bold text-blue-400 mb-2">8+</div>
@@ -206,181 +277,31 @@
         </div>
     </section>
 
-    <!-- Certificate Programs -->
-    <section id="programs" class="py-20 bg-gray-900">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
-                    Certificate <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">Programs</span>
-                </h2>
-                <p class="text-gray-400 text-lg max-w-2xl mx-auto">
-                    Choose from our comprehensive certification programs designed by industry experts
-                </p>
+    <!-- Certificate Lookup Section -->
+    <section class="py-20 bg-gradient-to-br from-gray-900 to-black relative">
+        <section id="certificate" class="py-20 bg-gradient-to-r from-blue-900/20 to-purple-900/20">                                                                             
+        <div class="panel relative overflow-hidden border-2 border-blue-500/30 shadow-2xl rounded-2xl transition-all duration-300 hover:border-purple-500/60 max-w-2xl mx-auto" data-aos="fade-up">
+            <h2 class="text-2xl font-bold text-white mb-6 text-center">Get Certificate Data</h2>
+            <div class="flex flex-col gap-4 items-center">
+                <input type="text" id="enrollment" placeholder="Enter Enrollment ID" class="bg-gray-700 text-white rounded-lg px-4 py-3 w-full max-w-md" />
+                <select id="eventDropdown" class="bg-gray-700 text-white rounded-lg px-4 py-3 w-full max-w-md">
+                    <option value="">-- Select Event --</option>
+                   
+                </select>
+                <button onclick="downloadCertificate()" class="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105 shadow-lg w-full max-w-md">
+                    Download Certificate
+                </button>
+                <div id="result" class="mt-4 bg-gray-800 text-white rounded-lg px-4 py-3 w-full max-w-md"></div>
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- AI/ML Certificate -->
-                <div class="cert-card glass-card rounded-2xl overflow-hidden" data-aos="fade-up">
-                    <div class="h-48 bg-gradient-to-br from-blue-600 to-cyan-700 flex items-center justify-center">
-                        <i class="fas fa-brain text-6xl text-white"></i>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-semibold">AI/ML</span>
-                            <span class="text-blue-400 font-semibold">12 Weeks</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Artificial Intelligence & Machine Learning</h3>
-                        <p class="text-gray-300 mb-4">Master AI fundamentals, ML algorithms, and deep learning techniques</p>
-                        <ul class="text-gray-400 text-sm mb-6 space-y-1">
-                            <li>• Python Programming</li>
-                            <li>• Machine Learning Algorithms</li>
-                            <li>• Neural Networks & Deep Learning</li>
-                            <li>• Industry Projects</li>
-                        </ul>
-                        <div class="flex items-center justify-between">
-                            <span class="text-green-400 font-semibold">₹2,999</span>
-                            <a href="#" class="bg-gradient-to-r from-blue-500 to-cyan-600 text-white px-4 py-2 rounded-full text-sm font-semibold hover:scale-105 transition-all">
-                                Enroll Now
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Web Development Certificate -->
-                <div class="cert-card glass-card rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="200">
-                    <div class="h-48 bg-gradient-to-br from-purple-600 to-pink-700 flex items-center justify-center">
-                        <i class="fas fa-code text-6xl text-white"></i>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-semibold">Web Dev</span>
-                            <span class="text-purple-400 font-semibold">10 Weeks</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Full Stack Web Development</h3>
-                        <p class="text-gray-300 mb-4">Build modern web applications with React, Node.js, and databases</p>
-                        <ul class="text-gray-400 text-sm mb-6 space-y-1">
-                            <li>• HTML, CSS, JavaScript</li>
-                            <li>• React.js & Node.js</li>
-                            <li>• Database Management</li>
-                            <li>• Deployment & DevOps</li>
-                        </ul>
-                        <div class="flex items-center justify-between">
-                            <span class="text-green-400 font-semibold">₹2,499</span>
-                            <a href="#" class="bg-gradient-to-r from-purple-500 to-pink-600 text-white px-4 py-2 rounded-full text-sm font-semibold hover:scale-105 transition-all">
-                                Enroll Now
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- AR/VR Certificate -->
-                <div class="cert-card glass-card rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="400">
-                    <div class="h-48 bg-gradient-to-br from-green-600 to-teal-700 flex items-center justify-center">
-                        <i class="fas fa-vr-cardboard text-6xl text-white"></i>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">AR/VR</span>
-                            <span class="text-green-400 font-semibold">8 Weeks</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">AR/VR Development</h3>
-                        <p class="text-gray-300 mb-4">Create immersive experiences with Unity, ARCore, and VR frameworks</p>
-                        <ul class="text-gray-400 text-sm mb-6 space-y-1">
-                            <li>• Unity 3D Development</li>
-                            <li>• AR Development (ARCore)</li>
-                            <li>• VR Implementation</li>
-                            <li>• 3D Modeling Basics</li>
-                        </ul>
-                        <div class="flex items-center justify-between">
-                            <span class="text-green-400 font-semibold">₹3,499</span>
-                            <a href="#" class="bg-gradient-to-r from-green-500 to-teal-600 text-white px-4 py-2 rounded-full text-sm font-semibold hover:scale-105 transition-all">
-                                Enroll Now
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Mobile Development Certificate -->
-                <div class="cert-card glass-card rounded-2xl overflow-hidden" data-aos="fade-up">
-                    <div class="h-48 bg-gradient-to-br from-orange-600 to-red-700 flex items-center justify-center">
-                        <i class="fas fa-mobile-alt text-6xl text-white"></i>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-semibold">Mobile</span>
-                            <span class="text-orange-400 font-semibold">10 Weeks</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Mobile App Development</h3>
-                        <p class="text-gray-300 mb-4">Build cross-platform mobile apps with React Native and Flutter</p>
-                        <ul class="text-gray-400 text-sm mb-6 space-y-1">
-                            <li>• React Native</li>
-                            <li>• Flutter Development</li>
-                            <li>• Mobile UI/UX</li>
-                            <li>• App Store Deployment</li>
-                        </ul>
-                        <div class="flex items-center justify-between">
-                            <span class="text-green-400 font-semibold">₹2,799</span>
-                            <a href="#" class="bg-gradient-to-r from-orange-500 to-red-600 text-white px-4 py-2 rounded-full text-sm font-semibold hover:scale-105 transition-all">
-                                Enroll Now
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Cybersecurity Certificate -->
-                <div class="cert-card glass-card rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="200">
-                    <div class="h-48 bg-gradient-to-br from-red-600 to-pink-700 flex items-center justify-center">
-                        <i class="fas fa-shield-alt text-6xl text-white"></i>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold">Security</span>
-                            <span class="text-red-400 font-semibold">14 Weeks</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Cybersecurity Specialist</h3>
-                        <p class="text-gray-300 mb-4">Learn ethical hacking, penetration testing, and security frameworks</p>
-                        <ul class="text-gray-400 text-sm mb-6 space-y-1">
-                            <li>• Ethical Hacking</li>
-                            <li>• Network Security</li>
-                            <li>• Penetration Testing</li>
-                            <li>• Security Frameworks</li>
-                        </ul>
-                        <div class="flex items-center justify-between">
-                            <span class="text-green-400 font-semibold">₹3,999</span>
-                            <a href="#" class="bg-gradient-to-r from-red-500 to-pink-600 text-white px-4 py-2 rounded-full text-sm font-semibold hover:scale-105 transition-all">
-                                Enroll Now
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Data Science Certificate -->
-                <div class="cert-card glass-card rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="400">
-                    <div class="h-48 bg-gradient-to-br from-indigo-600 to-purple-700 flex items-center justify-center">
-                        <i class="fas fa-chart-line text-6xl text-white"></i>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="bg-indigo-500 text-white px-3 py-1 rounded-full text-sm font-semibold">Data</span>
-                            <span class="text-indigo-400 font-semibold">12 Weeks</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Data Science & Analytics</h3>
-                        <p class="text-gray-300 mb-4">Master data analysis, visualization, and statistical modeling</p>
-                        <ul class="text-gray-400 text-sm mb-6 space-y-1">
-                            <li>• Python for Data Science</li>
-                            <li>• Statistical Analysis</li>
-                            <li>• Data Visualization</li>
-                            <li>• Big Data Technologies</li>
-                        </ul>
-                        <div class="flex items-center justify-between">
-                            <span class="text-green-400 font-semibold">₹3,299</span>
-                            <a href="#" class="bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-4 py-2 rounded-full text-sm font-semibold hover:scale-105 transition-all">
-                                Enroll Now
-                            </a>
-                        </div>
-                    </div>
+            <!-- Hidden certificate render area -->
+            <div id="certificateArea" style="position:relative;width:800px;height:600px;display:none;margin:auto;">
+                <img id="certTemplate" src="/assets/images/logo/template.png" style="position:absolute;top:0;left:0;width:800px;height:600px;"/>
+                <div id="certText" style="position:absolute;top:250px;left:0;width:800px;text-align:center;">
+                    <div id="certName" style="font-size:32px;font-weight:bold;color:#222;"></div>
+                    <div id="certCourse" style="font-size:24px;color:#444;margin-top:16px;"></div>
                 </div>
             </div>
+        </div>
         </div>
     </section>
 
@@ -456,23 +377,24 @@
                 Take the first step towards advancing your career with our industry-recognized certification programs.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <a href="/pages/form.html" class="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105 shadow-xl">
+                <a href="form.html" class="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105 shadow-xl">
                     <i class="fas fa-graduation-cap mr-2"></i>Enroll Now
                 </a>
-                <a href="/pages/team.html" class="bg-transparent border-2 border-blue-400 text-blue-400 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:bg-blue-400 hover:text-white">
+                <a href="team.html" class="bg-transparent border-2 border-blue-400 text-blue-400 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:bg-blue-400 hover:text-white">
                     <i class="fas fa-phone mr-2"></i>Talk to Advisor
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Enhanced Footer -->
-    <footer id="footer" class="bg-gradient-to-br from-gray-900 to-black text-white relative overflow-hidden">
+   <footer id="footer" class="bg-gradient-to-br from-gray-900 to-black text-white relative overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-br from-blue-900/10 to-purple-900/10"></div>
         
+        <!-- Main Footer Content -->
         <div class="relative z-10 py-16">
             <div class="container mx-auto px-6">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Brand Section -->
                     <div class="lg:col-span-2" data-aos="fade-up">
                         <a href="../index.html" class="flex items-center space-x-3 group mb-6">
                             <img src="../assets/images/logo/logo.png" alt="Logo" class="h-12 w-auto transition-transform duration-300 group-hover:scale-110">
@@ -494,31 +416,33 @@
                         </div>
                     </div>
 
+                    <!-- Quick Links -->
                     <div data-aos="fade-up" data-aos-delay="100">
-                        <h4 class="text-lg font-semibold text-white mb-6">Programs</h4>
+                        <h4 class="text-lg font-semibold text-white mb-6">Quick Links</h4>
                         <ul class="space-y-3">
-                            <li><a href="#" class="text-gray-300 hover:text-purple-400 transition-colors">AI/ML Certificate</a></li>
-                            <li><a href="#" class="text-gray-300 hover:text-purple-400 transition-colors">Web Development</a></li>
-                            <li><a href="#" class="text-gray-300 hover:text-purple-400 transition-colors">AR/VR Development</a></li>
-                            <li><a href="#" class="text-gray-300 hover:text-purple-400 transition-colors">Cybersecurity</a></li>
-                            <li><a href="#" class="text-gray-300 hover:text-purple-400 transition-colors">Data Science</a></li>
+                            <li><a href="../index.html" class="text-gray-300 hover:text-purple-400 transition-colors">Home</a></li>
+                            <li><a href="/pages/events.html" class="text-gray-300 hover:text-purple-400 transition-colors">Events</a></li>
+                            <li><a href="/pages/projects.html" class="text-gray-300 hover:text-purple-400 transition-colors">Projects</a></li>
+                            <li><a href="/pages/team.html" class="text-gray-300 hover:text-purple-400 transition-colors">Team</a></li>
+                            <li><a href="/pages/blog.html" class="text-gray-300 hover:text-purple-400 transition-colors">Blog</a></li>
                         </ul>
                     </div>
 
+                    <!-- Contact Info -->
                     <div data-aos="fade-up" data-aos-delay="200">
                         <h4 class="text-lg font-semibold text-white mb-6">Contact</h4>
                         <ul class="space-y-3">
                             <li class="flex items-center space-x-3">
                                 <i class="fas fa-envelope text-purple-400"></i>
-                                <span class="text-gray-300">certificates@techniki.community</span>
-                            </li>
-                            <li class="flex items-center space-x-3">
-                                <i class="fas fa-phone text-purple-400"></i>
-                                <span class="text-gray-300">+91 98765 43210</span>
+                                <span class="text-gray-300">contact@techniki.community</span>
                             </li>
                             <li class="flex items-center space-x-3">
                                 <i class="fas fa-map-marker-alt text-purple-400"></i>
                                 <span class="text-gray-300">Amity University, Gurugram</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <i class="fas fa-globe text-purple-400"></i>
+                                <span class="text-gray-300">techniki.community</span>
                             </li>
                         </ul>
                     </div>
@@ -526,6 +450,7 @@
             </div>
         </div>
 
+        <!-- Bottom Bar -->
         <div class="relative z-10 border-t border-gray-800 py-6">
             <div class="container mx-auto px-6">
                 <div class="flex flex-col md:flex-row justify-between items-center">
@@ -535,7 +460,7 @@
                     <div class="flex space-x-6 text-sm">
                         <a href="#" class="text-gray-400 hover:text-purple-400 transition-colors">Privacy Policy</a>
                         <a href="#" class="text-gray-400 hover:text-purple-400 transition-colors">Terms of Service</a>
-                        <a href="#" class="text-gray-400 hover:text-purple-400 transition-colors">Refund Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-purple-400 transition-colors">Code of Conduct</a>
                     </div>
                 </div>
             </div>
@@ -544,16 +469,18 @@
 
     <!-- Enhanced Scripts -->
     <script>
-        // Initialize AOS
-        AOS.init({
+        // Global navigation helper for header links
+        window.navigateToPage = function(pageName) {
+            window.location.href = pageName + '.html';
+        };
+        // AOS & VANTA
+        AOS.init({ 
             duration: 1000,
-            easing: 'ease-in-out',
-            once: true,
-            mirror: false
-        });
-        
-        // VANTA.NET Background
-        if (!isMobile && typeof VANTA !== 'undefined') {
+             easing: 'ease-in-out',
+              once: true, 
+              mirror: false,
+             disable: window.innerWidth < 768 });
+        if (window.innerWidth > 768) {
             VANTA.NET({
                 el: "#vanta-bg",
                 mouseControls: true,
@@ -569,38 +496,38 @@
                 maxDistance: 25.00,
                 spacing: 18.00
             });
-        }
-
-        // Mobile Menu Toggle
-        document.getElementById('menu-button').addEventListener('click', function() {
-            const mobileMenu = document.getElementById('mobile-menu');
-            const icon = this.querySelector('i');
-            
-            if (mobileMenu.classList.contains('-translate-y-full')) {
-                mobileMenu.classList.remove('-translate-y-full');
-                mobileMenu.classList.add('translate-y-0');
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
             } else {
-                mobileMenu.classList.add('-translate-y-full');
-                mobileMenu.classList.remove('translate-y-0');
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
+            // Set a simple gradient background for mobile
+            document.getElementById('vanta-bg').style.background = 'linear-gradient(to bottom, #111827, #1f2937)';
+        }
+        // Mobile Menu Toggle
+       const menuButton = document.getElementById('menu-button');
+        const closeMenuButton = document.getElementById('close-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (menuButton && mobileMenu) {
+            menuButton.addEventListener('click', function() {
+                mobileMenu.classList.remove('mobile-menu-closed');
+                mobileMenu.classList.add('mobile-menu-open');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+            });
+        }
+        
+        if (closeMenuButton && mobileMenu) {
+            closeMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.remove('mobile-menu-open');
+                mobileMenu.classList.add('mobile-menu-closed');
+                document.body.style.overflow = ''; // Re-enable scrolling
+            });
+        }
+         const mobileLinks = document.querySelectorAll('#mobile-menu a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.remove('mobile-menu-open');
+                mobileMenu.classList.add('mobile-menu-closed');
+                document.body.style.overflow = '';
+            });
         });
-
-        // Close mobile menu
-        document.getElementById('close-menu').addEventListener('click', function() {
-            const mobileMenu = document.getElementById('mobile-menu');
-            const menuButton = document.getElementById('menu-button');
-            const icon = menuButton.querySelector('i');
-            
-            mobileMenu.classList.add('-translate-y-full');
-            mobileMenu.classList.remove('translate-y-0');
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
-        });
-
         // Navbar Scroll Effect
         window.addEventListener('scroll', function() {
             const navbar = document.getElementById('navbar');
@@ -612,13 +539,60 @@
                 navbar.style.backdropFilter = 'blur(10px)';
             }
         });
+        function animateCounters() {
+            const counters = document.querySelectorAll('[data-count]');
+            let animated = false;
+            
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-count'));
+                const count = parseInt(counter.innerText);
+                
+                if (!isNaN(target) && !animated) {
+                    let current = 0;
+                    const increment = target / 50;
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= target) {
+                            counter.innerText = target + '+';
+                            clearInterval(timer);
+                            animated = true;
+                        } else {
+                            counter.innerText = Math.floor(current) + '+';
+                        }
+                    }, 30);
+                }
+            });
+        }
+          // Trigger counter animation when section is visible
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
 
+        const statsSection = document.querySelector('.stats-grid');
+        if (statsSection) {
+            observer.observe(statsSection);
+        }
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const target = document.querySelector(targetId);
                 if (target) {
+                    // Close mobile menu if open
+                    if (mobileMenu.classList.contains('mobile-menu-open')) {
+                        mobileMenu.classList.remove('mobile-menu-open');
+                        mobileMenu.classList.add('mobile-menu-closed');
+                        document.body.style.overflow = '';
+                    }
+                    
                     target.scrollIntoView({
                         behavior: 'smooth',
                         block: 'start'
@@ -626,6 +600,110 @@
                 }
             });
         });
+         if (window.innerWidth < 768) {
+            // Reduce the number of AOS animations on mobile
+            const reducedAnimations = document.querySelectorAll('[data-aos]');
+            reducedAnimations.forEach((el, index) => {
+                if (index % 2 !== 0) { // Remove every other animation
+                    el.removeAttribute('data-aos');
+                }
+            });
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Supabase credentials
+        const SUPABASE_URL = "https://zgcyqufccguiustbufkl.supabase.co";
+        const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpnY3lxdWZjY2d1aXVzdGJ1ZmtsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTcwMDYwMDIsImV4cCI6MjA3MjU4MjAwMn0.JvgLWYQ4zh_uBA3gwznBQWEJV5_E9oRXnBukKMVtpZ8";
+        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        // Load events into dropdown on page load
+        async function loadEvents() {
+            const { data: events, error } = await supabaseClient
+                .from("events")
+                .select("event_name");
+            if (error) {
+                console.error("Error loading events:", error);
+                return;
+            }
+            const dropdown = document.getElementById("eventDropdown");
+            events.forEach(evt => {
+                let option = document.createElement("option");
+                option.value = evt.event_name;
+                option.textContent = evt.event_name;
+                dropdown.appendChild(option);
+            });
+        }
+
+        // Download certificate as PDF (fetches data and generates PDF)
+        async function downloadCertificate() {
+            const enrollment = document.getElementById("enrollment").value.trim();
+            const eventName = document.getElementById("eventDropdown").value.trim();
+
+            if (!enrollment || !eventName) {
+                document.getElementById("result").innerHTML = `<p style="color:red">Please enter enrollment and select event</p>`;
+                return;
+            }
+
+            // Validate event exists
+            const { data: event, error: eventError } = await supabaseClient
+                .from("events")
+                .select("id")
+                .eq("event_name", eventName)
+                .single();
+
+            if (eventError || !event) {
+                document.getElementById("result").innerHTML = `<p style="color:red">Event not found</p>`;
+                return;
+            }
+
+            // Fetch student (only name + course)
+            const { data: student, error: studentError } = await supabaseClient
+                .from("students")
+                .select("name")
+                .eq("enrollment", enrollment)
+                .single();
+
+            if (studentError || !student) {
+                document.getElementById("result").innerHTML = `<p style="color:red">Student not found</p>`;
+                return;
+            }
+
+            // Set certificate text
+            document.getElementById("certName").textContent = student.name;
+            
+
+            // Wait for image to load
+            const img = document.getElementById("certTemplate");
+            if (!img.complete) {
+                await new Promise(resolve => { img.onload = resolve; });
+            }
+
+            // Show certificate area for rendering
+            const certArea = document.getElementById("certificateArea");
+            certArea.style.display = "block";
+
+            // Render to canvas and download PDF
+            html2canvas(certArea).then(canvas => {
+                const { jsPDF } = window.jspdf;
+                const pdf = new jsPDF("l", "pt", [canvas.width, canvas.height]);
+                pdf.addImage(canvas.toDataURL("image/png"), "PNG", 0, 0, canvas.width, canvas.height);
+                pdf.save(`${student.name}_certificate.pdf`);
+                certArea.style.display = "none";
+            });
+        }
+
+        // Load events when page starts
+        loadEvents();
     </script>
 </body>
 </html>
