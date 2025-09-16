@@ -4,8 +4,8 @@
     <!-- Meta tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tech Blog - Techनिकी</title>
-    <meta name="description" content="Explore the latest insights, tutorials, and innovations in AI, ML, Web Development, AR, and VR from the Techniki community.">
+    <title>Our Projects - Techनिकी</title>
+    <meta name="description" content="Explore innovative projects built by the Techniki community in AI/ML, Web Development, AR/VR, and mobile applications.">
     <link rel="icon" type="image/x-icon" href="../assets/images/logo/logo.ico">
     
     <!-- Enhanced Fonts -->
@@ -30,82 +30,78 @@
 </head>
 <body class="font-inter bg-gray-900" id="vanta-bg">
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 transition-all duration-300" id="navbar">
-        <div class="container mx-auto px-6 py-4">
+    <nav class="fixed top-0 w-full z-50 transition-all duration-300 bg-black bg-opacity-70 backdrop-blur-md" id="navbar">
+        <div class="container mx-auto px-4 py-3">
             <div class="flex items-center justify-between">
-                <div class="flex items-center space-x-4">
-                    <a href="../index.html" class="flex items-center space-x-3 group">
-                        <img src="../assets/images/logo/logo.png" alt="Techनिकी Logo" class="h-10 w-auto transition-transform duration-300 group-hover:scale-110">
-                        <span class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">Techनिकी</span>
+                <div class="flex items-center space-x-2">
+                    <a href="../index.html" class="flex items-center space-x-2 group">
+                        <img src="../assets/images/logo/logo.png" alt="Techनिकी Logo" class="h-8 w-auto transition-transform duration-300 group-hover:scale-110">
+                        <span class="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">Techनिकी</span>
                     </a>
                 </div>
-                
-                <div class="hidden lg:flex items-center space-x-8">
-                    <a href="../index.html" class="nav-link text-white hover:text-blue-400 transition-colors duration-300 relative">
-                        <i class="fas fa-home mr-2"></i>Home
+                <div class="hidden lg:flex items-center space-x-6">
+                    <a href="../pages/events.html" class="nav-link text-white hover:text-blue-400 transition-colors duration-300 relative px-2 py-1">
+                        <i class="fas fa-calendar-alt mr-1"></i>Events
                     </a>
-                    <a href="/pages/events.html" class="nav-link text-white hover:text-blue-400 transition-colors duration-300 relative">
-                        <i class="fas fa-calendar-alt mr-2"></i>Events
+                    <a href="../pages/certificates.html" class="nav-link text-white hover:text-blue-400 transition-colors duration-300 relative px-2 py-1">
+                        <i class="fas fa-certificate mr-1"></i>Certificates
                     </a>
-                    <a href="/pages/certificates.html" class="nav-link text-white hover:text-blue-400 transition-colors duration-300 relative">
-                        <i class="fas fa-certificate mr-2"></i>Certificates
+                    <a href="../pages/team.html" class="nav-link text-white hover:text-blue-400 transition-colors duration-300 relative px-2 py-1">
+                        <i class="fas fa-users mr-1"></i>Team
                     </a>
-                    <a href="/pages/team.html" class="nav-link text-white hover:text-blue-400 transition-colors duration-300 relative">
-                        <i class="fas fa-users mr-2"></i>Team
+                    <a href="../pages/blog.html" class="nav-link text-white hover:text-blue-400 transition-colors duration-300 relative px-2 py-1">
+                        <i class="fas fa-blog mr-1"></i>Blog
                     </a>
-                    <a href="/pages/blog.html" class="nav-link text-blue-400 hover:text-blue-300 transition-colors duration-300 relative">
-                        <i class="fas fa-blog mr-2"></i>Blog
+                    <a href="../pages/projects.html" class="nav-link text-blue-400 hover:text-blue-300 transition-colors duration-300 relative px-2 py-1">
+                        <i class="fas fa-project-diagram mr-1"></i>Projects
                     </a>
-                    <a href="/pages/projects.html" class="nav-link text-white hover:text-blue-400 transition-colors duration-300 relative">
-                        <i class="fas fa-project-diagram mr-2"></i>Projects
-                    </a>
-                    <a href="#footer" class="nav-link text-white hover:text-blue-400 transition-colors duration-300 relative">
-                        <i class="fas fa-envelope mr-2"></i>Contact
+                    <a href="#footer" class="nav-link text-white hover:text-blue-400 transition-colors duration-300 relative px-2 py-1">
+                        <i class="fas fa-envelope mr-1"></i>Contact
                     </a>
                 </div>
-                
-                <div class="flex items-center space-x-4">
-                    <a href="/pages/form.html" class="join-btn bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:from-purple-600 hover:to-blue-500 hover:scale-105 shadow-lg hover:shadow-xl">
-                        <i class="fas fa-rocket mr-2"></i>JOIN NOW
+                <div class="flex items-center space-x-3">
+                    <a href="../pages/form.html" class="join-btn bg-gradient-to-r from-blue-500 to-purple-600 text-white px-4 py-2 rounded-full font-semibold transition-all duration-300 hover:from-purple-600 hover:to-blue-500 hover:scale-105 shadow-lg hover:shadow-xl text-sm hidden sm:block">
+                        <i class="fas fa-rocket mr-1"></i>JOIN NOW
                     </a>
-                    <button class="lg:hidden text-white hover:text-blue-400 transition-colors" id="menu-button">
-                        <i class="fas fa-bars text-2xl"></i>
+                    <button class="lg:hidden text-white hover:text-blue-400 transition-colors focus:outline-none" id="menu-button" aria-label="Toggle menu">
+                        <i class="fas fa-bars text-xl"></i>
                     </button>
                 </div>
             </div>
         </div>
-        
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="lg:hidden bg-black bg-opacity-95 backdrop-blur-lg transform -translate-y-full transition-transform duration-300">
-            <div class="container mx-auto px-6 py-8">
-                <div class="flex flex-col space-y-6">
-                    <a href="../index.html" class="text-white hover:text-blue-400 transition-colors text-lg">
-                        <i class="fas fa-home mr-3"></i>Home
-                    </a>
-                    <a href="/pages/events.html" class="text-white hover:text-blue-400 transition-colors text-lg">
-                        <i class="fas fa-calendar-alt mr-3"></i>Events
-                    </a>
-                    <a href="/pages/certificates.html" class="text-white hover:text-blue-400 transition-colors text-lg">
-                        <i class="fas fa-certificate mr-3"></i>Certificates
-                    </a>
-                    <a href="/pages/team.html" class="text-white hover:text-blue-400 transition-colors text-lg">
-                        <i class="fas fa-users mr-3"></i>Team
-                    </a>
-                    <a href="/pages/blog.html" class="text-blue-400 hover:text-blue-300 transition-colors text-lg">
-                        <i class="fas fa-blog mr-3"></i>Blog
-                    </a>
-                    <a href="/pages/projects.html" class="text-white hover:text-blue-400 transition-colors text-lg">
-                        <i class="fas fa-project-diagram mr-3"></i>Projects
-                    </a>
-                    <a href="#footer" class="text-white hover:text-blue-400 transition-colors text-lg">
-                        <i class="fas fa-envelope mr-3"></i>Contact
-                    </a>
-                </div>
+    </nav>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="lg:hidden bg-black bg-opacity-95 backdrop-blur-lg fixed top-0 left-0 w-full h-full z-40 transition-transform duration-300 mobile-menu-closed overflow-y-auto" style="transform: translateY(-100%);">
+        <div class="container mx-auto px-6 py-20">
+            <button class="absolute top-5 right-5 text-white text-2xl" id="close-menu">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="flex flex-col space-y-8 mt-10">
+                <a href="../pages/events.html" class="text-white hover:text-blue-400 transition-colors text-xl py-2 border-b border-gray-700">
+                    <i class="fas fa-calendar-alt mr-3"></i>Events
+                </a>
+                <a href="../pages/certificates.html" class="text-white hover:text-blue-400 transition-colors text-xl py-2 border-b border-gray-700">
+                    <i class="fas fa-certificate mr-3"></i>Certificates
+                </a>
+                <a href="../pages/team.html" class="text-white hover:text-blue-400 transition-colors text-xl py-2 border-b border-gray-700">
+                    <i class="fas fa-users mr-3"></i>Team
+                </a>
+                <a href="../pages/blog.html" class="text-white hover:text-blue-400 transition-colors text-xl py-2 border-b border-gray-700">
+                    <i class="fas fa-blog mr-3"></i>Blog
+                </a>
+                <a href="../pages/projects.html" class="text-blue-400 hover:text-blue-300 transition-colors text-xl py-2 border-b border-gray-700">
+                    <i class="fas fa-project-diagram mr-3"></i>Projects
+                </a>
+                <a href="#footer" class="text-white hover:text-blue-400 transition-colors text-xl py-2 border-b border-gray-700">
+                    <i class="fas fa-envelope mr-3"></i>Contact
+                </a>
+                <a href="../pages/form.html" class="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105 text-center mt-8">
+                    <i class="fas fa-rocket mr-2"></i>JOIN COMMUNITY
+                </a>
             </div>
         </div>
-    </nav>
-
+    </div>
+ 
     <!-- Hero Section -->
     <section class="relative min-h-screen flex items-center justify-center pt-20">
         <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-purple-900/20"></div>
@@ -518,11 +514,10 @@
     <!-- Enhanced Scripts -->
     <script>
         // Initialize AOS
-        AOS.init({
+       AOS.init({
             duration: 1000,
-            easing: 'ease-in-out',
             once: true,
-            mirror: false
+            offset: 100
         });
 
         // VANTA.NET Background
@@ -535,7 +530,7 @@
             minWidth: 200.00,
             scale: 1.00,
             scaleMobile: 1.00,
-            color: 0x3b82f6,
+            color: 0x3B82F6,
             backgroundColor: 0x111827,
             points: 15.00,
             maxDistance: 25.00,
@@ -543,19 +538,9 @@
         });
 
         // Mobile Menu Toggle
-        document.getElementById('menu-button').addEventListener('click', function() {
+       document.getElementById('menu-button').addEventListener('click', function() {
             const mobileMenu = document.getElementById('mobile-menu');
-            const icon = this.querySelector('i');
-            
-            if (mobileMenu.style.transform === 'translateY(0%)') {
-                mobileMenu.style.transform = 'translateY(-100%)';
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            } else {
-                mobileMenu.style.transform = 'translateY(0%)';
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            }
+            mobileMenu.classList.toggle('-translate-y-full');
         });
 
         // Navbar Scroll Effect
@@ -569,20 +554,91 @@
                 navbar.style.backdropFilter = 'blur(10px)';
             }
         });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+         function animateCounters() {
+            const counters = document.querySelectorAll('.counter');
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-count'));
+                let current = 0;
+                const increment = target / 100;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    counter.textContent = Math.floor(current);
+                }, 20);
+            });
+        }
+         // Trigger counter animation when in view
+        const observerOptions = {
+            threshold: 0.7
+        };
+         const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && entry.target.querySelector('.counter')) {
+                    animateCounters();
+                    observer.unobserve(entry.target);
                 }
             });
+        }, observerOptions);
+          // Observe counter sections
+        document.querySelectorAll('.counter').forEach(counter => {
+            observer.observe(counter.parentElement.parentElement.parentElement);
         });
+          // Project filtering
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectItems = document.querySelectorAll('.project-item');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => {
+                    btn.classList.remove('active', 'bg-gradient-to-r', 'from-blue-500', 'to-purple-600', 'text-white');
+                    btn.classList.add('bg-gray-800', 'text-gray-300');
+                });
+                
+                // Add active class to clicked button
+                button.classList.add('active', 'bg-gradient-to-r', 'from-blue-500', 'to-purple-600', 'text-white');
+                button.classList.remove('bg-gray-800', 'text-gray-300');
+
+                const filter = button.getAttribute('data-filter');
+                
+                projectItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                        item.classList.add('animate-fade-in');
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+             // Mobile menu toggle logic
+    const menuButton = document.getElementById('menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeMenu = document.getElementById('close-menu');
+
+    menuButton.addEventListener('click', function() {
+        mobileMenu.classList.remove('-translate-y-full');
+        mobileMenu.classList.add('translate-y-0');
+        document.body.style.overflow = 'hidden'; // Prevent background scroll
+    });
+
+    closeMenu.addEventListener('click', function() {
+        mobileMenu.classList.add('-translate-y-full');
+        mobileMenu.classList.remove('translate-y-0');
+        document.body.style.overflow = ''; // Restore scroll
+    });
+
+    // Optional: Close menu when clicking outside
+    mobileMenu.addEventListener('click', function(e) {
+        if (e.target === mobileMenu) {
+            mobileMenu.classList.add('-translate-y-full');
+            mobileMenu.classList.remove('translate-y-0');
+            document.body.style.overflow = '';
+        }
+    });
     </script>
 </body>
 </html>
