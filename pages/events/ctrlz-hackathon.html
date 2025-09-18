@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>CTRL+Z - AI Build Hackathon | Techniki</title>
+  <link rel="icon" type="image/x-icon" href="../../assets/images/logo/logo.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    /* Navigation styling */
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #3B82F6, #8B5CF6);
+        transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover::after {
+        width: 100%;
+    }
+    
+    /* Glass morphism effect */
+    .glass-card {
+        background: rgba(17, 24, 39, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(8px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+    
+    /* Mobile responsive improvements */
+    @media (max-width: 768px) {
+        .mobile-menu-open {
+            transform: translateY(0) !important;
+        }
+        
+        .mobile-menu-closed {
+            transform: translateY(-100%) !important;
+        }
+    }
+
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: #0a0f1c;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #111a2f;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      position: fixed;
+      top: 2rem;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      transition: all 0.3s;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(5px);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #00bfff;
+    }
+
+    .logo img {
+      height: 70px;
+      width: auto;
+      border-radius: 12px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #00bfff;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #8B5CF6, #3B82F6);
+      padding: 4rem 2rem;
+      text-align: center;
+      color: white;
+      border-radius: 0 0 50px 50px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="white" opacity="0.1"/></svg>') repeat;
+      animation: float 20s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+
+    .hero h1 { 
+      font-size: 3.5rem; 
+      margin-bottom: 0.5rem; 
+      position: relative;
+      z-index: 2;
+    }
+    
+    .hero p { 
+      font-size: 1.3rem; 
+      opacity: 0.95; 
+      position: relative;
+      z-index: 2;
+    }
+
+    .event-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 0.5rem 1.5rem;
+      border-radius: 25px;
+      margin-bottom: 1rem;
+      font-weight: 600;
+      backdrop-filter: blur(10px);
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin: 3rem 0 2rem;
+      color: #00bfff;
+      text-shadow: 0 0 10px rgba(0,191,255,0.5);
+    }
+
+    .event-details {
+      padding: 3rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .detail-card {
+      background: #1a2545;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: 1px solid rgba(139, 92, 246, 0.3);
+    }
+
+    .detail-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(139, 92, 246, 0.4);
+    }
+
+    .detail-card h3 {
+      color: #8B5CF6;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .detail-card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .detail-card li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .detail-card li:last-child {
+      border-bottom: none;
+    }
+
+    .timeline {
+      background: #1a2545;
+      padding: 2rem;
+      border-radius: 20px;
+      margin: 2rem 0;
+      border-left: 4px solid #8B5CF6;
+    }
+
+    .timeline h3 {
+      color: #8B5CF6;
+      margin-bottom: 1rem;
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      padding: 1rem;
+      background: rgba(139, 92, 246, 0.1);
+      border-radius: 10px;
+    }
+
+    .timeline-time {
+      color: #00bfff;
+      font-weight: 600;
+      min-width: 120px;
+    }
+
+    .register-section {
+      background: linear-gradient(135deg, #1a2545, #2a3f6f);
+      padding: 3rem 2rem;
+      margin: 3rem 0;
+      border-radius: 30px;
+      text-align: center;
+    }
+
+    .register-form {
+      max-width: 600px;
+      margin: 2rem auto 0;
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .form-group {
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #aad4ff;
+      font-weight: 600;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 1rem;
+      border-radius: 10px;
+      border: 2px solid #3a4f7a;
+      background: #0f1733;
+      color: #fff;
+      font-family: inherit;
+      transition: border-color 0.3s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: #8B5CF6;
+    }
+
+    .submit-btn {
+      background: linear-gradient(135deg, #8B5CF6, #3B82F6);
+      color: white;
+      padding: 1rem 3rem;
+      border: none;
+      border-radius: 25px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+      margin-top: 1rem;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(139, 92, 246, 0.4);
+    }
+
+    .footer {
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
+      padding: 3rem 2rem;
+      text-align: left;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.5rem; }
+      .details-grid { grid-template-columns: 1fr; }
+      header { flex-direction: column; gap: 1rem; }
+      .nav-links { gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="bg-black bg-opacity-80 backdrop-blur-lg fixed w-full z-50 transition-all duration-300" id="navbar">
+      <div class="container mx-auto px-4">
+          <div class="flex justify-between items-center py-4">
+              <!-- Logo Section -->
+              <a href="../../index.html" class="flex items-center space-x-3 group">
+                  <img src="../../assets/images/logo/logo.png" alt="Logo" class="h-10 w-auto transition-transform duration-300 group-hover:scale-110">
+                  <span class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">Tech<span class="text-blue-400">निकी</span></span>
+              </a>
+
+              <!-- Desktop Navigation -->
+              <div class="hidden lg:flex items-center space-x-8">
+                  <a href="../../index.html" class="nav-link text-gray-300 hover:text-blue-400 transition-colors font-medium px-3 py-2 rounded-lg relative">
+                      <i class="fas fa-home mr-2"></i>Home
+                  </a>
+                  <a href="../events.html" class="nav-link text-blue-400 bg-blue-400 bg-opacity-20 font-medium px-3 py-2 rounded-lg relative">
+                      <i class="fas fa-calendar-alt mr-2"></i>Events
+                      <span class="absolute bottom-0 left-0 w-full h-0.5 bg-blue-400"></span>
+                  </a>
+                  <a href="../certificates.html" class="nav-link text-gray-300 hover:text-blue-400 transition-colors font-medium px-3 py-2 rounded-lg relative">
+                      <i class="fas fa-certificate mr-2"></i>Certificates
+                  </a>
+                  <a href="../team.html" class="nav-link text-gray-300 hover:text-blue-400 transition-colors font-medium px-3 py-2 rounded-lg relative">
+                      <i class="fas fa-users mr-2"></i>Our Team
+                  </a>
+                  <a href="../blog.html" class="nav-link text-gray-300 hover:text-blue-400 transition-colors font-medium px-3 py-2 rounded-lg relative">
+                      <i class="fas fa-blog mr-2"></i>Blog
+                  </a>
+                  <a href="../projects.html" class="nav-link text-gray-300 hover:text-blue-400 transition-colors font-medium px-3 py-2 rounded-lg relative">
+                      <i class="fas fa-project-diagram mr-2"></i>Projects
+                  </a>
+                  <a href="../ambassador.html" class="nav-link text-gray-300 hover:text-blue-400 transition-colors font-medium px-3 py-2 rounded-lg relative">
+                      <i class="fas fa-star mr-2"></i>Ambassador
+                  </a>
+              </div>
+
+              <!-- CTA Button -->
+              <div class="hidden lg:flex items-center space-x-4">
+                  <a href="https://discord.gg/jxt2fZG4jM" target="_blank" class="text-gray-300 hover:text-indigo-400 transition-colors">
+                      <i class="fab fa-discord text-xl"></i>
+                  </a>
+                  <a href="../../form.html" class="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold px-6 py-2 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                      <i class="fas fa-rocket mr-2"></i>Join Us
+                  </a>
+              </div>
+
+              <!-- Mobile Menu Button -->
+              <button id="mobile-menu-button" class="lg:hidden text-white hover:text-blue-400 transition-colors focus:outline-none" aria-label="Toggle navigation menu">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                  </svg>
+              </button>
+          </div>
+
+          <!-- Mobile Navigation Menu -->
+          <div id="mobile-menu" class="lg:hidden hidden bg-black bg-opacity-95 backdrop-blur-lg border-t border-gray-700">
+              <div class="px-4 py-4 space-y-3">
+                  <a href="../../index.html" class="mobile-nav-link flex items-center space-x-3 text-gray-300 hover:text-blue-400 py-3 px-4 rounded-lg transition-all">
+                      <i class="fas fa-home w-5"></i>
+                      <span>Home</span>
+                  </a>
+                  <a href="../events.html" class="mobile-nav-link flex items-center space-x-3 text-blue-400 bg-blue-400 bg-opacity-20 py-3 px-4 rounded-lg">
+                      <i class="fas fa-calendar-alt w-5"></i>
+                      <span>Events</span>
+                  </a>
+                  <a href="../certificates.html" class="mobile-nav-link flex items-center space-x-3 text-gray-300 hover:text-blue-400 py-3 px-4 rounded-lg transition-all">
+                      <i class="fas fa-certificate w-5"></i>
+                      <span>Certificates</span>
+                  </a>
+                  <a href="../team.html" class="mobile-nav-link flex items-center space-x-3 text-gray-300 hover:text-blue-400 py-3 px-4 rounded-lg transition-all">
+                      <i class="fas fa-users w-5"></i>
+                      <span>Our Team</span>
+                  </a>
+                  <a href="../blog.html" class="mobile-nav-link flex items-center space-x-3 text-gray-300 hover:text-blue-400 py-3 px-4 rounded-lg transition-all">
+                      <i class="fas fa-blog w-5"></i>
+                      <span>Blog</span>
+                  </a>
+                  <a href="../projects.html" class="mobile-nav-link flex items-center space-x-3 text-gray-300 hover:text-blue-400 py-3 px-4 rounded-lg transition-all">
+                      <i class="fas fa-project-diagram w-5"></i>
+                      <span>Projects</span>
+                  </a>
+                  <a href="../ambassador.html" class="mobile-nav-link flex items-center space-x-3 text-gray-300 hover:text-blue-400 py-3 px-4 rounded-lg transition-all">
+                      <i class="fas fa-star w-5"></i>
+                      <span>Ambassador</span>
+                  </a>
+                  <div class="pt-4 border-t border-gray-700">
+                      <a href="../../form.html" class="block bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold py-3 px-6 rounded-full text-center transition-all hover:from-blue-600 hover:to-purple-700">
+                          <i class="fas fa-rocket mr-2"></i>Join Our Community
+                      </a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </nav>
+
+  <section class="hero">
+    <div class="event-badge">
+      <i class="fas fa-brain"></i> AI Hackathon
+    </div>
+    <h1>CTRL+Z</h1>
+    <p>All-Night AI Build Hackathon</p>
+    <p><strong>September 26-27, 2025 | 5:00 PM - 8:00 AM</strong></p>
+  </section>
+
+  <section class="event-details">
+    <h2 class="section-title">Event Details</h2>
+    
+    <div class="details-grid">
+      <div class="detail-card">
+        <h3><i class="fas fa-calendar-alt"></i> Schedule</h3>
+        <ul>
+          <li><strong>Date:</strong> September 26-27, 2025</li>
+          <li><strong>Start:</strong> 5:00 PM (Sept 26)</li>
+          <li><strong>End:</strong> 8:00 AM (Sept 27)</li>
+          <li><strong>Duration:</strong> 15 hours</li>
+        </ul>
+      </div>
+
+      <div class="detail-card">
+        <h3><i class="fas fa-map-marker-alt"></i> Venue</h3>
+        <ul>
+          <li><strong>Location:</strong> Deja</li>
+          <li><strong>Address:</strong> Amity University Gurugram</li>
+          <li><strong>Facilities:</strong> High-speed WiFi, Power outlets</li>
+          <li><strong>Food:</strong> Self-arranged</li>
+        </ul>
+      </div>
+
+      <div class="detail-card">
+        <h3><i class="fas fa-users"></i> Team Info</h3>
+        <ul>
+          <li><strong>Team Size:</strong> Up to 4 members</li>
+          <li><strong>Registration Fee:</strong> ₹99 per team</li>
+          <li><strong>Prerequisites:</strong> Basic programming knowledge</li>
+          <li><strong>Bring:</strong> Laptop, charger, essentials</li>
+        </ul>
+      </div>
+
+      <div class="detail-card">
+        <h3><i class="fas fa-trophy"></i> Prizes & Benefits</h3>
+        <ul>
+          <li><strong>Winner:</strong> Prize for Best Build</li>
+          <li><strong>All Participants:</strong> Certificates</li>
+          <li><strong>Networking:</strong> Meet like-minded developers</li>
+          <li><strong>Learning:</strong> AI/ML workshops during event</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <h3><i class="fas fa-clock"></i> Event Timeline</h3>
+      <div class="timeline-item">
+        <div class="timeline-time">5:00 PM</div>
+        <div>Registration & Team Formation</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">6:00 PM</div>
+        <div>Opening Ceremony & Problem Statement</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">7:00 PM</div>
+        <div>Coding Begins! Build Phase Starts</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">12:00 AM</div>
+        <div>Midnight Snack Break & Mini Workshops</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">6:00 AM</div>
+        <div>Final Submissions & Project Demos</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">8:00 AM</div>
+        <div>Awards Ceremony & Closing</div>
+      </div>
+    </div>
+
+    <div class="detail-card">
+      <h3><i class="fas fa-lightbulb"></i> Theme & Guidelines</h3>
+      <p><strong>Theme:</strong> No limits. Just innovation.</p>
+      <p>Use AI to build anything from tools to solve everyday issues to bold, futuristic projects. The sky's the limit!</p>
+      
+      <h4 style="color: #8B5CF6; margin-top: 1.5rem;">Suggested Categories:</h4>
+      <ul>
+        <li>Healthcare AI Solutions</li>
+        <li>Educational AI Tools</li>
+        <li>Environmental Problem Solving</li>
+        <li>Productivity & Automation</li>
+        <li>Creative AI Applications</li>
+        <li>Social Impact Projects</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="register-section">
+    <h2 class="section-title" style="color: white; margin-top: 0;">Register Your Team</h2>
+    <p>Ready to Ctrl+Z the ordinary? Register now and let's build the future together!</p>
+    
+    <form class="register-form" action="#" method="POST">
+      <div class="form-group">
+        <label for="team-name">Team Name *</label>
+        <input type="text" id="team-name" name="team_name" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="leader-name">Team Leader Name *</label>
+        <input type="text" id="leader-name" name="leader_name" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="leader-email">Team Leader Email *</label>
+        <input type="email" id="leader-email" name="leader_email" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="leader-phone">Team Leader Phone *</label>
+        <input type="tel" id="leader-phone" name="leader_phone" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="team-size">Team Size *</label>
+        <select id="team-size" name="team_size" required>
+          <option value="">Select team size</option>
+          <option value="1">1 member</option>
+          <option value="2">2 members</option>
+          <option value="3">3 members</option>
+          <option value="4">4 members</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="members">Other Team Members (Name, Email)</label>
+        <textarea id="members" name="other_members" rows="4" placeholder="Enter other team members details..."></textarea>
+      </div>
+      
+      <div class="form-group">
+        <label for="experience">Technical Experience Level *</label>
+        <select id="experience" name="experience" required>
+          <option value="">Select experience level</option>
+          <option value="beginner">Beginner</option>
+          <option value="intermediate">Intermediate</option>
+          <option value="advanced">Advanced</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="idea">Project Idea (Optional)</label>
+        <textarea id="idea" name="project_idea" rows="3" placeholder="Briefly describe your project idea..."></textarea>
+      </div>
+      
+      <button type="submit" class="submit-btn">
+        <i class="fas fa-rocket"></i> Register Team - ₹99
+      </button>
+    </form>
+  </section>
+
+  <!-- Enhanced Footer -->
+  <footer id="footer" class="bg-black bg-opacity-80 backdrop-blur-lg text-white py-12">
+      <div class="container mx-auto px-4">
+          <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-8 mb-10">
+              <div class="space-y-6">
+                  <a href="../../index.html" class="flex items-center space-x-3 group">
+                      <img src="../../assets/images/logo/logo.png" alt="Logo" class="h-10 w-auto transition-transform duration-300 group-hover:scale-110">
+                      <span class="text-xl font-bold group-hover:text-blue-400 transition-colors">Tech<span class="text-blue-400">निकी</span></span>
+                  </a>
+                  <p class="text-gray-300 leading-relaxed text-sm md:text-base">
+                      Building an inclusive tech community that empowers every individual to learn, connect, and innovate together.
+                  </p>
+                  <div class="flex space-x-3">
+                      <a href="https://www.instagram.com/technikiatauh/" target="_blank" class="social-link bg-gradient-to-r from-pink-500 to-pink-600 p-2 rounded-full transition-all duration-300 hover:scale-110">
+                          <i class="fab fa-instagram text-sm"></i>
+                      </a>
+                      <a href="https://www.linkedin.com/company/technikiauh" target="_blank" class="social-link bg-gradient-to-r from-blue-600 to-blue-700 p-2 rounded-full transition-all duration-300 hover:scale-110">
+                          <i class="fab fa-linkedin text-sm"></i>
+                      </a>
+                      <a href="https://discord.gg/jxt2fZG4jM" target="_blank" class="social-link bg-gradient-to-r from-indigo-500 to-indigo-600 p-2 rounded-full transition-all duration-300 hover:scale-110">
+                          <i class="fab fa-discord text-sm"></i>
+                      </a>
+                      <a href="https://chat.whatsapp.com/BVCtubt4o6pLJcfPAYdBO5" target="_blank" class="social-link bg-gradient-to-r from-green-500 to-green-600 p-2 rounded-full transition-all duration-300 hover:scale-110">
+                          <i class="fab fa-whatsapp text-sm"></i>
+                      </a>
+                  </div>
+              </div>
+              
+              <div>
+                  <h5 class="font-bold text-lg mb-4 text-blue-400">Quick Links</h5>
+                  <div class="space-y-2">
+                      <a href="../events.html" class="block text-gray-300 hover:text-blue-400 transition-colors text-sm md:text-base">
+                          <i class="fas fa-calendar-alt mr-2"></i>Events
+                      </a>
+                      <a href="../certificates.html" class="block text-gray-300 hover:text-blue-400 transition-colors text-sm md:text-base">
+                          <i class="fas fa-certificate mr-2"></i>Certificates
+                      </a>
+                      <a href="../team.html" class="block text-gray-300 hover:text-blue-400 transition-colors text-sm md:text-base">
+                          <i class="fas fa-users mr-2"></i>Our Team
+                      </a>
+                      <a href="../blog.html" class="block text-gray-300 hover:text-blue-400 transition-colors text-sm md:text-base">
+                          <i class="fas fa-blog mr-2"></i>Blog Posts
+                      </a>
+                      <a href="../projects.html" class="block text-gray-300 hover:text-blue-400 transition-colors text-sm md:text-base">
+                          <i class="fas fa-project-diagram mr-2"></i>Projects
+                      </a>
+                  </div>
+              </div>
+              
+              <div>
+                  <h5 class="font-bold text-lg mb-4 text-purple-400">Community</h5>
+                  <div class="space-y-2">
+                      <a href="../../form.html" class="block text-gray-300 hover:text-purple-400 transition-colors text-sm md:text-base">
+                          <i class="fas fa-user-plus mr-2"></i>Join Us
+                      </a>
+                      <a href="../ambassador.html" class="block text-gray-300 hover:text-purple-400 transition-colors text-sm md:text-base">
+                          <i class="fas fa-star mr-2"></i>Campus Ambassador
+                      </a>
+                      <a href="#" class="block text-gray-300 hover:text-purple-400 transition-colors text-sm md:text-base">
+                          <i class="fas fa-hands-helping mr-2"></i>Volunteer
+                      </a>
+                      <a href="#" class="block text-gray-300 hover:text-purple-400 transition-colors text-sm md:text-base">
+                          <i class="fas fa-handshake mr-2"></i>Partner With Us
+                      </a>
+                  </div>
+              </div>
+              
+              <div>
+                  <h5 class="font-bold text-lg mb-4 text-green-400">Get In Touch</h5>
+                  <div class="space-y-4">
+                      <a href="mailto:techniki@ggn.amity.edu" class="flex items-center text-gray-300 hover:text-green-400 transition-colors text-sm md:text-base">
+                          <i class="fas fa-envelope mr-3"></i>
+                          techniki@ggn.amity.edu
+                      </a>
+                      <div class="flex items-center text-gray-300 text-sm md:text-base">
+                          <i class="fas fa-map-marker-alt mr-3"></i>
+                          Amity University, Gurgaon
+                      </div>
+                      <div class="bg-gray-800 p-3 rounded-lg">
+                          <h6 class="font-semibold text-white mb-1 text-sm">Stay Updated</h6>
+                          <p class="text-gray-400 text-xs mb-2">Subscribe to our newsletter for latest updates</p>
+                          <div class="flex">
+                              <input type="email" placeholder="Enter your email" class="flex-1 bg-gray-700 text-white px-2 py-1 rounded-l-lg border-none outline-none text-sm">
+                              <button class="bg-gradient-to-r from-blue-500 to-purple-600 px-3 py-1 rounded-r-lg hover:from-purple-600 hover:to-blue-500 transition-all text-sm">
+                                  <i class="fas fa-paper-plane text-xs"></i>
+                              </button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          
+          <div class="border-t border-gray-700 pt-6 text-center">
+              <p class="text-gray-400 text-sm">&copy; 2024 Techनिकी. All rights reserved. Built with ❤️ by the Techniki Team.</p>
+          </div>
+      </div>
+  </footer>
+            <a href="../events.html" class="block text-gray-300 hover:text-blue-400 transition-colors text-sm md:text-base">
+              <i class="fas fa-calendar-alt mr-2"></i>Events
+            </a>
+            <a href="../certificates.html" class="block text-gray-300 hover:text-blue-400 transition-colors text-sm md:text-base">
+              <i class="fas fa-certificate mr-2"></i>Certificates
+            </a>
+            <a href="../team.html" class="block text-gray-300 hover:text-blue-400 transition-colors text-sm md:text-base">
+              <i class="fas fa-users mr-2"></i>Our Team
+            </a>
+            <a href="../blog.html" class="block text-gray-300 hover:text-blue-400 transition-colors text-sm md:text-base">
+              <i class="fas fa-blog mr-2"></i>Blog Posts
+            </a>
+            <a href="../projects.html" class="block text-gray-300 hover:text-blue-400 transition-colors text-sm md:text-base">
+              <i class="fas fa-project-diagram mr-2"></i>Projects
+            </a>
+          </div>
+        </div>
+        
+        <div>
+          <h5 class="font-bold text-lg mb-4 text-purple-400">Community</h5>
+          <div class="space-y-2">
+            <a href="../form.html" class="block text-gray-300 hover:text-purple-400 transition-colors text-sm md:text-base">
+              <i class="fas fa-user-plus mr-2"></i>Join Us
+            </a>
+            <a href="../ambassador.html" class="block text-gray-300 hover:text-purple-400 transition-colors text-sm md:text-base">
+              <i class="fas fa-star mr-2"></i>Campus Ambassador
+            </a>
+            <a href="#" class="block text-gray-300 hover:text-purple-400 transition-colors text-sm md:text-base">
+              <i class="fas fa-hands-helping mr-2"></i>Volunteer
+            </a>
+            <a href="#" class="block text-gray-300 hover:text-purple-400 transition-colors text-sm md:text-base">
+              <i class="fas fa-handshake mr-2"></i>Partner With Us
+            </a>
+          </div>
+        </div>
+        
+        <div>
+          <h5 class="font-bold text-lg mb-4 text-green-400">Get In Touch</h5>
+          <div class="space-y-4">
+            <a href="mailto:techniki@ggn.amity.edu" class="flex items-center text-gray-300 hover:text-green-400 transition-colors text-sm md:text-base">
+              <i class="fas fa-envelope mr-3"></i>
+              techniki@ggn.amity.edu
+            </a>
+            <div class="flex items-center text-gray-300 text-sm md:text-base">
+              <i class="fas fa-map-marker-alt mr-3"></i>
+              Amity University, Gurgaon
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-700 pt-6 text-center">
+        <p class="text-gray-400 text-sm">&copy; 2024 Techनिकी. All rights reserved. Built with ❤️ by the Techniki Team.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Form submission handler
+    document.querySelector('.register-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Registration form submitted! We will contact you soon with payment details.');
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+</html>

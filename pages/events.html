@@ -4,6 +4,9 @@
     <!-- Meta tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title>Events - Techनिकी</title>
     <meta name="description" content="Join exciting tech events, workshops, and competitions organized by Techनिकी community. Learn, network, and grow with fellow tech enthusiasts.">
     <meta name="keywords" content="Techniki Events, Tech Workshops, CTF, Hackathons, Technology Competitions, Innovation Events">
@@ -35,6 +38,32 @@
     </script>
     
     <style>
+        /* Mobile-specific styles */
+        @media (max-width: 768px) {
+            #vanta-bg {
+                min-height: 100vh !important;
+            }
+            
+            .mobile-menu-open {
+                transform: translateY(0) !important;
+            }
+            
+            .mobile-menu-closed {
+                transform: translateY(-100%) !important;
+            }
+            
+            /* Fix for mobile navigation */
+            #mobile-menu {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 40;
+                height: 100vh;
+                overflow-y: auto;
+            }
+        }
+        
         .font-inter { font-family: 'Inter', sans-serif; }
         
         /* Navigation styling */
@@ -474,44 +503,42 @@
     </style>
 </head>
 <body class="font-inter bg-gray-900" id="vanta-bg">
-
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 transition-all duration-300 bg-black bg-opacity-50 backdrop-blur-lg" id="navbar">
+    <nav class="fixed top-0 w-full z-50 transition-all duration-300 bg-black bg-opacity-70 backdrop-blur-md" id="navbar">
         <div class="container mx-auto px-4 py-3">
             <div class="flex items-center justify-between">
                 <div class="flex items-center space-x-2">
                     <a href="../index.html" class="flex items-center space-x-2 group">
                         <img src="../assets/images/logo/logo.png" alt="Techनिकी Logo" class="h-8 w-auto transition-transform duration-300 group-hover:scale-110">
-                        <span class="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">Techनिकी</span>
                     </a>
                 </div>
                 
                 <div class="hidden lg:flex items-center space-x-6">
-                    <a href="/pages/events.html" class="nav-link text-blue-400 hover:text-blue-300 transition-colors duration-300 relative px-2 py-1">
+                    <a href="events.html" class="nav-link text-blue-400 hover:text-blue-300 transition-colors duration-300 relative px-2 py-1">
                         <i class="fas fa-calendar-alt mr-1"></i>Events
                     </a>
-                    <a href="/pages/certificates.html" class="nav-link text-white hover:text-blue-400 transition-colors duration-300 relative px-2 py-1">
+                    <a href="certificates.html" class="nav-link text-white hover:text-blue-400 transition-colors duration-300 relative px-2 py-1">
                         <i class="fas fa-certificate mr-1"></i>Certificates
                     </a>
-                    <a href="/pages/team.html" class="nav-link text-white hover:text-blue-400 transition-colors duration-300 relative px-2 py-1">
+                    <a href="team.html" class="nav-link text-white hover:text-blue-400 transition-colors duration-300 relative px-2 py-1">
                         <i class="fas fa-users mr-1"></i>Team
                     </a>
-                    <a href="/pages/blog.html" class="nav-link text-white hover:text-blue-400 transition-colors duration-300 relative px-2 py-1">
+                    <a href="blog.html" class="nav-link text-white hover:text-blue-400 transition-colors duration-300 relative px-2 py-1">
                         <i class="fas fa-blog mr-1"></i>Blog
                     </a>
-                    <a href="/pages/projects.html" class="nav-link text-white hover:text-blue-400 transition-colors duration-300 relative px-2 py-1">
+                    <a href="projects.html" class="nav-link text-white hover:text-blue-400 transition-colors duration-300 relative px-2 py-1">
                         <i class="fas fa-project-diagram mr-1"></i>Projects
                     </a>
-                    <a href="#footer" class="nav-link text-white hover:text-blue-400 transition-colors duration-300 relative px-2 py-1">
+                    <a href="../form.html" class="nav-link text-white hover:text-blue-400 transition-colors duration-300 relative px-2 py-1">
                         <i class="fas fa-envelope mr-1"></i>Contact
                     </a>
                 </div>
                 
                 <div class="flex items-center space-x-3">
-                    <a href="/pages/form.html" class="join-btn bg-gradient-to-r from-blue-500 to-purple-600 text-white px-4 py-2 rounded-full font-semibold transition-all duration-300 hover:from-purple-600 hover:to-blue-500 hover:scale-105 shadow-lg hover:shadow-xl text-sm hidden sm:block">
+                    <a href="ambassador.html" class="join-btn bg-gradient-to-r from-blue-500 to-purple-600 text-white px-4 py-2 rounded-full font-semibold transition-all duration-300 hover:from-purple-600 hover:to-blue-500 hover:scale-105 shadow-lg hover:shadow-xl text-sm hidden sm:block">
                         <i class="fas fa-rocket mr-1"></i>JOIN NOW
                     </a>
-                    <button class="lg:hidden text-white hover:text-blue-400 transition-colors focus:outline-none" id="menu-button" aria-label="Toggle menu">
+                    <button class="lg:hidden text-white hover:text-blue-400 transition-colors focus:outline-none relative z-50" id="menu-button" aria-label="Toggle menu" aria-expanded="false">
                         <i class="fas fa-bars text-xl"></i>
                     </button>
                 </div>
@@ -520,11 +547,37 @@
     </nav>
         
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="lg:hidden bg-black bg-opacity-95 backdrop-blur-lg fixed top-0 left-0 w-full h-full z-40 transition-transform duration-300 transform -translate-y-full overflow-y-auto">
-        <div class="container mx-auto px-6 py-20">
-            <button class="absolute top-5 right-5 text-white text-2xl" id="close-menu">
+    <div id="mobile-menu" class="lg:hidden bg-black bg-opacity-95 backdrop-blur-lg fixed top-0 left-0 w-full h-full mobile-menu-closed overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="mobile-menu-title" aria-hidden="true">
+        <div class="container mx-auto px-6 py-20 relative">
+            <h2 id="mobile-menu-title" class="sr-only">Navigation Menu</h2>
+            <button class="text-white text-2xl hover:text-blue-400 transition-all duration-300" id="close-menu" aria-label="Close navigation menu">
                 <i class="fas fa-times"></i>
             </button>
+            <nav class="flex flex-col space-y-8 mt-10" role="navigation" aria-label="Mobile navigation">
+                <a href="events.html" class="text-blue-400 hover:text-blue-300 transition-colors text-xl py-2 border-b border-gray-700" role="menuitem">
+                    <i class="fas fa-calendar-alt mr-3"></i>Events
+                </a>
+                <a href="certificates.html" class="text-white hover:text-blue-400 transition-colors text-xl py-2 border-b border-gray-700" role="menuitem">
+                    <i class="fas fa-certificate mr-3"></i>Certificates
+                </a>
+                <a href="team.html" class="text-white hover:text-blue-400 transition-colors text-xl py-2 border-b border-gray-700" role="menuitem">
+                    <i class="fas fa-users mr-3"></i>Team
+                </a>
+                <a href="blog.html" class="text-white hover:text-blue-400 transition-colors text-xl py-2 border-b border-gray-700" role="menuitem">
+                    <i class="fas fa-blog mr-3"></i>Blog
+                </a>
+                <a href="projects.html" class="text-white hover:text-blue-400 transition-colors text-xl py-2 border-b border-gray-700" role="menuitem">
+                    <i class="fas fa-project-diagram mr-3"></i>Projects
+                </a>
+                <a href="#footer" class="text-white hover:text-blue-400 transition-colors text-xl py-2 border-b border-gray-700" role="menuitem">
+                    <i class="fas fa-envelope mr-3"></i>Contact
+                </a>
+                <a href="ambassador.html" class="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105 text-center mt-8" role="menuitem">
+                    <i class="fas fa-rocket mr-2"></i>JOIN COMMUNITY
+                </a>
+            </nav>
+        </div>
+    </div>
             <div class="flex flex-col space-y-8 mt-10">
                 <a href="/pages/events.html" class="text-blue-400 hover:text-blue-300 transition-colors text-xl py-2 border-b border-gray-700">
                     <i class="fas fa-calendar-alt mr-3"></i>Events
@@ -567,7 +620,10 @@
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
                     <a href="#upcoming-events" class="hero-btn bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl">
-                        <i class="fas fa-calendar-check mr-2"></i>View Events
+                        <i class="fas fa-calendar-check mr-2"></i>View Upcoming Events
+                    </a>
+                    <a href="#past-events" class="hero-btn bg-transparent border-2 border-yellow-400 text-yellow-400 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:bg-yellow-400 hover:text-black">
+                        <i class="fas fa-history mr-2"></i>Past Events
                     </a>
                     <a href="/pages/form.html" class="hero-btn bg-transparent border-2 border-blue-400 text-blue-400 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:bg-blue-400 hover:text-white">
                         <i class="fas fa-plus mr-2"></i>Join Community
@@ -627,38 +683,120 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Event Card 1 (duplicate kept for customization) -->
-                <div class="event-card glass-card rounded-2xl overflow-hidden" data-aos="fade-up">
-    <!-- Replace the src with your uploaded image path -->
-    <div class="h-48 overflow-hidden">
-        <img src="/assets/images/events/Techniki TT.jpg" 
-             alt="Upcoming event" 
-             class="w-full h-full object-cover scale-105">
-    </div>
-    <div class="p-6">
-        <div class="flex items-center justify-between mb-4">
-            <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-semibold">Competition</span>
-            <span class="text-gray-400 text-sm">Sep 2025</span>
-        </div>
-        <h3 class="text-xl font-bold text-white mb-2">Techniki TT</h3>
-        <p class="text-gray-300 mb-4">
-            Join Techniki Teams to turn your ideas into reality with mentorship, teamwork, and national opportunities!
-        </p>
-        <div class="flex items-center justify-between">
-            <span class="text-blue-400 font-semibold">Registration</span>
-            <a href="/pages/events/register.html" class="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-4 py-2 rounded-full text-sm font-semibold hover:scale-105 transition-all">
-                Register Now
-            </a>
-        </div>
-    </div>
-</div>
 
-                
-                <!-- Event Card 2 -->
-              
-                  <div class="event-card glass-card rounded-2xl overflow-hidden" data-aos="fade-up">
-                    <div class="h-48 bg-gradient-to-br from-blue-600 to-purple-700 flex items-center justify-center">
+                <!-- Event Card 2 - CTRL+Z AI Hackathon -->
+                <div class="event-card glass-card rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-48 bg-gradient-to-br from-purple-600 to-blue-700 flex items-center justify-center relative">
+                        <i class="fas fa-brain text-6xl text-white"></i>
+                        <span class="absolute top-3 right-3 bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow">Open</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-semibold">Hackathon</span>
+                            <span class="text-gray-400 text-sm">Sep 26-27, 2025</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">CTRL+Z - AI Build Hackathon</h3>
+                        <p class="text-gray-300 mb-4">All-night AI build hackathon. Build anything using AI, solve real-world problems, and Ctrl+Z the ordinary!</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-blue-400 font-semibold">₹99 per team</span>
+                            <a href="/pages/events/ctrlz-hackathon.html" class="bg-gradient-to-r from-purple-500 to-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold hover:scale-105 transition-all">
+                                Register Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event Card 3 - Brain to Build IoT -->
+                <div class="event-card glass-card rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-48 bg-gradient-to-br from-green-600 to-blue-700 flex items-center justify-center relative">
+                        <i class="fas fa-microchip text-6xl text-white"></i>
+                        <span class="absolute top-3 right-3 bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow">Open</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">Workshop</span>
+                            <span class="text-gray-400 text-sm">Sep 22, 2025</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Brain to Build: IoT Solutions</h3>
+                        <p class="text-gray-300 mb-4">Use IoT to solve real-life problems! Build smart home automation, safety systems, and more.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-blue-400 font-semibold">Build & Bring</span>
+                            <a href="/pages/events/iot-solutions.html" class="bg-gradient-to-r from-green-500 to-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold hover:scale-105 transition-all">
+                                Register Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event Card 4 - Pitch Craft -->
+                <div class="event-card glass-card rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                    <div class="h-48 bg-gradient-to-br from-orange-600 to-red-700 flex items-center justify-center relative">
+                        <i class="fas fa-microphone text-6xl text-white"></i>
+                        <span class="absolute top-3 right-3 bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow">Open</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-semibold">Workshop</span>
+                            <span class="text-gray-400 text-sm">Sep 22, 2025</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Pitch Craft - Ideas to Reality</h3>
+                        <p class="text-gray-300 mb-4">Learn to create powerful pitches, get expert feedback, and turn your concepts into actionable ventures.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-blue-400 font-semibold">Free Registration</span>
+                            <a href="/pages/events/pitch-craft.html" class="bg-gradient-to-r from-orange-500 to-red-600 text-white px-4 py-2 rounded-full text-sm font-semibold hover:scale-105 transition-all">
+                                Register Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                                <!-- Event Card 1 - Techniki TT -->
+                <div class="event-card glass-card rounded-2xl overflow-hidden" data-aos="fade-up">
+                    <div class="h-48 overflow-hidden">
+                        <img src="../assets/images/events/Techniki TT.jpg" 
+                             alt="Techniki TT event" 
+                             class="w-full h-full object-cover scale-105">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-semibold">Competition</span>
+                            <span class="text-gray-400 text-sm">Sep 2025</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Techniki TT</h3>
+                        <p class="text-gray-300 mb-4">
+                            Join Techniki Teams to turn your ideas into reality with mentorship, teamwork, and national opportunities!
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-blue-400 font-semibold">Registration Open</span>
+                            <a href="/pages/events/TT.html" class="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-4 py-2 rounded-full text-sm font-semibold hover:scale-105 transition-all">
+                                Register Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+   
+    <!-- Past Events -->
+    <section id="past-events" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                    Past <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-600">Events</span>
+                </h2>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                    Take a look at our successful events that have inspired and educated our community
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Past Event Card 1 - CTF 2024 -->
+                <div class="event-card glass-card rounded-2xl overflow-hidden opacity-90" data-aos="fade-up">
+                    <div class="h-48 bg-gradient-to-br from-blue-600 to-purple-700 flex items-center justify-center relative">
                         <i class="fas fa-flag text-6xl text-white"></i>
+                        <span class="absolute top-3 right-3 bg-gray-700 text-yellow-400 text-xs font-bold px-3 py-1 rounded-full shadow">Completed</span>
                     </div>
                     <div class="p-6">
                         <div class="flex items-center justify-between mb-4">
@@ -666,19 +804,21 @@
                             <span class="text-gray-400 text-sm">Dec 15, 2024</span>
                         </div>
                         <h3 class="text-xl font-bold text-white mb-2">Techniki CTF 2024</h3>
-                        <p class="text-gray-300 mb-4">Test your cybersecurity skills in our annual Capture The Flag competition</p>
+                        <p class="text-gray-300 mb-4">Tested cybersecurity skills in our annual Capture The Flag competition with 100+ participants</p>
                         <div class="flex items-center justify-between">
-                            <span class="text-blue-400 font-semibold">₹50 Registration</span>
-                            <a href="#" class="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-4 py-2 rounded-full text-sm font-semibold hover:scale-105 transition-all">
-                                Register Now
-                            </a>
+                            <span class="text-yellow-400 font-semibold">
+                                <i class="fas fa-users mr-1"></i>120 Participants
+                            </span>
+                            <span class="bg-gray-700 text-gray-300 px-4 py-2 rounded-full text-sm font-semibold">Completed</span>
                         </div>
                     </div>
                 </div>
-                <!-- Event Card 3 -->
-                <div class="event-card glass-card rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="200">
-                    <div class="h-48 bg-gradient-to-br from-green-600 to-blue-700 flex items-center justify-center">
+
+                <!-- Past Event Card 2 - AI/ML Bootcamp -->
+                <div class="event-card glass-card rounded-2xl overflow-hidden opacity-90" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-48 bg-gradient-to-br from-green-600 to-blue-700 flex items-center justify-center relative">
                         <i class="fas fa-lightbulb text-6xl text-white"></i>
+                        <span class="absolute top-3 right-3 bg-gray-700 text-yellow-400 text-xs font-bold px-3 py-1 rounded-full shadow">Completed</span>
                     </div>
                     <div class="p-6">
                         <div class="flex items-center justify-between mb-4">
@@ -686,80 +826,40 @@
                             <span class="text-gray-400 text-sm">Dec 20, 2024</span>
                         </div>
                         <h3 class="text-xl font-bold text-white mb-2">AI/ML Bootcamp</h3>
-                        <p class="text-gray-300 mb-4">Intensive hands-on workshop on Machine Learning fundamentals</p>
+                        <p class="text-gray-300 mb-4">Intensive hands-on workshop on Machine Learning fundamentals with practical projects</p>
                         <div class="flex items-center justify-between">
-                            <span class="text-green-400 font-semibold">Free</span>
-                            <a href="#" class="bg-gradient-to-r from-green-500 to-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold hover:scale-105 transition-all">
-                                Join Workshop
-                            </a>
+                            <span class="text-yellow-400 font-semibold">
+                                <i class="fas fa-users mr-1"></i>85 Participants
+                            </span>
+                            <span class="bg-gray-700 text-gray-300 px-4 py-2 rounded-full text-sm font-semibold">Completed</span>
                         </div>
                     </div>
                 </div>
-                <!-- Event Card 4 -->
-                <div class="event-card glass-card rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="400">
-                    <div class="h-48 bg-gradient-to-br from-purple-600 to-pink-700 flex items-center justify-center">
+
+                <!-- Past Event Card 3 - Innovathon 2023 -->
+                <div class="event-card glass-card rounded-2xl overflow-hidden opacity-90" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-48 bg-gradient-to-br from-purple-600 to-pink-700 flex items-center justify-center relative">
                         <i class="fas fa-trophy text-6xl text-white"></i>
+                        <span class="absolute top-3 right-3 bg-gray-700 text-yellow-400 text-xs font-bold px-3 py-1 rounded-full shadow">Completed</span>
                     </div>
                     <div class="p-6">
                         <div class="flex items-center justify-between mb-4">
                             <span class="bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-semibold">Hackathon</span>
-                            <span class="text-gray-400 text-sm">Jan 10, 2025</span>
+                            <span class="text-gray-400 text-sm">Nov 10, 2023</span>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Innovathon 2025</h3>
-                        <p class="text-gray-300 mb-4">48-hour innovation marathon to solve real-world problems</p>
+                        <h3 class="text-xl font-bold text-white mb-2">Innovathon 2023</h3>
+                        <p class="text-gray-300 mb-4">48-hour innovation marathon where teams solved real-world problems with creative solutions</p>
                         <div class="flex items-center justify-between">
-                            <span class="text-purple-400 font-semibold">₹100 per team</span>
-                            <a href="#" class="bg-gradient-to-r from-purple-500 to-pink-600 text-white px-4 py-2 rounded-full text-sm font-semibold hover:scale-105 transition-all">
-                                Form Team
-                            </a>
+                            <span class="text-yellow-400 font-semibold">
+                                <i class="fas fa-users mr-1"></i>500+ Participants
+                            </span>
+                            <span class="bg-gray-700 text-gray-300 px-4 py-2 rounded-full text-sm font-semibold">Completed</span>
                         </div>
                     </div>
                 </div>
-            </div>
         </div>
     </section>
 
-    <!-- Past Events -->
-      <div class="section">
-        <h2>Past Events</h2>
-        <div class="timeline-container">
-            <!-- Horizontal Timeline Line -->
-            <div class="horizontal-line"></div>
-            
-            <!-- Timeline Items -->
-            <div class="timeline-items">
-                <div class="timeline-item above">
-                    <div class="timeline-content">
-                        <div class="timeline-date">Sep 2025</div>
-                        <div class="timeline-title">Mastering Git & GitHub</div>
-                        <div class="timeline-description"> Hands-on workshop to master version control and collaboration using Git & GitHub.</div>
-                    </div>
-                    <div class="vertical-connector"></div>
-                </div>
-                
-                <div class="timeline-item below">
-                    <div class="timeline-content">
-                        <div class="timeline-date">Dec 2024</div>
-                        <div class="timeline-title">Techniki CTF 2024</div>
-                        <div class="timeline-description">Test your cybersecurity skills in our annual Capture The Flag competition.</div>
-                    </div>
-                    <div class="vertical-connector"></div>
-                </div>
-                
-                <div class="timeline-item above">
-                    <div class="timeline-content">
-                        <div class="timeline-date">Jan 2024</div>
-                        <div class="timeline-title">Hackathon</div>
-                        <div class="timeline-description">48-hour innovation marathon to solve real-world problems.</div>
-                    </div>
-                    <div class="vertical-connector"></div>
-                </div>
-                
-                
-            </div>
-        </div>
-    </div>
-   
     <!-- CTA Section -->
     <section class="py-20 bg-gradient-to-r from-blue-900/50 to-purple-900/50" data-aos="fade-up">
         <div class="container mx-auto px-6 text-center">
@@ -779,82 +879,99 @@
     </section>
 
     <!-- Enhanced Footer -->
-    <footer id="footer" class="bg-gradient-to-br from-gray-900 to-black text-white relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-br from-blue-900/10 to-purple-900/10"></div>
-        
-        <!-- Main Footer Content -->
-        <div class="relative z-10 py-16">
-            <div class="container mx-auto px-6">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <!-- Brand Section -->
-                    <div class="lg:col-span-2" data-aos="fade-up">
-                        <a href="../index.html" class="flex items-center space-x-3 group mb-6">
-                            <img src="../assets/images/logo/logo.png" alt="Logo" class="h-12 w-auto transition-transform duration-300 group-hover:scale-110">
-                            <span class="text-2xl font-bold group-hover:text-blue-400 transition-colors">Tech<span class="text-blue-400">निकी</span></span>
+    <footer id="footer" class="bg-black bg-opacity-80 backdrop-blur-lg text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-8 mb-10">
+                <div class="space-y-6">
+                    <a href="../index.html" class="flex items-center space-x-3 group">
+                        <img src="../assets/images/logo/logo.png" alt="Logo" class="h-10 w-auto transition-transform duration-300 group-hover:scale-110">
+                        <span class="text-xl font-bold group-hover:text-blue-400 transition-colors">Tech<span class="text-blue-400">निकी</span></span>
+                    </a>
+                    <p class="text-gray-300 leading-relaxed text-sm md:text-base">
+                        Building an inclusive tech community that empowers every individual to learn, connect, and innovate together.
+                    </p>
+                    <div class="flex space-x-3">
+                        <a href="https://www.instagram.com/technikiatauh/" target="_blank" class="social-link bg-gradient-to-r from-pink-500 to-pink-600 p-2 rounded-full transition-all duration-300 hover:scale-110">
+                            <i class="fab fa-instagram text-sm"></i>
                         </a>
-                        <p class="text-gray-300 leading-relaxed mb-6">
-                            Building an inclusive tech community that empowers every individual to learn, connect, and innovate together.
-                        </p>
-                        <div class="flex space-x-4">
-                            <a href="https://www.instagram.com/technikiatauh/" target="_blank" class="social-link bg-gradient-to-r from-pink-500 to-pink-600 p-3 rounded-full transition-all duration-300 hover:scale-110">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                            <a href="https://www.linkedin.com/company/technikiauh" target="_blank" class="social-link bg-gradient-to-r from-blue-600 to-blue-700 p-3 rounded-full transition-all duration-300 hover:scale-110">
-                                <i class="fab fa-linkedin"></i>
-                            </a>
-                            <a href="https://github.com/technikiauh" target="_blank" class="social-link bg-gradient-to-r from-gray-700 to-gray-800 p-3 rounded-full transition-all duration-300 hover:scale-110">
-                                <i class="fab fa-github"></i>
-                            </a>
+                        <a href="https://www.linkedin.com/company/technikiauh" target="_blank" class="social-link bg-gradient-to-r from-blue-600 to-blue-700 p-2 rounded-full transition-all duration-300 hover:scale-110">
+                            <i class="fab fa-linkedin text-sm"></i>
+                        </a>
+                        <a href="https://discord.gg/jxt2fZG4jM" target="_blank" class="social-link bg-gradient-to-r from-indigo-500 to-indigo-600 p-2 rounded-full transition-all duration-300 hover:scale-110">
+                            <i class="fab fa-discord text-sm"></i>
+                        </a>
+                        <a href="https://chat.linkedin.com/BVCtubt4o6pLJcfPAYdBO5" target="_blank" class="social-link bg-gradient-to-r from-green-500 to-green-600 p-2 rounded-full transition-all duration-300 hover:scale-110">
+                            <i class="fab fa-linkedin text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h5 class="font-bold text-lg mb-4 text-blue-400">Quick Links</h5>
+                    <div class="space-y-2">
+                        <a href="/pages/events.html" class="block text-gray-300 hover:text-blue-400 transition-colors text-sm md:text-base">
+                            <i class="fas fa-calendar-alt mr-2"></i>Events
+                        </a>
+                        <a href="/pages/certificates.html" class="block text-gray-300 hover:text-blue-400 transition-colors text-sm md:text-base">
+                            <i class="fas fa-certificate mr-2"></i>Certificates
+                        </a>
+                        <a href="/pages/team.html" class="block text-gray-300 hover:text-blue-400 transition-colors text-sm md:text-base">
+                            <i class="fas fa-users mr-2"></i>Our Team
+                        </a>
+                        <a href="/pages/blog.html" class="block text-gray-300 hover:text-blue-400 transition-colors text-sm md:text-base">
+                            <i class="fas fa-blog mr-2"></i>Blog Posts
+                        </a>
+                        <a href="/pages/projects.html" class="block text-gray-300 hover:text-blue-400 transition-colors text-sm md:text-base">
+                            <i class="fas fa-project-diagram mr-2"></i>Projects
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h5 class="font-bold text-lg mb-4 text-purple-400">Community</h5>
+                    <div class="space-y-2">
+                        <a href="/pages/form.html" class="block text-gray-300 hover:text-purple-400 transition-colors text-sm md:text-base">
+                            <i class="fas fa-user-plus mr-2"></i>Join Us
+                        </a>
+                        <a href="/pages/ambassador.html" class="block text-gray-300 hover:text-purple-400 transition-colors text-sm md:text-base">
+                            <i class="fas fa-star mr-2"></i>Campus Ambassador
+                        </a>
+                        <a href="#" class="block text-gray-300 hover:text-purple-400 transition-colors text-sm md:text-base">
+                            <i class="fas fa-hands-helping mr-2"></i>Volunteer
+                        </a>
+                        <a href="#" class="block text-gray-300 hover:text-purple-400 transition-colors text-sm md:text-base">
+                            <i class="fas fa-handshake mr-2"></i>Partner With Us
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h5 class="font-bold text-lg mb-4 text-green-400">Get In Touch</h5>
+                    <div class="space-y-4">
+                        <a href="mailto:techniki@ggn.amity.edu" class="flex items-center text-gray-300 hover:text-green-400 transition-colors text-sm md:text-base">
+                            <i class="fas fa-envelope mr-3"></i>
+                            techniki@ggn.amity.edu
+                        </a>
+                        <div class="flex items-center text-gray-300 text-sm md:text-base">
+                            <i class="fas fa-map-marker-alt mr-3"></i>
+                            Amity University, Gurgaon
                         </div>
-                    </div>
-
-                    <!-- Quick Links -->
-                    <div data-aos="fade-up" data-aos-delay="100">
-                        <h4 class="text-lg font-semibold text-white mb-6">Quick Links</h4>
-                        <ul class="space-y-3">
-                            <li><a href="../index.html" class="text-gray-300 hover:text-purple-400 transition-colors">Home</a></li>
-                            <li><a href="/pages/events.html" class="text-gray-300 hover:text-purple-400 transition-colors">Events</a></li>
-                            <li><a href="/pages/projects.html" class="text-gray-300 hover:text-purple-400 transition-colors">Projects</a></li>
-                            <li><a href="/pages/team.html" class="text-gray-300 hover:text-purple-400 transition-colors">Team</a></li>
-                            <li><a href="/pages/blog.html" class="text-gray-300 hover:text-purple-400 transition-colors">Blog</a></li>
-                        </ul>
-                    </div>
-
-                    <!-- Contact Info -->
-                    <div data-aos="fade-up" data-aos-delay="200">
-                        <h4 class="text-lg font-semibold text-white mb-6">Contact</h4>
-                        <ul class="space-y-3">
-                            <li class="flex items-center space-x-3">
-                                <i class="fas fa-envelope text-purple-400"></i>
-                                <span class="text-gray-300">contact@techniki.community</span>
-                            </li>
-                            <li class="flex items-center space-x-3">
-                                <i class="fas fa-map-marker-alt text-purple-400"></i>
-                                <span class="text-gray-300">Amity University, Gurugram</span>
-                            </li>
-                            <li class="flex items-center space-x-3">
-                                <i class="fas fa-globe text-purple-400"></i>
-                                <span class="text-gray-300">techniki.community</span>
-                            </li>
-                        </ul>
+                        <div class="bg-gray-800 p-3 rounded-lg">
+                            <h6 class="font-semibold text-white mb-1 text-sm">Stay Updated</h6>
+                            <p class="text-gray-400 text-xs mb-2">Subscribe to our newsletter for latest updates</p>
+                            <div class="flex">
+                                <input type="email" placeholder="Enter your email" class="flex-1 bg-gray-700 text-white px-2 py-1 rounded-l-lg border-none outline-none text-sm">
+                                <button class="bg-gradient-to-r from-blue-500 to-purple-600 px-3 py-1 rounded-r-lg hover:from-purple-600 hover:to-blue-500 transition-all text-sm">
+                                    <i class="fas fa-paper-plane text-xs"></i>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <!-- Bottom Bar -->
-        <div class="relative z-10 border-t border-gray-800 py-6">
-            <div class="container mx-auto px-6">
-                <div class="flex flex-col md:flex-row justify-between items-center">
-                    <p class="text-gray-400 text-center md:text-left mb-4 md:mb-0">
-                        &copy; 2024 Techनिकी. All rights reserved. Built with ❤️ by the Techniki Team.
-                    </p>
-                    <div class="flex space-x-6 text-sm">
-                        <a href="#" class="text-gray-400 hover:text-purple-400 transition-colors">Privacy Policy</a>
-                        <a href="#" class="text-gray-400 hover:text-purple-400 transition-colors">Terms of Service</a>
-                        <a href="#" class="text-gray-400 hover:text-purple-400 transition-colors">Code of Conduct</a>
-                    </div>
-                </div>
+            
+            <div class="border-t border-gray-700 pt-6 text-center">
+                <p class="text-gray-400 text-sm">&copy; 2024 Techनिकी. All rights reserved. Built with ❤️ by the Techniki Team.</p>
             </div>
         </div>
     </footer>

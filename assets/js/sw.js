@@ -1,7 +1,7 @@
 // Service Worker for Techniki Website
 // Enables offline functionality and caching
 
-const CACHE_NAME = 'techniki-v1.0.0';
+const CACHE_NAME = 'techniki-v20250919011604';
 const urlsToCache = [
   '/',
   '/index.html',
@@ -25,39 +25,72 @@ self.addEventListener('install', function(event) {
   );
 });
 
-// Fetch Event - Serve from cache when offline
+// Fetch Event - Network first strategy for HTML, cache first for assets
 self.addEventListener('fetch', function(event) {
-  event.respondWith(
-    caches.match(event.request)
-      .then(function(response) {
-        // Cache hit - return response
-        if (response) {
-          return response;
-        }
-        
-        // Clone the request because it's a stream
-        const fetchRequest = event.request.clone();
-        
-        return fetch(fetchRequest).then(
-          function(response) {
-            // Check if we received a valid response
-            if(!response || response.status !== 200 || response.type !== 'basic') {
-              return response;
-            }
-            
-            // Clone the response because it's a stream
-            const responseToCache = response.clone();
-            
+  const request = event.request;
+  const url = new URL(request.url);
+  
+  // For HTML pages, use network-first strategy
+  if (request.destination === 'document' || 
+      request.headers.get('Accept').includes('text/html') ||
+      url.pathname.endsWith('.html') ||
+      url.pathname === '/') {
+    
+    event.respondWith(
+      fetch(request)
+        .then(function(response) {
+          // If network request is successful, cache it and return
+          if (response && response.status === 200) {
+            const responseClone = response.clone();
             caches.open(CACHE_NAME)
               .then(function(cache) {
-                cache.put(event.request, responseToCache);
+                cache.put(request, responseClone);
               });
-            
             return response;
           }
-        );
-      })
+          // If network fails, try cache
+          return caches.match(request);
+        })
+        .catch(function() {
+          // Network failed, try cache
+          return caches.match(request);
+        })
     );
+  } 
+  // For other assets (CSS, JS, images), use cache-first strategy
+  else {
+    event.respondWith(
+      caches.match(request)
+        .then(function(response) {
+          // Cache hit - return response
+          if (response) {
+            return response;
+          }
+          
+          // Clone the request because it's a stream
+          const fetchRequest = request.clone();
+          
+          return fetch(fetchRequest).then(
+            function(response) {
+              // Check if we received a valid response
+              if(!response || response.status !== 200 || response.type !== 'basic') {
+                return response;
+              }
+              
+              // Clone the response because it's a stream
+              const responseToCache = response.clone();
+              
+              caches.open(CACHE_NAME)
+                .then(function(cache) {
+                  cache.put(request, responseToCache);
+                });
+              
+              return response;
+            }
+          );
+        })
+    );
+  }
 });
 
 // Activate Service Worker - Clean up old caches

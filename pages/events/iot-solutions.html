@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>Brain to Build: IoT Solutions | Techniki</title>
+  <link rel="icon" type="image/x-icon" href="../../assets/images/logo/logo.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    /* Navigation styling */
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #3B82F6, #8B5CF6);
+        transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover::after {
+        width: 100%;
+    }
+    
+    /* Glass morphism effect */
+    .glass-card {
+        background: rgba(17, 24, 39, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(8px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+    
+    /* Mobile responsive improvements */
+    @media (max-width: 768px) {
+        .mobile-menu-open {
+            transform: translateY(0) !important;
+        }
+        
+        .mobile-menu-closed {
+            transform: translateY(-100%) !important;
+        }
+    }
+
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: #0a0f1c;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #111a2f;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      position: fixed;
+      top: 2rem;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      transition: all 0.3s;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(5px);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #00bfff;
+    }
+
+    .logo img {
+      height: 70px;
+      width: auto;
+      border-radius: 12px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #00bfff;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #10B981, #3B82F6);
+      padding: 4rem 2rem;
+      text-align: center;
+      color: white;
+      border-radius: 0 0 50px 50px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="25" cy="25" r="1" fill="white" opacity="0.2"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.2"/></svg>') repeat;
+      animation: circuit 15s linear infinite;
+    }
+
+    @keyframes circuit {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(100px, 100px); }
+    }
+
+    .hero h1 { 
+      font-size: 3.5rem; 
+      margin-bottom: 0.5rem; 
+      position: relative;
+      z-index: 2;
+    }
+    
+    .hero p { 
+      font-size: 1.3rem; 
+      opacity: 0.95; 
+      position: relative;
+      z-index: 2;
+    }
+
+    .event-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 0.5rem 1.5rem;
+      border-radius: 25px;
+      margin-bottom: 1rem;
+      font-weight: 600;
+      backdrop-filter: blur(10px);
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin: 3rem 0 2rem;
+      color: #10B981;
+      text-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+    }
+
+    .event-details {
+      padding: 3rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .detail-card {
+      background: #1a2545;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    .detail-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(16, 185, 129, 0.4);
+    }
+
+    .detail-card h3 {
+      color: #10B981;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .detail-card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .detail-card li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .detail-card li:last-child {
+      border-bottom: none;
+    }
+
+    .detail-card li i {
+      color: #10B981;
+      width: 20px;
+    }
+
+    .project-categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .category-card {
+      background: linear-gradient(135deg, #1a2545, #2a3f6f);
+      padding: 1.5rem;
+      border-radius: 15px;
+      border-left: 4px solid #10B981;
+      transition: transform 0.3s;
+    }
+
+    .category-card:hover {
+      transform: translateX(10px);
+    }
+
+    .category-card h4 {
+      color: #10B981;
+      margin-bottom: 0.5rem;
+    }
+
+    .components-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    .component-item {
+      background: rgba(16, 185, 129, 0.1);
+      padding: 1rem;
+      border-radius: 10px;
+      text-align: center;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    .component-item i {
+      font-size: 2rem;
+      color: #10B981;
+      margin-bottom: 0.5rem;
+    }
+
+    .register-section {
+      background: linear-gradient(135deg, #1a2545, #2a3f6f);
+      padding: 3rem 2rem;
+      margin: 3rem 0;
+      border-radius: 30px;
+      text-align: center;
+    }
+
+    .register-form {
+      max-width: 600px;
+      margin: 2rem auto 0;
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .form-group {
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #aad4ff;
+      font-weight: 600;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 1rem;
+      border-radius: 10px;
+      border: 2px solid #3a4f7a;
+      background: #0f1733;
+      color: #fff;
+      font-family: inherit;
+      transition: border-color 0.3s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: #10B981;
+    }
+
+    .submit-btn {
+      background: linear-gradient(135deg, #10B981, #3B82F6);
+      color: white;
+      padding: 1rem 3rem;
+      border: none;
+      border-radius: 25px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+      margin-top: 1rem;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
+    }
+
+    .footer {
+      background: #111a2f;
+      padding: 2rem;
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    .highlight-box {
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 1.5rem;
+      border-radius: 15px;
+      margin: 1.5rem 0;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.5rem; }
+      .details-grid { grid-template-columns: 1fr; }
+      .project-categories { grid-template-columns: 1fr; }
+      .components-grid { grid-template-columns: repeat(2, 1fr); }
+      header { flex-direction: column; gap: 1rem; }
+      .nav-links { gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="bg-black bg-opacity-80 backdrop-blur-lg fixed w-full z-50 transition-all duration-300" id="navbar">
+      <div class="container mx-auto px-4">
+          <div class="flex justify-between items-center py-4">
+              <!-- Logo Section -->
+              <a href="../../index.html" class="flex items-center space-x-3 group">
+                  <img src="../../assets/images/logo/logo.png" alt="Logo" class="h-10 w-auto transition-transform duration-300 group-hover:scale-110">
+                  <span class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">Tech<span class="text-blue-400">निकी</span></span>
+              </a>
+
+              <!-- Desktop Navigation -->
+              <div class="hidden lg:flex items-center space-x-8">
+                  <a href="../../index.html" class="nav-link text-gray-300 hover:text-blue-400 transition-colors font-medium px-3 py-2 rounded-lg relative">
+                      <i class="fas fa-home mr-2"></i>Home
+                  </a>
+                  <a href="../events.html" class="nav-link text-blue-400 bg-blue-400 bg-opacity-20 font-medium px-3 py-2 rounded-lg relative">
+                      <i class="fas fa-calendar-alt mr-2"></i>Events
+                      <span class="absolute bottom-0 left-0 w-full h-0.5 bg-blue-400"></span>
+                  </a>
+                  <a href="../certificates.html" class="nav-link text-gray-300 hover:text-blue-400 transition-colors font-medium px-3 py-2 rounded-lg relative">
+                      <i class="fas fa-certificate mr-2"></i>Certificates
+                  </a>
+                  <a href="../team.html" class="nav-link text-gray-300 hover:text-blue-400 transition-colors font-medium px-3 py-2 rounded-lg relative">
+                      <i class="fas fa-users mr-2"></i>Our Team
+                  </a>
+                  <a href="../blog.html" class="nav-link text-gray-300 hover:text-blue-400 transition-colors font-medium px-3 py-2 rounded-lg relative">
+                      <i class="fas fa-blog mr-2"></i>Blog
+                  </a>
+                  <a href="../projects.html" class="nav-link text-gray-300 hover:text-blue-400 transition-colors font-medium px-3 py-2 rounded-lg relative">
+                      <i class="fas fa-project-diagram mr-2"></i>Projects
+                  </a>
+                  <a href="../ambassador.html" class="nav-link text-gray-300 hover:text-blue-400 transition-colors font-medium px-3 py-2 rounded-lg relative">
+                      <i class="fas fa-star mr-2"></i>Ambassador
+                  </a>
+              </div>
+
+              <!-- CTA Button -->
+              <div class="hidden lg:flex items-center space-x-4">
+                  <a href="https://discord.gg/jxt2fZG4jM" target="_blank" class="text-gray-300 hover:text-indigo-400 transition-colors">
+                      <i class="fab fa-discord text-xl"></i>
+                  </a>
+                  <a href="../../form.html" class="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold px-6 py-2 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                      <i class="fas fa-rocket mr-2"></i>Join Us
+                  </a>
+              </div>
+
+              <!-- Mobile Menu Button -->
+              <button id="mobile-menu-button" class="lg:hidden text-white hover:text-blue-400 transition-colors focus:outline-none" aria-label="Toggle navigation menu">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                  </svg>
+              </button>
+          </div>
+
+          <!-- Mobile Navigation Menu -->
+          <div id="mobile-menu" class="lg:hidden hidden bg-black bg-opacity-95 backdrop-blur-lg border-t border-gray-700">
+              <div class="px-4 py-4 space-y-3">
+                  <a href="../../index.html" class="mobile-nav-link flex items-center space-x-3 text-gray-300 hover:text-blue-400 py-3 px-4 rounded-lg transition-all">
+                      <i class="fas fa-home w-5"></i>
+                      <span>Home</span>
+                  </a>
+                  <a href="../events.html" class="mobile-nav-link flex items-center space-x-3 text-blue-400 bg-blue-400 bg-opacity-20 py-3 px-4 rounded-lg">
+                      <i class="fas fa-calendar-alt w-5"></i>
+                      <span>Events</span>
+                  </a>
+                  <a href="../certificates.html" class="mobile-nav-link flex items-center space-x-3 text-gray-300 hover:text-blue-400 py-3 px-4 rounded-lg transition-all">
+                      <i class="fas fa-certificate w-5"></i>
+                      <span>Certificates</span>
+                  </a>
+                  <a href="../team.html" class="mobile-nav-link flex items-center space-x-3 text-gray-300 hover:text-blue-400 py-3 px-4 rounded-lg transition-all">
+                      <i class="fas fa-users w-5"></i>
+                      <span>Our Team</span>
+                  </a>
+                  <a href="../blog.html" class="mobile-nav-link flex items-center space-x-3 text-gray-300 hover:text-blue-400 py-3 px-4 rounded-lg transition-all">
+                      <i class="fas fa-blog w-5"></i>
+                      <span>Blog</span>
+                  </a>
+                  <a href="../projects.html" class="mobile-nav-link flex items-center space-x-3 text-gray-300 hover:text-blue-400 py-3 px-4 rounded-lg transition-all">
+                      <i class="fas fa-project-diagram w-5"></i>
+                      <span>Projects</span>
+                  </a>
+                  <a href="../ambassador.html" class="mobile-nav-link flex items-center space-x-3 text-gray-300 hover:text-blue-400 py-3 px-4 rounded-lg transition-all">
+                      <i class="fas fa-star w-5"></i>
+                      <span>Ambassador</span>
+                  </a>
+                  <div class="pt-4 border-t border-gray-700">
+                      <a href="../../form.html" class="block bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold py-3 px-6 rounded-full text-center transition-all hover:from-blue-600 hover:to-purple-700">
+                          <i class="fas fa-rocket mr-2"></i>Join Our Community
+                      </a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </nav>
+
+  <section class="hero">
+    <div class="event-badge">
+      <i class="fas fa-microchip"></i> IoT Workshop
+    </div>
+    <h1>Brain to Build</h1>
+    <p>IoT Solutions for Real-World Problems</p>
+    <p><strong>September 22, 2025 | Build & Bring Your Innovation</strong></p>
+  </section>
+
+  <section class="event-details">
+    <h2 class="section-title">Event Overview</h2>
+    
+    <div class="highlight-box">
+      <h3 style="color: #10B981; margin-bottom: 1rem;"><i class="fas fa-lightbulb"></i> Ready to create something impactful?</h3>
+      <p>Use the power of the Internet of Things (IoT) to solve real-life problems! This is your chance to turn innovative ideas into working prototypes that can make a difference in people's lives.</p>
+    </div>
+
+    <div class="details-grid">
+      <div class="detail-card">
+        <h3><i class="fas fa-calendar-alt"></i> Event Details</h3>
+        <ul>
+          <li><i class="fas fa-clock"></i> <strong>Date:</strong> September 22, 2025</li>
+          <li><i class="fas fa-map-marker-alt"></i> <strong>Venue:</strong> To be announced</li>
+          <li><i class="fas fa-users"></i> <strong>Format:</strong> Individual/Team</li>
+          <li><i class="fas fa-trophy"></i> <strong>Entry:</strong> Free registration</li>
+        </ul>
+      </div>
+
+      <div class="detail-card">
+        <h3><i class="fas fa-tasks"></i> What to Do</h3>
+        <ul>
+          <li><i class="fas fa-cogs"></i> Build an IoT solution</li>
+          <li><i class="fas fa-tools"></i> Use available components</li>
+          <li><i class="fas fa-presentation"></i> Demo your project</li>
+          <li><i class="fas fa-handshake"></i> Network with makers</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2 class="section-title">Project Categories</h2>
+    <div class="project-categories">
+      <div class="category-card">
+        <h4><i class="fas fa-home"></i> Smart Home Automation</h4>
+        <p>Control lights, fans, appliances remotely. Create intelligent home systems that respond to user needs and environmental conditions.</p>
+      </div>
+
+      <div class="category-card">
+        <h4><i class="fas fa-shield-alt"></i> Safety & Alert Systems</h4>
+        <p>Build intruder detection, fire alerts, emergency notification systems. Focus on keeping people and property safe.</p>
+      </div>
+
+      <div class="category-card">
+        <h4><i class="fas fa-search"></i> Smart Detectors</h4>
+        <p>Create water level sensors, gas leak detectors, air quality monitors. Monitor environmental conditions automatically.</p>
+      </div>
+
+      <div class="category-card">
+        <h4><i class="fas fa-heartbeat"></i> Health Monitoring</h4>
+        <p>Develop elderly care systems, patient monitoring devices, medication reminders. Technology for better healthcare.</p>
+      </div>
+
+      <div class="category-card">
+        <h4><i class="fas fa-seedling"></i> Smart Irrigation</h4>
+        <p>Build automated water-saving solutions, soil moisture monitoring, weather-responsive watering systems.</p>
+      </div>
+
+      <div class="category-card">
+        <h4><i class="fas fa-plus"></i> Open Innovation</h4>
+        <p>Have another idea? Build anything that solves a real-world problem using IoT technology!</p>
+      </div>
+    </div>
+
+    <h2 class="section-title">Available Components</h2>
+    <div class="highlight-box">
+      <p><strong>What You Can Use:</strong> We'll provide access to various IoT components and development boards. You can also bring your own components if you have specific requirements.</p>
+    </div>
+
+    <div class="components-grid">
+      <div class="component-item">
+        <i class="fas fa-microchip"></i>
+        <h4>Microcontrollers</h4>
+        <p>Arduino, ESP32, Raspberry Pi</p>
+      </div>
+
+      <div class="component-item">
+        <i class="fas fa-thermometer-half"></i>
+        <h4>Sensors</h4>
+        <p>Temperature, Humidity, Motion, Light</p>
+      </div>
+
+      <div class="component-item">
+        <i class="fas fa-cog"></i>
+        <h4>Actuators</h4>
+        <p>Motors, Servos, Relays, Pumps</p>
+      </div>
+
+      <div class="component-item">
+        <i class="fas fa-tv"></i>
+        <h4>Displays</h4>
+        <p>LCD, OLED, LED matrices</p>
+      </div>
+
+      <div class="component-item">
+        <i class="fas fa-wifi"></i>
+        <h4>Connectivity</h4>
+        <p>WiFi, Bluetooth modules</p>
+      </div>
+
+      <div class="component-item">
+        <i class="fas fa-battery-half"></i>
+        <h4>Power</h4>
+        <p>Batteries, Power supplies</p>
+      </div>
+    </div>
+
+    <div class="detail-card">
+      <h3><i class="fas fa-lightbulb"></i> Project Guidelines</h3>
+      <ul>
+        <li><i class="fas fa-check"></i> Focus on solving real-world problems</li>
+        <li><i class="fas fa-check"></i> Use IoT technology meaningfully</li>
+        <li><i class="fas fa-check"></i> Create working prototypes</li>
+        <li><i class="fas fa-check"></i> Prepare a brief demo/presentation</li>
+        <li><i class="fas fa-check"></i> Document your solution</li>
+        <li><i class="fas fa-check"></i> Be ready to explain the impact</li>
+      </ul>
+      
+      <div class="highlight-box" style="margin-top: 1.5rem;">
+        <h4 style="color: #10B981;">Remember: Build it - Bring it - Let's see what you create!</h4>
+        <p>This is a hands-on event where you'll work with real hardware to create tangible solutions. Come prepared to get your hands dirty with circuits, code, and creativity!</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="register-section">
+    <h2 class="section-title" style="color: white; margin-top: 0;">Register for the Event</h2>
+    <p>Ready to turn your ideas into IoT reality? Join us and build something amazing!</p>
+    
+    <form class="register-form" action="#" method="POST">
+      <div class="form-group">
+        <label for="participant-name">Full Name *</label>
+        <input type="text" id="participant-name" name="participant_name" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="email">Email Address *</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="phone">Phone Number *</label>
+        <input type="tel" id="phone" name="phone" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="institution">Institution/Organization</label>
+        <input type="text" id="institution" name="institution">
+      </div>
+      
+      <div class="form-group">
+        <label for="experience">IoT/Electronics Experience *</label>
+        <select id="experience" name="experience" required>
+          <option value="">Select your experience level</option>
+          <option value="beginner">Beginner (New to IoT)</option>
+          <option value="intermediate">Intermediate (Some projects)</option>
+          <option value="advanced">Advanced (Experienced maker)</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="project-idea">Project Idea (Optional)</label>
+        <textarea id="project-idea" name="project_idea" rows="4" placeholder="Briefly describe what you plan to build..."></textarea>
+      </div>
+      
+      <div class="form-group">
+        <label for="components">Required Components</label>
+        <textarea id="components" name="components" rows="3" placeholder="List any specific components you might need..."></textarea>
+      </div>
+      
+      <button type="submit" class="submit-btn">
+        <i class="fas fa-rocket"></i> Register for Free
+      </button>
+    </form>
+  </section>
+
+  <!-- Enhanced Footer -->
+  <footer id="footer" class="bg-black bg-opacity-80 backdrop-blur-lg text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-8 mb-10">
+        <div class="space-y-6">
+          <a href="/index.html" class="flex items-center space-x-3 group">
+            <img src="/assets/images/logo/logo.png" alt="Logo" class="h-10 w-auto transition-transform duration-300 group-hover:scale-110">
+            <span class="text-xl font-bold group-hover:text-blue-400 transition-colors">Tech<span class="text-blue-400">निकी</span></span>
+          </a>
+          <p class="text-gray-300 leading-relaxed text-sm md:text-base">
+            Building an inclusive tech community that empowers every individual to learn, connect, and innovate together.
+          </p>
+          <div class="flex space-x-3">
+            <a href="https://www.instagram.com/technikiatauh/" target="_blank" class="social-link bg-gradient-to-r from-pink-500 to-pink-600 p-2 rounded-full transition-all duration-300 hover:scale-110">
+              <i class="fab fa-instagram text-sm"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/technikiauh" target="_blank" class="social-link bg-gradient-to-r from-blue-600 to-blue-700 p-2 rounded-full transition-all duration-300 hover:scale-110">
+              <i class="fab fa-linkedin text-sm"></i>
+            </a>
+            <a href="https://discord.gg/jxt2fZG4jM" target="_blank" class="social-link bg-gradient-to-r from-indigo-500 to-indigo-600 p-2 rounded-full transition-all duration-300 hover:scale-110">
+              <i class="fab fa-discord text-sm"></i>
+            </a>
+            <a href="https://chat.linkedin.com/BVCtubt4o6pLJcfPAYdBO5" target="_blank" class="social-link bg-gradient-to-r from-green-500 to-green-600 p-2 rounded-full transition-all duration-300 hover:scale-110">
+              <i class="fab fa-linkedin text-sm"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div>
+          <h5 class="font-bold text-lg mb-4 text-blue-400">Quick Links</h5>
+          <div class="space-y-2">
+            <a href="/pages/events.html" class="block text-gray-300 hover:text-blue-400 transition-colors text-sm md:text-base">
+              <i class="fas fa-calendar-alt mr-2"></i>Events
+            </a>
+            <a href="/pages/certificates.html" class="block text-gray-300 hover:text-blue-400 transition-colors text-sm md:text-base">
+              <i class="fas fa-certificate mr-2"></i>Certificates
+            </a>
+            <a href="/pages/team.html" class="block text-gray-300 hover:text-blue-400 transition-colors text-sm md:text-base">
+              <i class="fas fa-users mr-2"></i>Our Team
+            </a>
+            <a href="/pages/blog.html" class="block text-gray-300 hover:text-blue-400 transition-colors text-sm md:text-base">
+              <i class="fas fa-blog mr-2"></i>Blog Posts
+            </a>
+            <a href="/pages/projects.html" class="block text-gray-300 hover:text-blue-400 transition-colors text-sm md:text-base">
+              <i class="fas fa-project-diagram mr-2"></i>Projects
+            </a>
+          </div>
+        </div>
+        
+        <div>
+          <h5 class="font-bold text-lg mb-4 text-purple-400">Community</h5>
+          <div class="space-y-2">
+            <a href="/form.html" class="block text-gray-300 hover:text-purple-400 transition-colors text-sm md:text-base">
+              <i class="fas fa-user-plus mr-2"></i>Join Us
+            </a>
+            <a href="/pages/ambassador.html" class="block text-gray-300 hover:text-purple-400 transition-colors text-sm md:text-base">
+              <i class="fas fa-star mr-2"></i>Campus Ambassador
+            </a>
+            <a href="#" class="block text-gray-300 hover:text-purple-400 transition-colors text-sm md:text-base">
+              <i class="fas fa-hands-helping mr-2"></i>Volunteer
+            </a>
+            <a href="#" class="block text-gray-300 hover:text-purple-400 transition-colors text-sm md:text-base">
+              <i class="fas fa-handshake mr-2"></i>Partner With Us
+            </a>
+          </div>
+        </div>
+        
+        <div>
+          <h5 class="font-bold text-lg mb-4 text-green-400">Get In Touch</h5>
+          <div class="space-y-4">
+            <a href="mailto:techniki@ggn.amity.edu" class="flex items-center text-gray-300 hover:text-green-400 transition-colors text-sm md:text-base">
+              <i class="fas fa-envelope mr-3"></i>
+              techniki@ggn.amity.edu
+            </a>
+            <div class="flex items-center text-gray-300 text-sm md:text-base">
+              <i class="fas fa-map-marker-alt mr-3"></i>
+              Amity University, Gurgaon
+            </div>
+            <div class="bg-gray-800 p-3 rounded-lg">
+              <h6 class="font-semibold text-white mb-1 text-sm">Stay Updated</h6>
+              <p class="text-gray-400 text-xs mb-2">Subscribe to our newsletter for latest updates</p>
+              <div class="flex">
+                <input type="email" placeholder="Enter your email" class="flex-1 bg-gray-700 text-white px-2 py-1 rounded-l-lg border-none outline-none text-sm">
+                <button class="bg-gradient-to-r from-blue-500 to-purple-600 px-3 py-1 rounded-r-lg hover:from-purple-600 hover:to-blue-500 transition-all text-sm">
+                  <i class="fas fa-paper-plane text-xs"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-700 pt-6 text-center">
+        <p class="text-gray-400 text-sm">&copy; 2024 Techनिकी. All rights reserved. Built with ❤️ by the Techniki Team.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+
+    // Form submission handler
+    document.querySelector('.register-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Registration successful! We will send you venue details and component availability soon.');
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+</html>

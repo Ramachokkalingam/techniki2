@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title>Ambassador Program - Techनिकी</title>
     <link rel="icon" type="image/x-icon" href="../assets/images/logo/logo.ico">
     
@@ -34,7 +37,7 @@
     </script>
     
     <!-- Custom Styles -->
-    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/styles.css?v=20250919011604">
     
     <!-- Animation Libraries -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -45,54 +48,97 @@
 </head>
 
 <body class="font-inter bg-gray-900 text-white overflow-x-hidden" id="vanta-bg">
-    <!-- Glass Morphism Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/10 backdrop-blur-md border-b border-white/20">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
-                <!-- Logo -->
+    <!-- Navigation -->
+    <nav class="bg-black bg-opacity-80 backdrop-blur-lg fixed w-full z-50 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <!-- Logo Section -->
                 <a href="../index.html" class="flex items-center space-x-3 group">
-                    <img src="../assets/images/logo/logo.png" alt="Techniki Logo" class="h-10 w-auto transition-transform group-hover:scale-110">
-                    <span class="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                        Techनिकी
-                    </span>
+                    <img src="../assets/images/logo/logo.png" alt="Logo" class="h-10 w-auto transition-transform duration-300 group-hover:scale-110">
+                    <span class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">Tech<span class="text-blue-400">निकी</span></span>
                 </a>
 
                 <!-- Desktop Navigation -->
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="/pages/events.html" class="text-white/80 hover:text-white transition-colors duration-300 hover:bg-white/10 px-3 py-2 rounded-lg">Events</a>
-                    <a href="/pages/certificates.html" class="text-white/80 hover:text-white transition-colors duration-300 hover:bg-white/10 px-3 py-2 rounded-lg">Certificates</a>
-                    <a href="/pages/team.html" class="text-white/80 hover:text-white transition-colors duration-300 hover:bg-white/10 px-3 py-2 rounded-lg">Team</a>
-                    <a href="/pages/blog.html" class="text-white/80 hover:text-white transition-colors duration-300 hover:bg-white/10 px-3 py-2 rounded-lg">Blog</a>
-                    <a href="/pages/projects.html" class="text-white/80 hover:text-white transition-colors duration-300 hover:bg-white/10 px-3 py-2 rounded-lg">Projects</a>
-                    <a href="#footer" class="text-white/80 hover:text-white transition-colors duration-300 hover:bg-white/10 px-3 py-2 rounded-lg">Contact</a>
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="../index.html" class="nav-link text-gray-300 hover:text-blue-400 transition-colors font-medium px-3 py-2 rounded-lg relative">
+                        <i class="fas fa-home mr-2"></i>Home
+                    </a>
+                    <a href="events.html" class="nav-link text-gray-300 hover:text-blue-400 transition-colors font-medium px-3 py-2 rounded-lg relative">
+                        <i class="fas fa-calendar-alt mr-2"></i>Events
+                    </a>
+                    <a href="certificates.html" class="nav-link text-gray-300 hover:text-blue-400 transition-colors font-medium px-3 py-2 rounded-lg relative">
+                        <i class="fas fa-certificate mr-2"></i>Certificates
+                    </a>
+                    <a href="team.html" class="nav-link text-gray-300 hover:text-blue-400 transition-colors font-medium px-3 py-2 rounded-lg relative">
+                        <i class="fas fa-users mr-2"></i>Our Team
+                    </a>
+                    <a href="blog.html" class="nav-link text-gray-300 hover:text-blue-400 transition-colors font-medium px-3 py-2 rounded-lg relative">
+                        <i class="fas fa-blog mr-2"></i>Blog
+                    </a>
+                    <a href="projects.html" class="nav-link text-gray-300 hover:text-blue-400 transition-colors font-medium px-3 py-2 rounded-lg relative">
+                        <i class="fas fa-project-diagram mr-2"></i>Projects
+                    </a>
+                    <a href="ambassador.html" class="nav-link text-blue-400 bg-blue-400 bg-opacity-20 font-medium px-3 py-2 rounded-lg relative">
+                        <i class="fas fa-star mr-2"></i>Ambassador
+                        <span class="absolute bottom-0 left-0 w-full h-0.5 bg-blue-400"></span>
+                    </a>
                 </div>
 
                 <!-- CTA Button -->
-                <div class="hidden md:block">
-                    <a href="/pages/form.html" class="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold px-6 py-2 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
-                        JOIN NOW!
+                <div class="hidden lg:flex items-center space-x-4">
+                    <a href="https://discord.gg/jxt2fZG4jM" target="_blank" class="text-gray-300 hover:text-indigo-400 transition-colors">
+                        <i class="fab fa-discord text-xl"></i>
+                    </a>
+                    <a href="../form.html" class="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold px-6 py-2 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                        <i class="fas fa-rocket mr-2"></i>Join Us
                     </a>
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <button id="mobile-menu-button" class="md:hidden text-white hover:text-blue-400 transition-colors">
-                    <i class="fas fa-bars text-xl"></i>
+                <button id="mobile-menu-button" class="lg:hidden text-white hover:text-blue-400 transition-colors focus:outline-none" aria-label="Toggle navigation menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
                 </button>
             </div>
-        </div>
 
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="md:hidden bg-black/50 backdrop-blur-md border-t border-white/20 hidden">
-            <div class="container mx-auto px-6 py-4 space-y-4">
-                <a href="/pages/events.html" class="block text-white/80 hover:text-white transition-colors py-2">Events</a>
-                <a href="/pages/certificates.html" class="block text-white/80 hover:text-white transition-colors py-2">Certificates</a>
-                <a href="/pages/team.html" class="block text-white/80 hover:text-white transition-colors py-2">Team</a>
-                <a href="/pages/blog.html" class="block text-white/80 hover:text-white transition-colors py-2">Blog</a>
-                <a href="/pages/projects.html" class="block text-white/80 hover:text-white transition-colors py-2">Projects</a>
-                <a href="#footer" class="block text-white/80 hover:text-white transition-colors py-2">Contact</a>
-                <a href="/pages/form.html" class="block bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold px-6 py-2 rounded-full text-center mt-4">
-                    JOIN NOW!
-                </a>
+            <!-- Mobile Navigation Menu -->
+            <div id="mobile-menu" class="lg:hidden hidden bg-black bg-opacity-95 backdrop-blur-lg border-t border-gray-700">
+                <div class="px-4 py-4 space-y-3">
+                    <a href="../index.html" class="mobile-nav-link flex items-center space-x-3 text-gray-300 hover:text-blue-400 py-3 px-4 rounded-lg transition-all">
+                        <i class="fas fa-home w-5"></i>
+                        <span>Home</span>
+                    </a>
+                    <a href="events.html" class="mobile-nav-link flex items-center space-x-3 text-gray-300 hover:text-blue-400 py-3 px-4 rounded-lg transition-all">
+                        <i class="fas fa-calendar-alt w-5"></i>
+                        <span>Events</span>
+                    </a>
+                    <a href="certificates.html" class="mobile-nav-link flex items-center space-x-3 text-gray-300 hover:text-blue-400 py-3 px-4 rounded-lg transition-all">
+                        <i class="fas fa-certificate w-5"></i>
+                        <span>Certificates</span>
+                    </a>
+                    <a href="team.html" class="mobile-nav-link flex items-center space-x-3 text-gray-300 hover:text-blue-400 py-3 px-4 rounded-lg transition-all">
+                        <i class="fas fa-users w-5"></i>
+                        <span>Our Team</span>
+                    </a>
+                    <a href="blog.html" class="mobile-nav-link flex items-center space-x-3 text-gray-300 hover:text-blue-400 py-3 px-4 rounded-lg transition-all">
+                        <i class="fas fa-blog w-5"></i>
+                        <span>Blog</span>
+                    </a>
+                    <a href="projects.html" class="mobile-nav-link flex items-center space-x-3 text-gray-300 hover:text-blue-400 py-3 px-4 rounded-lg transition-all">
+                        <i class="fas fa-project-diagram w-5"></i>
+                        <span>Projects</span>
+                    </a>
+                    <a href="ambassador.html" class="mobile-nav-link flex items-center space-x-3 text-blue-400 bg-blue-400 bg-opacity-20 py-3 px-4 rounded-lg">
+                        <i class="fas fa-star w-5"></i>
+                        <span>Ambassador</span>
+                    </a>
+                    <div class="pt-4 border-t border-gray-700">
+                        <a href="../form.html" class="block bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold py-3 px-6 rounded-full text-center transition-all hover:from-blue-600 hover:to-purple-700">
+                            <i class="fas fa-rocket mr-2"></i>Join Our Community
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
@@ -230,65 +276,100 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer id="footer" class="bg-black/50 backdrop-blur-md border-t border-white/10 py-16">
-        <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-                <!-- Company Info -->
-                <div class="lg:col-span-2" data-aos="fade-up">
-                    <div class="flex items-center space-x-3 mb-6">
-                        <img src="../assets/images/logo/logo.png" alt="Techniki Logo" class="h-10 w-auto">
-                        <span class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                            Techनिकी
-                        </span>
-                    </div>
-                    <p class="text-gray-300 leading-relaxed mb-6 max-w-md">
-                        Techniki was founded with an aim of building an all inclusive community which empowers every individual to learn, connect and build together.
+    <!-- Enhanced Footer -->
+    <footer id="footer" class="bg-black bg-opacity-80 backdrop-blur-lg text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-8 mb-10">
+                <div class="space-y-6">
+                    <a href="../index.html" class="flex items-center space-x-3 group">
+                        <img src="../assets/images/logo/logo.png" alt="Logo" class="h-10 w-auto transition-transform duration-300 group-hover:scale-110">
+                        <span class="text-xl font-bold group-hover:text-blue-400 transition-colors">Tech<span class="text-blue-400">निकी</span></span>
+                    </a>
+                    <p class="text-gray-300 leading-relaxed text-sm md:text-base">
+                        Building an inclusive tech community that empowers every individual to learn, connect, and innovate together.
                     </p>
-                    <div class="flex space-x-4">
-                        <a href="https://www.instagram.com/technikiatauh/" target="_blank" class="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors">
-                            <i class="fab fa-instagram text-lg"></i>
+                    <div class="flex space-x-3">
+                        <a href="https://www.instagram.com/technikiatauh/" target="_blank" class="social-link bg-gradient-to-r from-pink-500 to-pink-600 p-2 rounded-full transition-all duration-300 hover:scale-110">
+                            <i class="fab fa-instagram text-sm"></i>
                         </a>
-                        <a href="https://www.linkedin.com/company/technikiauh" target="_blank" class="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors">
-                            <i class="fab fa-linkedin text-lg"></i>
+                        <a href="https://www.linkedin.com/company/technikiauh" target="_blank" class="social-link bg-gradient-to-r from-blue-600 to-blue-700 p-2 rounded-full transition-all duration-300 hover:scale-110">
+                            <i class="fab fa-linkedin text-sm"></i>
                         </a>
-                        <a href="https://discord.gg/jxt2fZG4jM" target="_blank" class="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors">
-                            <i class="fab fa-discord text-lg"></i>
+                        <a href="https://discord.gg/jxt2fZG4jM" target="_blank" class="social-link bg-gradient-to-r from-indigo-500 to-indigo-600 p-2 rounded-full transition-all duration-300 hover:scale-110">
+                            <i class="fab fa-discord text-sm"></i>
                         </a>
-                        <a href="https://chat.whatsapp.com/BVCtubt4o6pLJcfPAYdBO5" target="_blank" class="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors">
-                            <i class="fab fa-whatsapp text-lg"></i>
+                        <a href="https://chat.whatsapp.com/BVCtubt4o6pLJcfPAYdBO5" target="_blank" class="social-link bg-gradient-to-r from-green-500 to-green-600 p-2 rounded-full transition-all duration-300 hover:scale-110">
+                            <i class="fab fa-whatsapp text-sm"></i>
                         </a>
                     </div>
                 </div>
-
-                <!-- Quick Links -->
-                <div data-aos="fade-up" data-aos-delay="100">
-                    <h4 class="text-lg font-semibold mb-6 text-white">Quick Links</h4>
-                    <ul class="space-y-3">
-                        <li><a href="/pages/events.html" class="text-gray-300 hover:text-white transition-colors">Events</a></li>
-                        <li><a href="/pages/certificates.html" class="text-gray-300 hover:text-white transition-colors">Certificates</a></li>
-                        <li><a href="/pages/team.html" class="text-gray-300 hover:text-white transition-colors">Team</a></li>
-                        <li><a href="/pages/blog.html" class="text-gray-300 hover:text-white transition-colors">Blog</a></li>
-                        <li><a href="/pages/projects.html" class="text-gray-300 hover:text-white transition-colors">Projects</a></li>
-                    </ul>
-                </div>
-
-                <!-- Contact -->
-                <div data-aos="fade-up" data-aos-delay="200">
-                    <h4 class="text-lg font-semibold mb-6 text-white">Contact Us</h4>
-                    <div class="space-y-3">
-                        <a href="mailto:techniki@ggn.amity.edu" class="text-gray-300 hover:text-white transition-colors flex items-center space-x-2">
-                            <i class="fas fa-envelope"></i>
-                            <span>techniki@ggn.amity.edu</span>
+                
+                <div>
+                    <h5 class="font-bold text-lg mb-4 text-blue-400">Quick Links</h5>
+                    <div class="space-y-2">
+                        <a href="events.html" class="block text-gray-300 hover:text-blue-400 transition-colors text-sm md:text-base">
+                            <i class="fas fa-calendar-alt mr-2"></i>Events
                         </a>
+                        <a href="certificates.html" class="block text-gray-300 hover:text-blue-400 transition-colors text-sm md:text-base">
+                            <i class="fas fa-certificate mr-2"></i>Certificates
+                        </a>
+                        <a href="team.html" class="block text-gray-300 hover:text-blue-400 transition-colors text-sm md:text-base">
+                            <i class="fas fa-users mr-2"></i>Our Team
+                        </a>
+                        <a href="blog.html" class="block text-gray-300 hover:text-blue-400 transition-colors text-sm md:text-base">
+                            <i class="fas fa-blog mr-2"></i>Blog Posts
+                        </a>
+                        <a href="projects.html" class="block text-gray-300 hover:text-blue-400 transition-colors text-sm md:text-base">
+                            <i class="fas fa-project-diagram mr-2"></i>Projects
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h5 class="font-bold text-lg mb-4 text-purple-400">Community</h5>
+                    <div class="space-y-2">
+                        <a href="../form.html" class="block text-gray-300 hover:text-purple-400 transition-colors text-sm md:text-base">
+                            <i class="fas fa-user-plus mr-2"></i>Join Us
+                        </a>
+                        <a href="ambassador.html" class="block text-gray-300 hover:text-purple-400 transition-colors text-sm md:text-base">
+                            <i class="fas fa-star mr-2"></i>Campus Ambassador
+                        </a>
+                        <a href="#" class="block text-gray-300 hover:text-purple-400 transition-colors text-sm md:text-base">
+                            <i class="fas fa-hands-helping mr-2"></i>Volunteer
+                        </a>
+                        <a href="#" class="block text-gray-300 hover:text-purple-400 transition-colors text-sm md:text-base">
+                            <i class="fas fa-handshake mr-2"></i>Partner With Us
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h5 class="font-bold text-lg mb-4 text-green-400">Get In Touch</h5>
+                    <div class="space-y-4">
+                        <a href="mailto:techniki@ggn.amity.edu" class="flex items-center text-gray-300 hover:text-green-400 transition-colors text-sm md:text-base">
+                            <i class="fas fa-envelope mr-3"></i>
+                            techniki@ggn.amity.edu
+                        </a>
+                        <div class="flex items-center text-gray-300 text-sm md:text-base">
+                            <i class="fas fa-map-marker-alt mr-3"></i>
+                            Amity University, Gurgaon
+                        </div>
+                        <div class="bg-gray-800 p-3 rounded-lg">
+                            <h6 class="font-semibold text-white mb-1 text-sm">Stay Updated</h6>
+                            <p class="text-gray-400 text-xs mb-2">Subscribe to our newsletter for latest updates</p>
+                            <div class="flex">
+                                <input type="email" placeholder="Enter your email" class="flex-1 bg-gray-700 text-white px-2 py-1 rounded-l-lg border-none outline-none text-sm">
+                                <button class="bg-gradient-to-r from-blue-500 to-purple-600 px-3 py-1 rounded-r-lg hover:from-purple-600 hover:to-blue-500 transition-all text-sm">
+                                    <i class="fas fa-paper-plane text-xs"></i>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <div class="border-t border-white/10 pt-8">
-                <div class="text-center text-gray-400">
-                    <p>&copy; 2025 Techनिकी. All rights reserved.</p>
-                </div>
+            
+            <div class="border-t border-gray-700 pt-6 text-center">
+                <p class="text-gray-400 text-sm">&copy; 2024 Techनिकी. All rights reserved. Built with ❤️ by the Techniki Team.</p>
             </div>
         </div>
     </footer>
@@ -296,7 +377,7 @@
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="../assets/js/scripts.js"></script>
+    <script src="../assets/js/scripts.js?v=20250919011604"></script>
 
     <script>
         // Initialize AOS
