@@ -1,454 +1,598 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <meta http-equiv="Pragma" content="no-cache">
-  <meta http-equiv="Expires" content="0">
-  <title>Brain to Build: IoT Solutions | Techniki</title>
-  <link rel="icon" type="image/x-icon" href="../../assets/images/logo/logo.ico">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <style>
-    /* Navigation styling */
-    .nav-link::after {
-        content: '';
-        position: absolute;
-        bottom: -5px;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background: linear-gradient(90deg, #3B82F6, #8B5CF6);
-        transition: width 0.3s ease;
-    }
+    <!-- Meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Techनिकी - Empowering Innovation in Technology</title>
+    <meta name="description" content="Join Techनिकी, the premier tech community for AI, ML, Web Development, AR, and VR enthusiasts. Learn, connect, and innovate together.">
+    <meta name="keywords" content="Techniki, AI, Machine Learning, Web Development, AR, VR, Technology Community, Innovation">
+    <link rel="icon" type="image/x-icon" href="../../assets/images/logo/logo.ico">
     
-    .nav-link:hover::after {
-        width: 100%;
-    }
+    <!-- Enhanced Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    /* Glass morphism effect */
-    .glass-card {
-        background: rgba(17, 24, 39, 0.6);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        backdrop-filter: blur(8px);
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    }
-    
-    /* Mobile responsive improvements */
-    @media (max-width: 768px) {
-        .mobile-menu-open {
-            transform: translateY(0) !important;
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Mobile-specific styles */
+        @media (max-width: 768px) {
+            #vanta-bg {
+                min-height: 100vh !important;
+            }
+            
+            .hero-title {
+                font-size: 3.5rem !important;
+                line-height: 1.2 !important;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem !important;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(1, 1fr) !important;
+                gap: 1.5rem !important;
+            }
+            
+            .stats-number {
+                font-size: 2.5rem !important;
+            }
+            
+            .domain-card {
+                margin-bottom: 1.5rem;
+            }
+            
+            .mission-card, .domain-card {
+                margin-bottom: 1.5rem;
+            }
+            
+            .floating-particles {
+                display: none; /* Improve performance on mobile */
+            }
+            
+            .mobile-menu-open {
+                transform: translateY(0) !important;
+            }
+            
+            .mobile-menu-closed {
+                transform: translateY(-100%) !important;
+            }
+            
+            /* Fix for mobile navigation */
+            #mobile-menu {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 9999;
+                height: 100vh;
+                overflow-y: auto;
+                transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            
+            /* Mobile menu states */
+            .mobile-menu-closed {
+                transform: translateY(-100%);
+                visibility: hidden;
+            }
+            
+            .mobile-menu-open {
+                transform: translateY(0);
+                visibility: visible;
+            }
+            
+            /* Mobile menu animations */
+            #mobile-menu {
+                transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+                           visibility 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            
+            /* Animate menu items */
+            #mobile-menu nav a {
+                opacity: 0;
+                transform: translateX(-20px);
+                transition: opacity 0.3s ease, transform 0.3s ease;
+                transition-delay: 0s;
+            }
+            
+            #mobile-menu.mobile-menu-open nav a {
+                opacity: 1;
+                transform: translateX(0);
+            }
+            
+            #mobile-menu.mobile-menu-open nav a:nth-child(1) { transition-delay: 0.1s; }
+            #mobile-menu.mobile-menu-open nav a:nth-child(2) { transition-delay: 0.15s; }
+            #mobile-menu.mobile-menu-open nav a:nth-child(3) { transition-delay: 0.2s; }
+            #mobile-menu.mobile-menu-open nav a:nth-child(4) { transition-delay: 0.25s; }
+            #mobile-menu.mobile-menu-open nav a:nth-child(5) { transition-delay: 0.3s; }
+            #mobile-menu.mobile-menu-open nav a:nth-child(6) { transition-delay: 0.35s; }
+            #mobile-menu.mobile-menu-open nav a:nth-child(7) { transition-delay: 0.4s; }
+            
+            /* Ensure close button is clickable */
+            #close-menu {
+                z-index: 10000;
+                cursor: pointer;
+                position: absolute;
+                top: 1.25rem;
+                right: 1.25rem;
+                width: 3rem;
+                height: 3rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                background: rgba(0, 0, 0, 0.3);
+                backdrop-filter: blur(10px);
+                transition: all 0.3s ease;
+            }
+            
+            #close-menu:hover {
+                background: rgba(59, 130, 246, 0.3);
+                transform: scale(1.1);
+            }
+            
+            /* Screen reader only class */
+            .sr-only {
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                padding: 0;
+                margin: -1px;
+                overflow: hidden;
+                clip: rect(0, 0, 0, 0);
+                white-space: nowrap;
+                border: 0;
+            }
+            
+            /* Improve button sizes for mobile */
+            .hero-btn, .join-btn {
+                padding: 0.8rem 1.5rem !important;
+                font-size: 1rem !important;
+                width: 100%;
+                text-align: center;
+                margin-bottom: 0.5rem;
+            }
+            
+            .btn-container {
+                flex-direction: column;
+            }
+            
+            /* Fix text overflow issues */
+            .text-overflow-fix {
+                overflow-wrap: break-word;
+                word-wrap: break-word;
+            }
         }
         
-        .mobile-menu-closed {
-            transform: translateY(-100%) !important;
+        /* General improvements */
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(to right, #3b82f6, #8b5cf6);
+            transition: width 0.3s ease;
         }
-    }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Performance optimization for mobile */
+        @media (max-width: 768px) and (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        
+        /* Prevent horizontal overflow and ensure proper scrolling */
+        html, body {
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
 
-    body {
-      margin: 0;
-      font-family: "Poppins", sans-serif;
-      background: #0a0f1c;
-      color: #fff;
-      line-height: 1.6;
-    }
+        /* Event Page Specific Styles */
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+            padding: 2rem;
+            margin-top: 80px;
+        }
 
-    header {
-      background: #111a2f;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-      position: fixed;
-      top: 2rem;
-      left: 0;
-      right: 0;
-      z-index: 50;
-      transition: all 0.3s;
-      background: rgba(0, 0, 0, 0.7);
-      backdrop-filter: blur(5px);
-    }
+        .event-badge {
+            background: linear-gradient(to right, #10b981, #059669);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
 
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 1.6rem;
-      font-weight: bold;
-      color: #00bfff;
-    }
+        .hero h1 {
+            font-size: 5rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(to right, #10b981, #059669);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
 
-    .logo img {
-      height: 70px;
-      width: auto;
-      border-radius: 12px;
-    }
+        .hero p {
+            font-size: 1.5rem;
+            color: #e5e7eb;
+            margin-bottom: 0.5rem;
+        }
 
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      align-items: center;
-    }
+        .hero p:last-child {
+            color: #fbbf24;
+            font-weight: 600;
+        }
 
-    .nav-links a {
-      color: #fff;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
+        .event-details {
+            padding: 4rem 2rem;
+            background: #111827;
+        }
 
-    .nav-links a:hover {
-      color: #00bfff;
-    }
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: white;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(to right, #10b981, #059669);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
 
-    .hero {
-      background: linear-gradient(135deg, #10B981, #3B82F6);
-      padding: 4rem 2rem;
-      text-align: center;
-      color: white;
-      border-radius: 0 0 50px 50px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-      position: relative;
-      overflow: hidden;
-    }
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(5, 150, 105, 0.1));
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 1000px;
+        }
 
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="25" cy="25" r="1" fill="white" opacity="0.2"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.2"/></svg>') repeat;
-      animation: circuit 15s linear infinite;
-    }
+        .highlight-box h3 {
+            color: #10b981;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
 
-    @keyframes circuit {
-      0% { transform: translate(0, 0); }
-      100% { transform: translate(100px, 100px); }
-    }
+        .highlight-box p {
+            color: #d1fae5;
+            line-height: 1.6;
+        }
 
-    .hero h1 { 
-      font-size: 3.5rem; 
-      margin-bottom: 0.5rem; 
-      position: relative;
-      z-index: 2;
-    }
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .detail-card {
+            background: rgba(31, 41, 55, 0.8);
+            padding: 2rem;
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .detail-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .detail-card h3 {
+            color: #10b981;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .detail-card p,
+        .detail-card li {
+            color: #e5e7eb;
+            line-height: 1.6;
+        }
+
+        .project-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem auto;
+            max-width: 1200px;
+        }
+
+        .category-card {
+            background: rgba(31, 41, 55, 0.6);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .category-card:hover {
+            border-color: #10b981;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.2);
+        }
+
+        .category-card h4 {
+            color: #10b981;
+            margin-bottom: 0.5rem;
+        }
+
+        .category-card p {
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
+
+        .components-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem auto;
+            max-width: 1000px;
+        }
+
+        .component-item {
+            background: rgba(31, 41, 55, 0.6);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .component-item:hover {
+            border-color: #10b981;
+            transform: translateY(-3px);
+        }
+
+        .component-item i {
+            color: #10b981;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .component-item h4 {
+            color: #f3f4f6;
+            margin-bottom: 0.5rem;
+        }
+
+        .component-item p {
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
+
+        .register-section {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(5, 150, 105, 0.1));
+            text-align: center;
+        }
+
+        .register-section p {
+            color: #e5e7eb;
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .register-form {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(31, 41, 55, 0.8);
+            padding: 3rem;
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            color: #f3f4f6;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(55, 65, 81, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #10b981;
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem 2rem;
+            background: linear-gradient(to right, #10b981, #059669);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .project-categories,
+            .components-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .register-form {
+                padding: 1.5rem;
+            }
+        }
+
+    </style>
     
-    .hero p { 
-      font-size: 1.3rem; 
-      opacity: 0.95; 
-      position: relative;
-      z-index: 2;
-    }
-
-    .event-badge {
-      display: inline-block;
-      background: rgba(255, 255, 255, 0.2);
-      padding: 0.5rem 1.5rem;
-      border-radius: 25px;
-      margin-bottom: 1rem;
-      font-weight: 600;
-      backdrop-filter: blur(10px);
-    }
-
-    .section-title {
-      text-align: center;
-      font-size: 2.5rem;
-      margin: 3rem 0 2rem;
-      color: #10B981;
-      text-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
-    }
-
-    .event-details {
-      padding: 3rem 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .details-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-bottom: 3rem;
-    }
-
-    .detail-card {
-      background: #1a2545;
-      padding: 2rem;
-      border-radius: 20px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-      transition: transform 0.3s, box-shadow 0.3s;
-      border: 1px solid rgba(16, 185, 129, 0.3);
-    }
-
-    .detail-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 35px rgba(16, 185, 129, 0.4);
-    }
-
-    .detail-card h3 {
-      color: #10B981;
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .detail-card ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .detail-card li {
-      padding: 0.5rem 0;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .detail-card li:last-child {
-      border-bottom: none;
-    }
-
-    .detail-card li i {
-      color: #10B981;
-      width: 20px;
-    }
-
-    .project-categories {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      margin: 2rem 0;
-    }
-
-    .category-card {
-      background: linear-gradient(135deg, #1a2545, #2a3f6f);
-      padding: 1.5rem;
-      border-radius: 15px;
-      border-left: 4px solid #10B981;
-      transition: transform 0.3s;
-    }
-
-    .category-card:hover {
-      transform: translateX(10px);
-    }
-
-    .category-card h4 {
-      color: #10B981;
-      margin-bottom: 0.5rem;
-    }
-
-    .components-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-      margin: 2rem 0;
-    }
-
-    .component-item {
-      background: rgba(16, 185, 129, 0.1);
-      padding: 1rem;
-      border-radius: 10px;
-      text-align: center;
-      border: 1px solid rgba(16, 185, 129, 0.3);
-    }
-
-    .component-item i {
-      font-size: 2rem;
-      color: #10B981;
-      margin-bottom: 0.5rem;
-    }
-
-    .register-section {
-      background: linear-gradient(135deg, #1a2545, #2a3f6f);
-      padding: 3rem 2rem;
-      margin: 3rem 0;
-      border-radius: 30px;
-      text-align: center;
-    }
-
-    .register-form {
-      max-width: 600px;
-      margin: 2rem auto 0;
-      display: grid;
-      gap: 1.5rem;
-    }
-
-    .form-group {
-      text-align: left;
-    }
-
-    .form-group label {
-      display: block;
-      margin-bottom: 0.5rem;
-      color: #aad4ff;
-      font-weight: 600;
-    }
-
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
-      width: 100%;
-      padding: 1rem;
-      border-radius: 10px;
-      border: 2px solid #3a4f7a;
-      background: #0f1733;
-      color: #fff;
-      font-family: inherit;
-      transition: border-color 0.3s;
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus,
-    .form-group select:focus {
-      outline: none;
-      border-color: #10B981;
-    }
-
-    .submit-btn {
-      background: linear-gradient(135deg, #10B981, #3B82F6);
-      color: white;
-      padding: 1rem 3rem;
-      border: none;
-      border-radius: 25px;
-      font-size: 1.1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: transform 0.3s, box-shadow 0.3s;
-      margin-top: 1rem;
-    }
-
-    .submit-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
-    }
-
-    .footer {
-      background: #111a2f;
-      padding: 2rem;
-      text-align: center;
-      margin-top: 3rem;
-    }
-
-    .highlight-box {
-      background: rgba(16, 185, 129, 0.1);
-      border: 1px solid rgba(16, 185, 129, 0.3);
-      padding: 1.5rem;
-      border-radius: 15px;
-      margin: 1.5rem 0;
-    }
-
-    @media (max-width: 768px) {
-      .hero h1 { font-size: 2.5rem; }
-      .details-grid { grid-template-columns: 1fr; }
-      .project-categories { grid-template-columns: 1fr; }
-      .components-grid { grid-template-columns: repeat(2, 1fr); }
-      header { flex-direction: column; gap: 1rem; }
-      .nav-links { gap: 1rem; }
-    }
-  </style>
+    <!-- Enhanced Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- VANTA.NET scripts - Load conditionally for better performance -->
+    <script>
+        // Only load heavy scripts on desktop
+        if (window.innerWidth > 768) {
+            document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"><\/script>');
+            document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.21/vanta.net.min.js"><\/script>');
+        }
+    </script>
 </head>
-<body>
-  <!-- Navigation -->
-  <nav class="bg-black bg-opacity-80 backdrop-blur-lg fixed w-full z-50 transition-all duration-300" id="navbar">
-      <div class="container mx-auto px-4">
-          <div class="flex justify-between items-center py-4">
-              <!-- Logo Section -->
-              <a href="../../index.html" class="flex items-center space-x-3 group">
-                  <img src="../../assets/images/logo/logo.png" alt="Logo" class="h-10 w-auto transition-transform duration-300 group-hover:scale-110">
-                  <span class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">Tech<span class="text-blue-400">निकी</span></span>
-              </a>
-
-              <!-- Desktop Navigation -->
-              <div class="hidden lg:flex items-center space-x-8">
-                  <a href="../../index.html" class="nav-link text-gray-300 hover:text-blue-400 transition-colors font-medium px-3 py-2 rounded-lg relative">
-                      <i class="fas fa-home mr-2"></i>Home
-                  </a>
-                  <a href="../events.html" class="nav-link text-blue-400 bg-blue-400 bg-opacity-20 font-medium px-3 py-2 rounded-lg relative">
-                      <i class="fas fa-calendar-alt mr-2"></i>Events
-                      <span class="absolute bottom-0 left-0 w-full h-0.5 bg-blue-400"></span>
-                  </a>
-                  <a href="../certificates.html" class="nav-link text-gray-300 hover:text-blue-400 transition-colors font-medium px-3 py-2 rounded-lg relative">
-                      <i class="fas fa-certificate mr-2"></i>Certificates
-                  </a>
-                  <a href="../team.html" class="nav-link text-gray-300 hover:text-blue-400 transition-colors font-medium px-3 py-2 rounded-lg relative">
-                      <i class="fas fa-users mr-2"></i>Our Team
-                  </a>
-                  <a href="../blog.html" class="nav-link text-gray-300 hover:text-blue-400 transition-colors font-medium px-3 py-2 rounded-lg relative">
-                      <i class="fas fa-blog mr-2"></i>Blog
-                  </a>
-                  <a href="../projects.html" class="nav-link text-gray-300 hover:text-blue-400 transition-colors font-medium px-3 py-2 rounded-lg relative">
-                      <i class="fas fa-project-diagram mr-2"></i>Projects
-                  </a>
-                  <a href="../ambassador.html" class="nav-link text-gray-300 hover:text-blue-400 transition-colors font-medium px-3 py-2 rounded-lg relative">
-                      <i class="fas fa-star mr-2"></i>Ambassador
-                  </a>
-              </div>
-
-              <!-- CTA Button -->
-              <div class="hidden lg:flex items-center space-x-4">
-                  <a href="https://discord.gg/jxt2fZG4jM" target="_blank" class="text-gray-300 hover:text-indigo-400 transition-colors">
-                      <i class="fab fa-discord text-xl"></i>
-                  </a>
-                  <a href="../../form.html" class="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold px-6 py-2 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
-                      <i class="fas fa-rocket mr-2"></i>Join Us
-                  </a>
-              </div>
-
-              <!-- Mobile Menu Button -->
-              <button id="mobile-menu-button" class="lg:hidden text-white hover:text-blue-400 transition-colors focus:outline-none" aria-label="Toggle navigation menu">
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                  </svg>
-              </button>
-          </div>
-
-          <!-- Mobile Navigation Menu -->
-          <div id="mobile-menu" class="lg:hidden hidden bg-black bg-opacity-95 backdrop-blur-lg border-t border-gray-700">
-              <div class="px-4 py-4 space-y-3">
-                  <a href="../../index.html" class="mobile-nav-link flex items-center space-x-3 text-gray-300 hover:text-blue-400 py-3 px-4 rounded-lg transition-all">
-                      <i class="fas fa-home w-5"></i>
-                      <span>Home</span>
-                  </a>
-                  <a href="../events.html" class="mobile-nav-link flex items-center space-x-3 text-blue-400 bg-blue-400 bg-opacity-20 py-3 px-4 rounded-lg">
-                      <i class="fas fa-calendar-alt w-5"></i>
-                      <span>Events</span>
-                  </a>
-                  <a href="../certificates.html" class="mobile-nav-link flex items-center space-x-3 text-gray-300 hover:text-blue-400 py-3 px-4 rounded-lg transition-all">
-                      <i class="fas fa-certificate w-5"></i>
-                      <span>Certificates</span>
-                  </a>
-                  <a href="../team.html" class="mobile-nav-link flex items-center space-x-3 text-gray-300 hover:text-blue-400 py-3 px-4 rounded-lg transition-all">
-                      <i class="fas fa-users w-5"></i>
-                      <span>Our Team</span>
-                  </a>
-                  <a href="../blog.html" class="mobile-nav-link flex items-center space-x-3 text-gray-300 hover:text-blue-400 py-3 px-4 rounded-lg transition-all">
-                      <i class="fas fa-blog w-5"></i>
-                      <span>Blog</span>
-                  </a>
-                  <a href="../projects.html" class="mobile-nav-link flex items-center space-x-3 text-gray-300 hover:text-blue-400 py-3 px-4 rounded-lg transition-all">
-                      <i class="fas fa-project-diagram w-5"></i>
-                      <span>Projects</span>
-                  </a>
-                  <a href="../ambassador.html" class="mobile-nav-link flex items-center space-x-3 text-gray-300 hover:text-blue-400 py-3 px-4 rounded-lg transition-all">
-                      <i class="fas fa-star w-5"></i>
-                      <span>Ambassador</span>
-                  </a>
-                  <div class="pt-4 border-t border-gray-700">
-                      <a href="../../form.html" class="block bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold py-3 px-6 rounded-full text-center transition-all hover:from-blue-600 hover:to-purple-700">
-                          <i class="fas fa-rocket mr-2"></i>Join Our Community
-                      </a>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </nav>
+<body class="font-inter bg-gray-900" id="vanta-bg">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 transition-all duration-300 bg-black bg-opacity-70 backdrop-blur-md" id="navbar">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <a href="../../index.html" class="flex items-center space-x-2 group">
+                        <img src="../../assets/images/logo/logo.png" alt="Techनिकी Logo" class="h-8 w-auto transition-transform duration-300 group-hover:scale-110">
+                    </a>
+                </div>
+                
+                <div class="hidden lg:flex items-center space-x-6">
+                    <a href="../events.html" class="nav-link text-white hover:text-blue-400 transition-colors duration-300 relative px-2 py-1">
+                        <i class="fas fa-calendar-alt mr-1"></i>Events
+                    </a>
+                    <a href="../certificates.html" class="nav-link text-white hover:text-blue-400 transition-colors duration-300 relative px-2 py-1">
+                        <i class="fas fa-certificate mr-1"></i>Certificates
+                    </a>
+                    <a href="../team.html" class="nav-link text-white hover:text-blue-400 transition-colors duration-300 relative px-2 py-1">
+                        <i class="fas fa-users mr-1"></i>Team
+                    </a>
+                    <a href="../blog.html" class="nav-link text-white hover:text-blue-400 transition-colors duration-300 relative px-2 py-1">
+                        <i class="fas fa-blog mr-1"></i>Blog
+                    </a>
+                    <a href="../projects.html" class="nav-link text-white hover:text-blue-400 transition-colors duration-300 relative px-2 py-1">
+                        <i class="fas fa-project-diagram mr-1"></i>Projects
+                    </a>
+                    <a href="../../form.html" class="nav-link text-white hover:text-blue-400 transition-colors duration-300 relative px-2 py-1">
+                        <i class="fas fa-envelope mr-1"></i>Contact
+                    </a>
+                </div>
+                
+                <div class="flex items-center space-x-3">
+                    <a href="pages/form.html" class="join-btn bg-gradient-to-r from-blue-500 to-purple-600 text-white px-4 py-2 rounded-full font-semibold transition-all duration-300 hover:from-purple-600 hover:to-blue-500 hover:scale-105 shadow-lg hover:shadow-xl text-sm hidden sm:block">
+                        <i class="fas fa-rocket mr-1"></i>JOIN NOW
+                    </a>
+                    <button class="lg:hidden text-white hover:text-blue-400 transition-colors focus:outline-none relative z-50" id="menu-button" aria-label="Toggle menu" aria-expanded="false">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+        
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="lg:hidden bg-black bg-opacity-95 backdrop-blur-lg fixed top-0 left-0 w-full h-full mobile-menu-closed overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="mobile-menu-title" aria-hidden="true">
+        <div class="container mx-auto px-6 py-20 relative">
+            <h2 id="mobile-menu-title" class="sr-only">Navigation Menu</h2>
+            <button class="text-white text-2xl hover:text-blue-400 transition-all duration-300" id="close-menu" aria-label="Close navigation menu">
+                <i class="fas fa-times"></i>
+            </button>
+            <nav class="flex flex-col space-y-8 mt-10" role="navigation" aria-label="Mobile navigation">
+                <a href="pages/events.html" class="text-white hover:text-blue-400 transition-colors text-xl py-2 border-b border-gray-700" role="menuitem">
+                    <i class="fas fa-calendar-alt mr-3"></i>Events
+                </a>
+                <a href="pages/certificates.html" class="text-white hover:text-blue-400 transition-colors text-xl py-2 border-b border-gray-700" role="menuitem">
+                    <i class="fas fa-certificate mr-3"></i>Certificates
+                </a>
+                <a href="pages/team.html" class="text-white hover:text-blue-400 transition-colors text-xl py-2 border-b border-gray-700" role="menuitem">
+                    <i class="fas fa-users mr-3"></i>Team
+                </a>
+                <a href="pages/blog.html" class="text-white hover:text-blue-400 transition-colors text-xl py-2 border-b border-gray-700" role="menuitem">
+                    <i class="fas fa-blog mr-3"></i>Blog
+                </a>
+                <a href="pages/projects.html" class="text-white hover:text-blue-400 transition-colors text-xl py-2 border-b border-gray-700" role="menuitem">
+                    <i class="fas fa-project-diagram mr-3"></i>Projects
+                </a>
+                <a href="#footer" class="text-white hover:text-blue-400 transition-colors text-xl py-2 border-b border-gray-700" role="menuitem">
+                    <i class="fas fa-envelope mr-3"></i>Contact
+                </a>
+                <a href="pages/form.html" class="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105 text-center mt-8" role="menuitem">
+                    <i class="fas fa-rocket mr-2"></i>JOIN COMMUNITY
+                </a>
+            </nav>
+        </div>
+    </div>
 
   <section class="hero">
     <div class="event-badge">
@@ -587,177 +731,341 @@
     <h2 class="section-title" style="color: white; margin-top: 0;">Register for the Event</h2>
     <p>Ready to turn your ideas into IoT reality? Join us and build something amazing!</p>
     
-    <form class="register-form" action="#" method="POST">
-      <div class="form-group">
-        <label for="participant-name">Full Name *</label>
-        <input type="text" id="participant-name" name="participant_name" required>
-      </div>
-      
-      <div class="form-group">
-        <label for="email">Email Address *</label>
-        <input type="email" id="email" name="email" required>
-      </div>
-      
-      <div class="form-group">
-        <label for="phone">Phone Number *</label>
-        <input type="tel" id="phone" name="phone" required>
-      </div>
-      
-      <div class="form-group">
-        <label for="institution">Institution/Organization</label>
-        <input type="text" id="institution" name="institution">
-      </div>
-      
-      <div class="form-group">
-        <label for="experience">IoT/Electronics Experience *</label>
-        <select id="experience" name="experience" required>
-          <option value="">Select your experience level</option>
-          <option value="beginner">Beginner (New to IoT)</option>
-          <option value="intermediate">Intermediate (Some projects)</option>
-          <option value="advanced">Advanced (Experienced maker)</option>
-        </select>
-      </div>
-      
-      <div class="form-group">
-        <label for="project-idea">Project Idea (Optional)</label>
-        <textarea id="project-idea" name="project_idea" rows="4" placeholder="Briefly describe what you plan to build..."></textarea>
-      </div>
-      
-      <div class="form-group">
-        <label for="components">Required Components</label>
-        <textarea id="components" name="components" rows="3" placeholder="List any specific components you might need..."></textarea>
-      </div>
-      
-      <button type="submit" class="submit-btn">
-        <i class="fas fa-rocket"></i> Register for Free
-      </button>
-    </form>
+    <div class="max-w-4xl mx-auto">
+        <div class="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8">
+            <!-- Fallback button in case iframe doesn't load -->
+            <div class="text-center mb-4">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScgAZHh_akTmbN7FYcDvPaYnm316ZUdDQKx00fAzi7Ybw-Giw/viewform" 
+                   target="_blank" 
+                   class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white font-semibold rounded-lg hover:from-emerald-600 hover:to-emerald-500 transition-all duration-300 hover:scale-105">
+                    <i class="fas fa-external-link-alt mr-2"></i>
+                    Open Registration Form in New Tab
+                </a>
+            </div>
+            <iframe 
+                src="https://docs.google.com/forms/d/e/1FAIpQLScgAZHh_akTmbN7FYcDvPaYnm316ZUdDQKx00fAzi7Ybw-Giw/viewform?embedded=true" 
+                width="100%" 
+                height="1800" 
+                frameborder="0" 
+                marginheight="0" 
+                marginwidth="0"
+                style="border: none; background: white; border-radius: 8px; min-height: 1800px;"
+                loading="lazy"
+                title="IoT Solutions Registration Form">
+                <p>Loading registration form... If the form doesn't load, please <a href="https://docs.google.com/forms/d/e/1FAIpQLScgAZHh_akTmbN7FYcDvPaYnm316ZUdDQKx00fAzi7Ybw-Giw/viewform" target="_blank" style="color: #10b981;">click here to open it in a new tab</a>.</p>
+            </iframe>
+        </div>
+    </div>
   </section>
 
-  <!-- Enhanced Footer -->
-  <footer id="footer" class="bg-black bg-opacity-80 backdrop-blur-lg text-white py-12">
-    <div class="container mx-auto px-4">
-      <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-8 mb-10">
-        <div class="space-y-6">
-          <a href="/index.html" class="flex items-center space-x-3 group">
-            <img src="/assets/images/logo/logo.png" alt="Logo" class="h-10 w-auto transition-transform duration-300 group-hover:scale-110">
-            <span class="text-xl font-bold group-hover:text-blue-400 transition-colors">Tech<span class="text-blue-400">निकी</span></span>
-          </a>
-          <p class="text-gray-300 leading-relaxed text-sm md:text-base">
-            Building an inclusive tech community that empowers every individual to learn, connect, and innovate together.
-          </p>
-          <div class="flex space-x-3">
-            <a href="https://www.instagram.com/technikiatauh/" target="_blank" class="social-link bg-gradient-to-r from-pink-500 to-pink-600 p-2 rounded-full transition-all duration-300 hover:scale-110">
-              <i class="fab fa-instagram text-sm"></i>
-            </a>
-            <a href="https://www.linkedin.com/company/technikiauh" target="_blank" class="social-link bg-gradient-to-r from-blue-600 to-blue-700 p-2 rounded-full transition-all duration-300 hover:scale-110">
-              <i class="fab fa-linkedin text-sm"></i>
-            </a>
-            <a href="https://discord.gg/jxt2fZG4jM" target="_blank" class="social-link bg-gradient-to-r from-indigo-500 to-indigo-600 p-2 rounded-full transition-all duration-300 hover:scale-110">
-              <i class="fab fa-discord text-sm"></i>
-            </a>
-            <a href="https://chat.linkedin.com/BVCtubt4o6pLJcfPAYdBO5" target="_blank" class="social-link bg-gradient-to-r from-green-500 to-green-600 p-2 rounded-full transition-all duration-300 hover:scale-110">
-              <i class="fab fa-linkedin text-sm"></i>
-            </a>
-          </div>
-        </div>
-        
-        <div>
-          <h5 class="font-bold text-lg mb-4 text-blue-400">Quick Links</h5>
-          <div class="space-y-2">
-            <a href="/pages/events.html" class="block text-gray-300 hover:text-blue-400 transition-colors text-sm md:text-base">
-              <i class="fas fa-calendar-alt mr-2"></i>Events
-            </a>
-            <a href="/pages/certificates.html" class="block text-gray-300 hover:text-blue-400 transition-colors text-sm md:text-base">
-              <i class="fas fa-certificate mr-2"></i>Certificates
-            </a>
-            <a href="/pages/team.html" class="block text-gray-300 hover:text-blue-400 transition-colors text-sm md:text-base">
-              <i class="fas fa-users mr-2"></i>Our Team
-            </a>
-            <a href="/pages/blog.html" class="block text-gray-300 hover:text-blue-400 transition-colors text-sm md:text-base">
-              <i class="fas fa-blog mr-2"></i>Blog Posts
-            </a>
-            <a href="/pages/projects.html" class="block text-gray-300 hover:text-blue-400 transition-colors text-sm md:text-base">
-              <i class="fas fa-project-diagram mr-2"></i>Projects
-            </a>
-          </div>
-        </div>
-        
-        <div>
-          <h5 class="font-bold text-lg mb-4 text-purple-400">Community</h5>
-          <div class="space-y-2">
-            <a href="/form.html" class="block text-gray-300 hover:text-purple-400 transition-colors text-sm md:text-base">
-              <i class="fas fa-user-plus mr-2"></i>Join Us
-            </a>
-            <a href="/pages/ambassador.html" class="block text-gray-300 hover:text-purple-400 transition-colors text-sm md:text-base">
-              <i class="fas fa-star mr-2"></i>Campus Ambassador
-            </a>
-            <a href="#" class="block text-gray-300 hover:text-purple-400 transition-colors text-sm md:text-base">
-              <i class="fas fa-hands-helping mr-2"></i>Volunteer
-            </a>
-            <a href="#" class="block text-gray-300 hover:text-purple-400 transition-colors text-sm md:text-base">
-              <i class="fas fa-handshake mr-2"></i>Partner With Us
-            </a>
-          </div>
-        </div>
-        
-        <div>
-          <h5 class="font-bold text-lg mb-4 text-green-400">Get In Touch</h5>
-          <div class="space-y-4">
-            <a href="mailto:techniki@ggn.amity.edu" class="flex items-center text-gray-300 hover:text-green-400 transition-colors text-sm md:text-base">
-              <i class="fas fa-envelope mr-3"></i>
-              techniki@ggn.amity.edu
-            </a>
-            <div class="flex items-center text-gray-300 text-sm md:text-base">
-              <i class="fas fa-map-marker-alt mr-3"></i>
-              Amity University, Gurgaon
+    <!-- Enhanced Footer -->
+    <footer id="footer" class="bg-black bg-opacity-80 backdrop-blur-lg text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-8 mb-10">
+                <div class="space-y-6">
+                    <a href="index.html" class="flex items-center space-x-3 group">
+                        <img src="assets/images/logo/logo.png" alt="Logo" class="h-10 w-auto transition-transform duration-300 group-hover:scale-110">
+                        <span class="text-xl font-bold group-hover:text-blue-400 transition-colors">Tech<span class="text-blue-400">निकी</span></span>
+                    </a>
+                    <p class="text-gray-300 leading-relaxed text-sm md:text-base">
+                        Building an inclusive tech community that empowers every individual to learn, connect, and innovate together.
+                    </p>
+                    <div class="flex space-x-3">
+                        <a href="https://www.instagram.com/technikiatauh/" target="_blank" class="social-link bg-gradient-to-r from-pink-500 to-pink-600 p-2 rounded-full transition-all duration-300 hover:scale-110">
+                            <i class="fab fa-instagram text-sm"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/technikiauh" target="_blank" class="social-link bg-gradient-to-r from-blue-600 to-blue-700 p-2 rounded-full transition-all duration-300 hover:scale-110">
+                            <i class="fab fa-linkedin text-sm"></i>
+                        </a>
+                        <a href="https://discord.gg/jxt2fZG4jM" target="_blank" class="social-link bg-gradient-to-r from-indigo-500 to-indigo-600 p-2 rounded-full transition-all duration-300 hover:scale-110">
+                            <i class="fab fa-discord text-sm"></i>
+                        </a>
+                        <a href="https://chat.whatsapp.com/BVCtubt4o6pLJcfPAYdBO5" target="_blank" class="social-link bg-gradient-to-r from-green-500 to-green-600 p-2 rounded-full transition-all duration-300 hover:scale-110">
+                            <i class="fab fa-whatsapp text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h5 class="font-bold text-lg mb-4 text-blue-400">Quick Links</h5>
+                    <div class="space-y-2">
+                        <a href="pages/events.html" class="block text-gray-300 hover:text-blue-400 transition-colors text-sm md:text-base">
+                            <i class="fas fa-calendar-alt mr-2"></i>Events
+                        </a>
+                        <a href="pages/certificates.html" class="block text-gray-300 hover:text-blue-400 transition-colors text-sm md:text-base">
+                            <i class="fas fa-certificate mr-2"></i>Certificates
+                        </a>
+                        <a href="pages/team.html" class="block text-gray-300 hover:text-blue-400 transition-colors text-sm md:text-base">
+                            <i class="fas fa-users mr-2"></i>Our Team
+                        </a>
+                        <a href="pages/blog.html" class="block text-gray-300 hover:text-blue-400 transition-colors text-sm md:text-base">
+                            <i class="fas fa-blog mr-2"></i>Blog Posts
+                        </a>
+                        <a href="pages/projects.html" class="block text-gray-300 hover:text-blue-400 transition-colors text-sm md:text-base">
+                            <i class="fas fa-project-diagram mr-2"></i>Projects
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h5 class="font-bold text-lg mb-4 text-purple-400">Community</h5>
+                    <div class="space-y-2">
+                        <a href="pages/form.html" class="block text-gray-300 hover:text-purple-400 transition-colors text-sm md:text-base">
+                            <i class="fas fa-user-plus mr-2"></i>Join Us
+                        </a>
+                        <a href="pages/ambassador.html" class="block text-gray-300 hover:text-purple-400 transition-colors text-sm md:text-base">
+                            <i class="fas fa-star mr-2"></i>Campus Ambassador
+                        </a>
+                        <a href="#" class="block text-gray-300 hover:text-purple-400 transition-colors text-sm md:text-base">
+                            <i class="fas fa-hands-helping mr-2"></i>Volunteer
+                        </a>
+                        <a href="#" class="block text-gray-300 hover:text-purple-400 transition-colors text-sm md:text-base">
+                            <i class="fas fa-handshake mr-2"></i>Partner With Us
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h5 class="font-bold text-lg mb-4 text-green-400">Get In Touch</h5>
+                    <div class="space-y-4">
+                        <a href="mailto:techniki@ggn.amity.edu" class="flex items-center text-gray-300 hover:text-green-400 transition-colors text-sm md:text-base">
+                            <i class="fas fa-envelope mr-3"></i>
+                            techniki@ggn.amity.edu
+                        </a>
+                        <div class="flex items-center text-gray-300 text-sm md:text-base">
+                            <i class="fas fa-map-marker-alt mr-3"></i>
+                            Amity University, Gurgaon
+                        </div>
+                        <div class="bg-gray-800 p-3 rounded-lg">
+                            <h6 class="font-semibold text-white mb-1 text-sm">Stay Updated</h6>
+                            <p class="text-gray-400 text-xs mb-2">Subscribe to our newsletter for latest updates</p>
+                            <div class="flex">
+                                <input type="email" placeholder="Enter your email" class="flex-1 bg-gray-700 text-white px-2 py-1 rounded-l-lg border-none outline-none text-sm">
+                                <button class="bg-gradient-to-r from-blue-500 to-purple-600 px-3 py-1 rounded-r-lg hover:from-purple-600 hover:to-blue-500 transition-all text-sm">
+                                    <i class="fas fa-paper-plane text-xs"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="bg-gray-800 p-3 rounded-lg">
-              <h6 class="font-semibold text-white mb-1 text-sm">Stay Updated</h6>
-              <p class="text-gray-400 text-xs mb-2">Subscribe to our newsletter for latest updates</p>
-              <div class="flex">
-                <input type="email" placeholder="Enter your email" class="flex-1 bg-gray-700 text-white px-2 py-1 rounded-l-lg border-none outline-none text-sm">
-                <button class="bg-gradient-to-r from-blue-500 to-purple-600 px-3 py-1 rounded-r-lg hover:from-purple-600 hover:to-blue-500 transition-all text-sm">
-                  <i class="fas fa-paper-plane text-xs"></i>
-                </button>
-              </div>
+            
+            <div class="border-t border-gray-700 pt-6 text-center">
+                <p class="text-gray-400 text-sm">&copy; 2024 Techनिकी. All rights reserved. Built with ❤️ by the Techniki Team.</p>
             </div>
-          </div>
         </div>
-      </div>
-      
-      <div class="border-t border-gray-700 pt-6 text-center">
-        <p class="text-gray-400 text-sm">&copy; 2024 Techनिकी. All rights reserved. Built with ❤️ by the Techniki Team.</p>
-      </div>
-    </div>
-  </footer>
+    </footer>
 
-  <script>
-    // Mobile menu toggle
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    if (mobileMenuBtn && mobileMenu) {
-      mobileMenuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-      });
-    }
-
-    // Form submission handler
-    document.querySelector('.register-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      alert('Registration successful! We will send you venue details and component availability soon.');
-    });
-
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
+    <!-- Enhanced Scripts -->
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false,
+            disable: window.innerWidth < 768 // Disable on mobile for performance
         });
-      });
-    });
-  </script>
+
+        // Only initialize VANTA on desktop
+        if (window.innerWidth > 768) {
+            VANTA.NET({
+                el: "#vanta-bg",
+                mouseControls: true,
+                touchControls: true,
+                gyroControls: false,
+                minHeight: 200.00,
+                minWidth: 200.00,
+                scale: 1.00,
+                scaleMobile: 1.00,
+                color: 0x3b82f6,
+                backgroundColor: 0x111827,
+                points: 15.00,
+                maxDistance: 25.00,
+                spacing: 18.00
+            });
+        } else {
+            // Set a simple gradient background for mobile
+            document.getElementById('vanta-bg').style.background = 'linear-gradient(to bottom, #111827, #1f2937)';
+        }
+
+        // Mobile Menu Toggle
+        const menuButton = document.getElementById('menu-button');
+        const closeMenuButton = document.getElementById('close-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (menuButton && mobileMenu) {
+            menuButton.addEventListener('click', function() {
+                mobileMenu.classList.remove('mobile-menu-closed');
+                mobileMenu.classList.add('mobile-menu-open');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+            });
+        }
+        
+        if (closeMenuButton && mobileMenu) {
+            closeMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.remove('mobile-menu-open');
+                mobileMenu.classList.add('mobile-menu-closed');
+                document.body.style.overflow = ''; // Re-enable scrolling
+            });
+        }
+
+        // Close menu when clicking outside the menu content
+        if (mobileMenu) {
+            mobileMenu.addEventListener('click', function(e) {
+                if (e.target === mobileMenu) {
+                    mobileMenu.classList.remove('mobile-menu-open');
+                    mobileMenu.classList.add('mobile-menu-closed');
+                    document.body.style.overflow = '';
+                }
+            });
+        }
+
+        // Close menu when clicking on a link
+        const mobileLinks = document.querySelectorAll('#mobile-menu a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.remove('mobile-menu-open');
+                mobileMenu.classList.add('mobile-menu-closed');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(0, 0, 0, 0.9)';
+                navbar.style.backdropFilter = 'blur(10px)';
+            } else {
+                navbar.style.background = 'rgba(0, 0, 0, 0.7)';
+                navbar.style.backdropFilter = 'blur(5px)';
+            }
+        });
+
+        // Counter Animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('[data-count]');
+            let animated = false;
+            
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-count'));
+                const count = parseInt(counter.innerText);
+                
+                if (!isNaN(target) && !animated) {
+                    let current = 0;
+                    const increment = target / 50;
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= target) {
+                            counter.innerText = target + '+';
+                            clearInterval(timer);
+                            animated = true;
+                        } else {
+                            counter.innerText = Math.floor(current) + '+';
+                        }
+                    }, 30);
+                }
+            });
+        }
+
+        // Trigger counter animation when section is visible
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const statsSection = document.querySelector('.stats-grid');
+        if (statsSection) {
+            observer.observe(statsSection);
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const target = document.querySelector(targetId);
+                if (target) {
+                    // Close mobile menu if open
+                    if (mobileMenu.classList.contains('mobile-menu-open')) {
+                        mobileMenu.classList.remove('mobile-menu-open');
+                        mobileMenu.classList.add('mobile-menu-closed');
+                        document.body.style.overflow = '';
+                    }
+                    
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add performance optimization for mobile
+        if (window.innerWidth < 768) {
+            // Reduce the number of AOS animations on mobile
+            const reducedAnimations = document.querySelectorAll('[data-aos]');
+            reducedAnimations.forEach((el, index) => {
+                if (index % 2 !== 0) { // Remove every other animation
+                    el.removeAttribute('data-aos');
+                }
+            });
+        }
+
+        // Form handling
+        document.addEventListener('DOMContentLoaded', function() {
+            // Form iframe loading detection
+            const iframe = document.querySelector('iframe[title="IoT Solutions Registration Form"]');
+            if (iframe) {
+                // Set a timeout to check if iframe loaded
+                setTimeout(() => {
+                    try {
+                        // Try to access iframe content (will fail if not loaded)
+                        const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                        if (!iframeDoc || iframeDoc.body.innerHTML.length < 100) {
+                            showFormFallback();
+                        }
+                    } catch (e) {
+                        // If we can't access it, assume it's loaded (cross-origin)
+                        console.log('Iframe loaded (cross-origin)');
+                    }
+                }, 5000);
+
+                // Add error handler
+                iframe.addEventListener('error', showFormFallback);
+                
+                // Add load handler
+                iframe.addEventListener('load', () => {
+                    console.log('Registration form loaded successfully');
+                });
+            }
+
+            function showFormFallback() {
+                const container = document.querySelector('.bg-white\/5');
+                if (container) {
+                    container.innerHTML = `
+                        <div class="text-center py-12">
+                            <h3 class="text-2xl font-bold text-white mb-4">Registration Form</h3>
+                            <p class="text-gray-300 mb-6">The embedded form is having trouble loading. Please click the button below to register:</p>
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLScgAZHh_akTmbN7FYcDvPaYnm316ZUdDQKx00fAzi7Ybw-Giw/viewform" 
+                               target="_blank" 
+                               class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white font-semibold rounded-lg hover:from-emerald-600 hover:to-emerald-500 transition-all duration-300 hover:scale-105 text-lg">
+                                <i class="fas fa-external-link-alt mr-3"></i>
+                                Open Registration Form
+                            </a>
+                            <p class="text-sm text-gray-400 mt-4">This will open in a new tab</p>
+                        </div>
+                    `;
+                }
+            }
+        });
+    </script>
 </body>
 </html>
