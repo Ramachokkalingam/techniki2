@@ -453,6 +453,21 @@
                 padding: 1.5rem;
             }
         }
+        .register-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #007BFF; /* Blue */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+  }
+
+  .register-btn:hover {
+    background-color: #0056b3; /* Darker Blue */
+  }
 
     </style>
     
@@ -551,14 +566,17 @@
         </div>
     </div>
 
-  <section class="hero">
-    <div class="event-badge">
-      <i class="fas fa-brain"></i> AI Hackathon
-    </div>
-    <h1>CTRL+THINK</h1>
-    <p>All-Night AI Build Hackathon</p>
-    <p><strong>September 26-27, 2025 | 5:00 PM - 8:00 AM</strong></p>
-  </section>
+ <section class="hero">
+  <div class="event-badge">
+    <i class="fas fa-brain"></i> AI Hackathon
+  </div>
+  <h1>CTRL+THINK</h1>
+  <p>All-Night AI Build Hackathon</p>
+  <p><strong>September 26-27, 2025 | 5:00 PM - 8:00 AM</strong></p>
+
+  <!-- Register Button -->
+  <a href="#register" class="register-btn">Register Now</a>
+</section>
 
   <section class="event-details">
     <h2 class="section-title">Event Details</h2>
@@ -649,7 +667,7 @@
       </ul>
     </div>
   </section>
-    <section id="registration-form" class="py-20 relative">
+    <section id="register" class="py-20 relative">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
