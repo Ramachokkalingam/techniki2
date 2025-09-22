@@ -683,25 +683,39 @@
                 .single();
 
             if (eventError || !event) {
-                document.getElementById("result").innerHTML = `<p style="color:red">Event not found</p>`;
+                document.getElementById("result").innerHTML = `<p style='color:red'>Event not found</p>`;
                 return;
             }
 
-            // Fetch student (only name + course)
-            const { data: student, error: studentError } = await supabaseClient
-                .from("students")
-                .select("name")
-                .eq("enrollment", enrollment)
-                .single();
-
-            if (studentError || !student) {
-                document.getElementById("result").innerHTML = `<p style="color:red">Student not found</p>`;
-                return;
+            let name = "";
+            if (eventName.toLowerCase() === "ctrl+think") {
+                // Fetch from ctrl_think table
+                const { data: ctrlThink, error: ctrlThinkError } = await supabaseClient
+                    .from("ctrl_think")
+                    .select("name")
+                    .eq("enrollment", enrollment)
+                    .single();
+                if (ctrlThinkError || !ctrlThink) {
+                    document.getElementById("result").innerHTML = `<p style='color:red'>Participant not found in ctrl_think</p>`;
+                    return;
+                }
+                name = ctrlThink.name;
+            } else {
+                // Fetch from students table
+                const { data: student, error: studentError } = await supabaseClient
+                    .from("students")
+                    .select("name")
+                    .eq("enrollment", enrollment)
+                    .single();
+                if (studentError || !student) {
+                    document.getElementById("result").innerHTML = `<p style='color:red'>Student not found</p>`;
+                    return;
+                }
+                name = student.name;
             }
 
             // Set certificate text
-            document.getElementById("certName").textContent = student.name;
-            
+            document.getElementById("certName").textContent = name;
 
             // Wait for image to load
             const img = document.getElementById("certTemplate");
@@ -718,7 +732,7 @@
                 const { jsPDF } = window.jspdf;
                 const pdf = new jsPDF("l", "pt", [canvas.width, canvas.height]);
                 pdf.addImage(canvas.toDataURL("image/png"), "PNG", 0, 0, canvas.width, canvas.height);
-                pdf.save(`${student.name}_certificate.pdf`);
+                pdf.save(`${name}_certificate.pdf`);
                 certArea.style.display = "none";
             });
         }
