@@ -717,8 +717,17 @@
             // Set certificate text
             document.getElementById("certName").textContent = name;
 
-            // Wait for image to load
+            // Set certificate template image based on event
             const img = document.getElementById("certTemplate");
+            if (eventName.toLowerCase() === "ctrl+think") {
+                img.src = "../assets/images/logo/ctrl_think.jpg";
+            } else if (eventName.toLowerCase() === "git and github") {
+                img.src = "../assets/images/logo/template.png";
+            } else {
+                img.src = "../assets/images/logo/template.png";
+            }
+
+            // Wait for image to load
             if (!img.complete) {
                 await new Promise(resolve => { img.onload = resolve; });
             }
