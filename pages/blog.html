@@ -7,8 +7,9 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <title>Tech Blog - Techनिकी</title>
-    <meta name="description" content="Read the latest tech articles, tutorials, and insights from the Techniki community. Stay updated with AI/ML, Web Development, AR/VR trends.">
+    <title>Techनिकी - Empowering Innovation in Technology</title>
+    <meta name="description" content="Join Techनिकी, the premier tech community for AI, ML, Web Development, AR, and VR enthusiasts. Learn, connect, and innovate together.">
+    <meta name="keywords" content="Techniki, AI, Machine Learning, Web Development, AR, VR, Technology Community, Innovation">
     <link rel="icon" type="image/x-icon" href="../assets/images/logo/logo.ico">
     
     <!-- Enhanced Fonts -->
@@ -19,20 +20,128 @@
     
     <!-- CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/css/styles.css?v=20250919011604">
+    <style>
+        /* Mobile-specific styles */
+        @media (max-width: 768px) {
+            #vanta-bg {
+                min-height: 100vh !important;
+            }
+            
+            .hero-title {
+                font-size: 3.5rem !important;
+                line-height: 1.2 !important;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem !important;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 1.5rem !important;
+            }
+            
+            .stats-number {
+                font-size: 2.5rem !important;
+            }
+            
+            .domain-card {
+                margin-bottom: 1.5rem;
+            }
+            
+            .mission-card, .domain-card {
+                margin-bottom: 1.5rem;
+            }
+            
+            .floating-particles {
+                display: none; /* Improve performance on mobile */
+            }
+            
+            .mobile-menu-open {
+                transform: translateY(0) !important;
+            }
+            
+            .mobile-menu-closed {
+                transform: translateY(-100%) !important;
+            }
+            
+            /* Fix for mobile navigation */
+            #mobile-menu {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 40;
+                height: 100vh;
+                overflow-y: auto;
+            }
+            
+            /* Improve button sizes for mobile */
+            .hero-btn, .join-btn {
+                padding: 0.8rem 1.5rem !important;
+                font-size: 1rem !important;
+                width: 100%;
+                text-align: center;
+                margin-bottom: 0.5rem;
+            }
+            
+            .btn-container {
+                flex-direction: column;
+            }
+            
+            /* Fix text overflow issues */
+            .text-overflow-fix {
+                overflow-wrap: break-word;
+                word-wrap: break-word;
+            }
+        }
+        
+        /* General improvements */
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(to right, #3b82f6, #8b5cf6);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Performance optimization for mobile */
+        @media (max-width: 768px) and (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
     
     <!-- Enhanced Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="../assets/js/scripts.js?v=20250919011604"></script>
     
-    <!-- VANTA.NET scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.21/vanta.net.min.js"></script>
+    <!-- VANTA.NET scripts - Load conditionally for better performance -->
+    <script>
+        // Only load heavy scripts on desktop
+        if (window.innerWidth > 768) {
+            document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"><\/script>');
+            document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.21/vanta.net.min.js"><\/script>');
+        }
+    </script>
+    <!-- Add these before your custom script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body class="font-inter bg-gray-900" id="vanta-bg">
-
     <!-- Navigation -->
     <nav class="fixed top-0 w-full z-50 transition-all duration-300 bg-black bg-opacity-70 backdrop-blur-md" id="navbar">
         <div class="container mx-auto px-4 py-3">
@@ -47,13 +156,13 @@
                     <a href="events.html" class="nav-link text-white hover:text-blue-400 transition-colors duration-300 relative px-2 py-1">
                         <i class="fas fa-calendar-alt mr-1"></i>Events
                     </a>
-                    <a href="certificates.html" class="nav-link text-white hover:text-blue-400 transition-colors duration-300 relative px-2 py-1">
+                    <a href="certificates.html" class="nav-link text-blue-400 hover:text-blue-300 transition-colors duration-300 relative px-2 py-1">
                         <i class="fas fa-certificate mr-1"></i>Certificates
                     </a>
                     <a href="team.html" class="nav-link text-white hover:text-blue-400 transition-colors duration-300 relative px-2 py-1">
                         <i class="fas fa-users mr-1"></i>Team
                     </a>
-                    <a href="blog.html" class="nav-link text-blue-400 hover:text-blue-300 transition-colors duration-300 relative px-2 py-1">
+                    <a href="blog.html" class="nav-link text-white hover:text-blue-400 transition-colors duration-300 relative px-2 py-1">
                         <i class="fas fa-blog mr-1"></i>Blog
                     </a>
                     <a href="projects.html" class="nav-link text-white hover:text-blue-400 transition-colors duration-300 relative px-2 py-1">
@@ -87,13 +196,13 @@
                 <a href="events.html" class="text-white hover:text-blue-400 transition-colors text-xl py-2 border-b border-gray-700" role="menuitem">
                     <i class="fas fa-calendar-alt mr-3"></i>Events
                 </a>
-                <a href="certificates.html" class="text-white hover:text-blue-400 transition-colors text-xl py-2 border-b border-gray-700" role="menuitem">
+                <a href="certificates.html" class="text-blue-400 hover:text-blue-300 transition-colors text-xl py-2 border-b border-gray-700" role="menuitem">
                     <i class="fas fa-certificate mr-3"></i>Certificates
                 </a>
                 <a href="team.html" class="text-white hover:text-blue-400 transition-colors text-xl py-2 border-b border-gray-700" role="menuitem">
                     <i class="fas fa-users mr-3"></i>Team
                 </a>
-                <a href="blog.html" class="text-blue-400 hover:text-blue-300 transition-colors text-xl py-2 border-b border-gray-700" role="menuitem">
+                <a href="blog.html" class="text-white hover:text-blue-400 transition-colors text-xl py-2 border-b border-gray-700" role="menuitem">
                     <i class="fas fa-blog mr-3"></i>Blog
                 </a>
                 <a href="projects.html" class="text-white hover:text-blue-400 transition-colors text-xl py-2 border-b border-gray-700" role="menuitem">
@@ -517,132 +626,187 @@
 
     <!-- Enhanced Scripts -->
     <script>
-        // Initialize AOS
-       AOS.init({
-            duration: 1000,
-            once: true,
-            offset: 100
-        });
+   // Initialize AOS
+AOS.init({ 
+    duration: 1000,
+    easing: 'ease-in-out',
+    once: true, 
+    mirror: false,
+    disable: window.innerWidth < 768 
+});
 
-        // VANTA.NET Background
-        VANTA.NET({
-            el: "#vanta-bg",
-            mouseControls: true,
-            touchControls: true,
-            gyroControls: false,
-            minHeight: 200.00,
-            minWidth: 200.00,
-            scale: 1.00,
-            scaleMobile: 1.00,
-            color: 0x3B82F6,
-            backgroundColor: 0x111827,
-            points: 15.00,
-            maxDistance: 25.00,
-            spacing: 18.00
-        });
+// VANTA.NET Background
+if (window.innerWidth > 768) {
+    VANTA.NET({
+        el: "#vanta-bg",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.00,
+        minWidth: 200.00,
+        scale: 1.00,
+        scaleMobile: 1.00,
+        color: 0x3b82f6,
+        backgroundColor: 0x111827,
+        points: 15.00,
+        maxDistance: 25.00,
+        spacing: 18.00
+    });
+} else {
+    // Set a simple gradient background for mobile
+    document.getElementById('vanta-bg').style.background = 'linear-gradient(to bottom, #111827, #1f2937)';
+}
 
-        // Mobile Menu Toggle
-       document.getElementById('menu-button').addEventListener('click', function() {
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('-translate-y-full');
-        });
+// Mobile Menu Toggle
+const menuButton = document.getElementById('menu-button');
+const closeMenuButton = document.getElementById('close-menu');
+const mobileMenu = document.getElementById('mobile-menu');
 
-        // Navbar Scroll Effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 100) {
-                navbar.style.background = 'rgba(0, 0, 0, 0.9)';
-                navbar.style.backdropFilter = 'blur(20px)';
+if (menuButton && mobileMenu) {
+    menuButton.addEventListener('click', function() {
+        mobileMenu.classList.remove('mobile-menu-closed');
+        mobileMenu.classList.add('mobile-menu-open');
+        document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+    });
+}
+
+if (closeMenuButton && mobileMenu) {
+    closeMenuButton.addEventListener('click', function() {
+        mobileMenu.classList.remove('mobile-menu-open');
+        mobileMenu.classList.add('mobile-menu-closed');
+        document.body.style.overflow = ''; // Re-enable scrolling
+    });
+}
+
+const mobileLinks = document.querySelectorAll('#mobile-menu a');
+mobileLinks.forEach(link => {
+    link.addEventListener('click', function() {
+        mobileMenu.classList.remove('mobile-menu-open');
+        mobileMenu.classList.add('mobile-menu-closed');
+        document.body.style.overflow = '';
+    });
+});
+
+// Navbar Scroll Effect
+window.addEventListener('scroll', function() {
+    const navbar = document.getElementById('navbar');
+    if (window.scrollY > 100) {
+        navbar.style.background = 'rgba(0, 0, 0, 0.9)';
+        navbar.style.backdropFilter = 'blur(20px)';
+    } else {
+        navbar.style.background = 'rgba(255, 255, 255, 0.1)';
+        navbar.style.backdropFilter = 'blur(10px)';
+    }
+});
+
+// Counter Animation Function
+function animateCounters() {
+    const counters = document.querySelectorAll('[data-count]');
+    let animated = false;
+    
+    counters.forEach(counter => {
+        const target = parseInt(counter.getAttribute('data-count'));
+        const count = parseInt(counter.innerText);
+        
+        if (!isNaN(target) && !animated) {
+            let current = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    counter.innerText = target + '+';
+                    clearInterval(timer);
+                    animated = true;
+                } else {
+                    counter.innerText = Math.floor(current) + '+';
+                }
+            }, 30);
+        }
+    });
+}
+
+// Trigger counter animation when in view
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            animateCounters();
+            observer.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
+
+const statsSection = document.querySelector('.stats-grid');
+if (statsSection) {
+    observer.observe(statsSection);
+}
+
+// Observe counter sections
+document.querySelectorAll('.counter').forEach(counter => {
+    observer.observe(counter.parentElement.parentElement.parentElement);
+});
+
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const target = document.querySelector(targetId);
+        if (target) {
+            // Close mobile menu if open
+            if (mobileMenu && mobileMenu.classList.contains('mobile-menu-open')) {
+                mobileMenu.classList.remove('mobile-menu-open');
+                mobileMenu.classList.add('mobile-menu-closed');
+                document.body.style.overflow = '';
+            }
+            
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+// Reduce AOS animations on mobile
+if (window.innerWidth < 768) {
+    const reducedAnimations = document.querySelectorAll('[data-aos]');
+    reducedAnimations.forEach((el, index) => {
+        if (index % 2 !== 0) { // Remove every other animation
+            el.removeAttribute('data-aos');
+        }
+    });
+}
+
+// Project filtering
+const filterButtons = document.querySelectorAll('.filter-btn');
+const projectItems = document.querySelectorAll('.project-item');
+
+filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        // Remove active class from all buttons
+        filterButtons.forEach(btn => {
+            btn.classList.remove('active', 'bg-gradient-to-r', 'from-blue-500', 'to-purple-600', 'text-white');
+            btn.classList.add('bg-gray-800', 'text-gray-300');
+        });
+        
+        // Add active class to clicked button
+        button.classList.add('active', 'bg-gradient-to-r', 'from-blue-500', 'to-purple-600', 'text-white');
+        button.classList.remove('bg-gray-800', 'text-gray-300');
+
+        const filter = button.getAttribute('data-filter');
+        
+        projectItems.forEach(item => {
+            if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                item.style.display = 'block';
+                item.classList.add('animate-fade-in');
             } else {
-                navbar.style.background = 'rgba(255, 255, 255, 0.1)';
-                navbar.style.backdropFilter = 'blur(10px)';
+                item.style.display = 'none';
             }
         });
-         function animateCounters() {
-            const counters = document.querySelectorAll('.counter');
-            counters.forEach(counter => {
-                const target = parseInt(counter.getAttribute('data-count'));
-                let current = 0;
-                const increment = target / 100;
-                const timer = setInterval(() => {
-                    current += increment;
-                    if (current >= target) {
-                        current = target;
-                        clearInterval(timer);
-                    }
-                    counter.textContent = Math.floor(current);
-                }, 20);
-            });
-        }
-         // Trigger counter animation when in view
-        const observerOptions = {
-            threshold: 0.7
-        };
-         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && entry.target.querySelector('.counter')) {
-                    animateCounters();
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-          // Observe counter sections
-        document.querySelectorAll('.counter').forEach(counter => {
-            observer.observe(counter.parentElement.parentElement.parentElement);
-        });
-          // Project filtering
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        const projectItems = document.querySelectorAll('.project-item');
-
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Remove active class from all buttons
-                filterButtons.forEach(btn => {
-                    btn.classList.remove('active', 'bg-gradient-to-r', 'from-blue-500', 'to-purple-600', 'text-white');
-                    btn.classList.add('bg-gray-800', 'text-gray-300');
-                });
-                
-                // Add active class to clicked button
-                button.classList.add('active', 'bg-gradient-to-r', 'from-blue-500', 'to-purple-600', 'text-white');
-                button.classList.remove('bg-gray-800', 'text-gray-300');
-
-                const filter = button.getAttribute('data-filter');
-                
-                projectItems.forEach(item => {
-                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
-                        item.style.display = 'block';
-                        item.classList.add('animate-fade-in');
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-            });
-        });
-             // Mobile menu toggle logic
-    const menuButton = document.getElementById('menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const closeMenu = document.getElementById('close-menu');
-
-    menuButton.addEventListener('click', function() {
-        mobileMenu.classList.remove('-translate-y-full');
-        mobileMenu.classList.add('translate-y-0');
-        document.body.style.overflow = 'hidden'; // Prevent background scroll
     });
-
-    closeMenu.addEventListener('click', function() {
-        mobileMenu.classList.add('-translate-y-full');
-        mobileMenu.classList.remove('translate-y-0');
-        document.body.style.overflow = ''; // Restore scroll
-    });
-
-    // Optional: Close menu when clicking outside
-    mobileMenu.addEventListener('click', function(e) {
-        if (e.target === mobileMenu) {
-            mobileMenu.classList.add('-translate-y-full');
-            mobileMenu.classList.remove('translate-y-0');
-            document.body.style.overflow = '';
-        }
-    });
+});             // Mobile menu toggle logic
     </script>
 </body>
 </html>
